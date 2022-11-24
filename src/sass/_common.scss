@@ -1,1 +1,58 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(245, 244, 250);
+    color: rgba(255, 255, 255, 1);
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0em;
+    /* text-align: center; */
+}
+
+a,
+button {
+    text-decoration: none;
+    cursor: pointer;
+    font-style: normal;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+ul {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin: 0px;
+    padding-left: 0px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,76 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (min-width: 480px) {
+    .container {
+        width: 480px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 1200px;
+    }
+}
+
+.header {
+    background-image: url(../images/abstract.jpg);
+    background-size: cover;
+}
+
+@media screen and (min-width: 480px) {
+    .header {
+        width: 480px;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .header {
+        width: 767px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .header {
+        width: 1199px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .header {
+        width: 1200px;
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo_secondpart {
+    margin-left: 10px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 141px;
+}
+
+.nav_menu {
+    display: flex;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.nav_link:not(:last-child) {
+    margin-right: 40px;
+}
