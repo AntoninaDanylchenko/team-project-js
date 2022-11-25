@@ -1,0 +1,16 @@
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 5px;
+
+    
+
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
