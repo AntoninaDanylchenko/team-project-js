@@ -1,0 +1,17 @@
+{{#each this}}
+<a class="gallery__item" href="#" target="_blank" rel="noopener noreferrer">
+    <div class="card">
+        
+        <img src="https://image.tmdb.org/t/p/w500{{poster_path}}" class="card-img" alt="{{title}}" id="{{id}}">
+        <div class="info">
+            <h3 class="info-title">{{title}}</h3>
+            <div class="desc-wrapper">
+                <p class="info-genre">{{genre_ids}} | {{release_date}}</p>
+                {{!-- <p class="info-line">|</p>
+                <p class="info-release"> {{release_date}}</p> --}}
+                <p class="info-average category-accent is-hidden">{{vote_average}}</p>
+            </div>
+        </div>
+    </div>
+</a>
+{{/each}}
