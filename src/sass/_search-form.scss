@@ -1,0 +1,45 @@
+.search-form {
+    width: 394px;
+    position: relative;
+    margin: auto;
+
+    &::before {
+        content: " ";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 0.5px;
+        background-color: rgba(255, 255, 255, 1);
+    }
+
+    &__btn {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__input {
+        border: 0;
+        background-color: transparent;
+        width: 378px;
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 1);
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1.14;
+        }
+
+        &:hover {
+            outline: 0;
+            outline-offset: 0;
+        }
+
+        &:focus {
+            outline: 0;
+            outline-offset: 0;
+        }
+    }
+}
