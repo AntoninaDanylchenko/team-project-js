@@ -1,8 +1,6 @@
-
-import {refs} from "../references/references"
-import templateCard from "../../templates/templateCard.hbs"
-
-
+import { refs } from '../references/references';
+import templateCard from '../../templates/templateCard.hbs';
+// import templateLibraryCard from '../../templates/templateLibraryCard.hbs';
 
 function createResultMarkup(results) {
   // console.log(results);
@@ -10,6 +8,6 @@ function createResultMarkup(results) {
 
   refs.galleryEl.insertAdjacentHTML('beforeend', templateCard(results));
   // console.log
-  }
-  
-  export {createResultMarkup}
+}
+
+export { createResultMarkup };
