@@ -83,18 +83,3 @@
         left: 0;
     }
 }
-
-// клас для сторінки my Library, змінює фон
-.mylibrary {
-    @media screen and (min-width: 320px) {
-        background-image: url(../images/Rectangle328.jpg);
-    }
-
-    @media screen and (min-width: 768px) {
-        background-image: url(../images/Rectangle728.jpg);
-    }
-
-    @media screen and (min-width: 1200px) {
-        background-image: url(../images/Rectangle1200.jpg);
-    }
-}

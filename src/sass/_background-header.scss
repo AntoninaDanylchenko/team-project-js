@@ -24,3 +24,30 @@
         height: 230px;
     }
 }
+
+.library-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    background-size: cover;
+
+    z-index: -1;
+
+    @media screen and (min-width: 320px) {
+        background-image: url(../images/Rectangle328.jpg);
+        height: 216px;
+
+    }
+
+    @media screen and (min-width: 768px) {
+        background-image: url(../images/Rectangle728.jpg);
+        height: 219px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        background-image: url(../images/Rectangle1200.jpg);
+        height: 230px;
+    }
+}
