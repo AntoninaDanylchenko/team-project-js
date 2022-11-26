@@ -25,6 +25,10 @@
         border: 0;
         background-color: transparent;
         width: 378px;
+        color: rgba(255, 255, 255, 1);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.14;
 
         &::placeholder {
             color: rgba(255, 255, 255, 1);
@@ -41,6 +45,10 @@
         &:focus {
             outline: 0;
             outline-offset: 0;
+
+            &::placeholder {
+                opacity: 0;
+            }
         }
     }
 }
