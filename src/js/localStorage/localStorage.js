@@ -1,23 +1,25 @@
-const APIKEY = "f68134e3023166cb9cb0f095aa9e1cfe";
 
-// функція отримання фільму по id, ПОТРІБНО БУДЕ ПЕРЕВИКОРИСТАТИ ФЦНКЦІЮ ЮРІЯ
-function myFilm(id) {
-  return fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=f68134e3023166cb9cb0f095aa9e1cfe`)
-  .then((r) => r.json());
-}
+//функція рендера сторінки My Library.
+function drawMyFilm(e) {
+  e.preventDefault();
+    someEl(".card").innerHTML = "";
+    
+  const filmInLocal = JSON.parse(localStorage.getItem("array"));
+  const draw = filmInLocal.map((item) =>`<div class="container">
+    <h4><b>${item.title}</b></h4>
+    <p>${item.vote_count}</p>
+  </div>`
+    ).join()
+  console.log(draw);
+  someEl(".card").innerHTML = draw;
+  }
 
-// функція вибору елементу дом
-const someEl = (el) => document.querySelector(el);
-
-// СЛУХАЧ ЯКИЙ ПРИ НАТИСКАННІ НА КНОПКУ ДОБАВЛЯЄ ФІЛЬМ В LocalStoreg
-someEl(".BtnTestAdd").addEventListener("click", locSetOne)
-
-// функція додавання фільму до localStoreg
+// функція додавання фільму до localStoreg.
 async function locSetOne() {
   // дістаємо фільми з LocalStoreg
   const filmInLocal = JSON.parse(localStorage.getItem("array"));
   if (filmInLocal === null) {
-    console.log("pusto");
+    console.log("Пусто");
   }
   else {
     console.log(filmInLocal, "фільми що містяться у локал стореджі");
@@ -52,6 +54,25 @@ async function locSetOne() {
   return
 }
 
+
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+const APIKEY = "f68134e3023166cb9cb0f095aa9e1cfe";
+
+// функція отримання фільму по id, ПОТРІБНО БУДЕ ПЕРЕВИКОРИСТАТИ ФЦНКЦІЮ ЮРІЯ
+function myFilm(id) {
+  return fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=f68134e3023166cb9cb0f095aa9e1cfe`)
+  .then((r) => r.json());
+}
+
+// функція вибору елементу дом
+const someEl = (el) => document.querySelector(el);
+
+// СЛУХАЧ ЯКИЙ ПРИ НАТИСКАННІ НА КНОПКУ ДОБАВЛЯЄ ФІЛЬМ В LocalStoreg
+someEl(".BtnTestAdd").addEventListener("click", locSetOne)
+
+
+
 // функція рандомного id фільма для тесту, потрібно буде використовувати айді фільма
 function catchFilmId() {
   const filmIdArr = [436270, 505642, 90669, 119051, 668461, 632856, 338958]
@@ -62,17 +83,4 @@ function catchFilmId() {
 // Малювання сторінки на основі данних з LocalStorage
 someEl(".BtnTestShow").addEventListener("click", drawMyFilm);
 
-  //функція рендера сторінки My Library
-function drawMyFilm(e) {
-  e.preventDefault();
-    someEl(".card").innerHTML = "";
-    
-  const filmInLocal = JSON.parse(localStorage.getItem("array"));
-  const draw = filmInLocal.map((item) =>`<div class="container">
-    <h4><b>${item.title}</b></h4>
-    <p>${item.vote_count}</p>
-  </div>`
-    ).join()
-  console.log(draw);
-  someEl(".card").innerHTML = draw;
-  }
+//функція рендера сторінки My Library
