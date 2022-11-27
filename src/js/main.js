@@ -8,7 +8,7 @@ import { log } from 'handlebars';
  
                        
 
-async function searchingMorePopularity(page = 1) {
+export async function searchingMorePopularity(page = 1) {
     findMovies.page = page;
     findMovies.query = '';
     findMovies.queryType = 'popular';
