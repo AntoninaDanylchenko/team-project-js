@@ -6,7 +6,7 @@ import { log } from 'handlebars';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
-                       
+
 
 export async function searchingMorePopularity(page = 1) {
     findMovies.page = page;
@@ -23,16 +23,17 @@ export async function searchingMorePopularity(page = 1) {
 
 
   const container = document.getElementById('tui-pagination-container');
-  const instance = new Pagination(container, {  
+  const instance = new Pagination(container, {
   totalItems: 500,
   itemsPerPage: 10,
   visiblePages: 5,
   centerAlign: true,
   });
-        
- 
-  
+
+
+
   instance.on('afterMove', (event) => {
        const currentPage = event.page;
        console.log(currentPage);
+    searchingMorePopularity(currentPage);
   });
