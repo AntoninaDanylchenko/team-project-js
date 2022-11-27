@@ -1,4 +1,5 @@
 import { findMovies } from './fetch/find-movies';
+
 import {createResultMarkup} from "./components/createMarkupGalleryCards"
 import {refs} from "./references/references"
 import { log } from 'handlebars';
@@ -238,5 +239,6 @@ pageLinks.forEach((element) => {
 
   });
 });
+
 
 

@@ -6,6 +6,8 @@ export const refs = {
   pagination: document.querySelector(".pagination"),
   paginationList: document.querySelector(".pagination_list"),
   decrementBtn: document.querySelector('[data-decrement]'),
-  incrementBtn: document.querySelector('[data-increment]'),
-};
+  incrementBtn: document.querySelector('[data-increment]'), 
+  searchFormEl: document.getElementById('search-form'),
+  searchFormErrorEl: document.querySelector('.search-form__error'),
 
+};
