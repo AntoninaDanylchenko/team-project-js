@@ -4,4 +4,5 @@ export const refs = {
   backdrop: document.querySelector('.js-backdrop'),
   galleryEl: document.querySelector('.gallery'),
   searchFormEl: document.getElementById('search-form'),
+  searchFormErrorEl: document.querySelector('.search-form__error'),
 };
