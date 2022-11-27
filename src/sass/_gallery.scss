@@ -1,9 +1,8 @@
-.gallery{
-
+.gallery {
     display: grid;
     grid-template-columns: 1fr;
   
-    max-width: calc(100%);
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 
@@ -20,10 +19,8 @@
           column-gap: 32px;
         }
         @media screen and (min-width: 1200px) {
-          // padding: 60px 32px;
-          // row-gap: 32px;
-          column-gap: 16px; 
-}
+           column-gap: 16px; 
+        }
   }
   
 //   @media screen and (min-width: 320px) {
@@ -41,7 +38,7 @@
   .card{
  
   color: var(--footer-img-cl)
-      //  border-radius: 0px 0px 4px 4px;
+    
    }
    
    .card .card-img{
@@ -85,3 +82,4 @@
     //  align-items: center;
     //  justify-items: center;
    }
+
