@@ -1,8 +1,14 @@
+.search-form-container {
+    width: 475px;
+    position: relative;
+    margin: auto;
+    margin-bottom: 90px;
+}
+
 .search-form {
     width: 394px;
     position: relative;
     margin: auto;
-    margin-bottom: 90px;
 
     &::before {
         content: " ";
@@ -50,5 +56,22 @@
                 opacity: 0;
             }
         }
+    }
+
+    &__error {
+        position: absolute;
+        width: 475px;
+        left: 7px;
+        bottom: -45px;
+
+        opacity: 0;
+
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+
+        color: #FF001B;
+
     }
 }
