@@ -60,6 +60,9 @@
      display: grid;
      grid-template-row: 1fr 1fr;
      margin-top: 10px;
+     font-size: 20px;
+      line-height: 24px;
+      font-weight: 700;;
 
      @media screen and (min-width: 768px) {
       margin-top: 8px;
@@ -75,11 +78,18 @@
    .info-title{
     text-transform: uppercase;
     color: var(--header-text-card);
+    margin: 0;
    }
+   .info-genre{
+    margin: 0;
+   }
+   .info-average{
+    margin: 0;
+   }
+
    .info-item{
      display: grid;
     //  grid-gap: 6px;
-    //  align-items: center;
-    //  justify-items: center;
+
    }
 
