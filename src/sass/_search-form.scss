@@ -3,12 +3,35 @@
     position: relative;
     margin: auto;
     margin-bottom: 90px;
+
+    @media screen and (min-width: 320px) {
+        width: 280px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 395px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 475px;
+    }
 }
 
 .search-form {
-    width: 394px;
     position: relative;
     margin: auto;
+
+    @media screen and (min-width: 320px) {
+        width: 280px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 336px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 394px;
+    }
 
     &::before {
         content: " ";
@@ -60,7 +83,6 @@
 
     &__error {
         position: absolute;
-        width: 475px;
         left: 7px;
         bottom: -45px;
 
