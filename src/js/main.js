@@ -25,3 +25,9 @@ const instance = new Pagination(container, {
   visiblePages: 5,
   centerAlign: true,
 });
+
+instance.on('afterMove', event => {
+  const currentPage = event.page;
+  console.log(currentPage);
+  searchingMorePopularity(currentPage);
+});
