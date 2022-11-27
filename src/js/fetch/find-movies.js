@@ -31,25 +31,32 @@ export const findMovies = {
   query: '',
   queryType: '',
   previousPage: NaN,
-
+  queryOut: '',
+  queryToPagination: '',
+  queryTypeToPagination: '',
   async find() {
     if (this.query !== '' && this.queryType === 'search-on-query') {
-      this.query = `${BACKEND}search/movie?api_key=${API_KEY}&query=${this.query}&page=${this.page}`;
+      // console.log(`lalala ${ this.query }`);
+      this.queryOut = `${BACKEND}search/movie?api_key=${API_KEY}&query=${this.query}&page=${this.page}`;
+      this.queryToPagination = this.query;
+      this.queryTypeToPagination = this.queryType;
     } else if (this.query !== '' && this.queryType === 'on-query-per-page') {
-      this.query = `${BACKEND}trending/all/week?api_key=${API_KEY}&page=${this.page}`;
+      this.queryOut = `${BACKEND}trending/all/week?api_key=${API_KEY}&page=${this.page}`;
     } else if (this.queryType === 'popular') {
-      this.query = `${BACKEND}trending/all/week?api_key=${API_KEY}&page=${this.page}`;
+      this.queryOut = `${BACKEND}trending/all/week?api_key=${API_KEY}&page=${this.page}`;
+      this.queryTypeToPagination = this.queryType;
     } else if (this.queryType === 'full-info') {
-      this.query = `${BACKEND}movie/${this.query}?api_key=${API_KEY}`;
+      this.queryOut = `${BACKEND}movie/${this.query}?api_key=${API_KEY}`;
     } else if (this.queryType === 'trailer-info') {
-      this.query = `${BACKEND}movie/${this.query}/videos?api_key=${API_KEY}`;
+      this.queryOut = `${BACKEND}movie/${this.query}/videos?api_key=${API_KEY}`;
     }
     try {
-      const response = await axios.get(`${this.query}`);
+      const response = await axios.get(`${this.queryOut}`);
       const answer = await response.data;
       // ===NEW LINE START====
       answer.results = await genresNames(response.data.results);
       // ===NEW LINE END====
+      console.log(answer);
       return await answer;
     } catch (error) {
       console.log(error.message);
@@ -65,7 +72,7 @@ async function genresIDsDatabase() {
   try {
     const response = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=fe13ab826a741d40ca015441d0a0f529&language=en-US`);
     const answer = await response.data;
-    console.log(answer.genres);
+    // console.log(answer.genres);
   } catch (error) {
     console.log(error.message);
   }
@@ -93,7 +100,7 @@ function genresNames(arr) {
     element.genre_ids = genresArr;
     return element;
   })
-  console.log(namesArr);
+  // console.log(namesArr);
   return namesArr;
 }
 

@@ -9,5 +9,7 @@ export const refs = {
   incrementBtn: document.querySelector('[data-increment]'), 
   searchFormEl: document.getElementById('search-form'),
   searchFormErrorEl: document.querySelector('.search-form__error'),
-
+  modalBackdrop: document.querySelector('.modalbackdrop-film'),
+  modalFilmBtnClose: document.querySelector('.film-card-close'),
+  modalFilm: document.querySelector('.modal-film'),
 };
