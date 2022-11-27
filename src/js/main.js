@@ -30,7 +30,9 @@ export async function searchingMorePopularity(page = 1) {
   centerAlign: true,
   });
         
-getCurrentPage();
-
-
-
+ 
+  
+  instance.on('afterMove', (event) => {
+       const currentPage = event.page;
+       console.log(currentPage);
+  });
