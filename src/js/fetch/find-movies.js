@@ -54,7 +54,10 @@ export const findMovies = {
       const response = await axios.get(`${this.queryOut}`);
       const answer = await response.data;
       // ===NEW LINE START====
-      answer.results = await genresNames(response.data.results);
+      if (this.queryType === 'search-on-query' || this.queryType === 'popular') {
+        totalItemsAndPagesRestrict(response.data)
+        answer.results = await genresNames(response.data.results);
+      }
       // ===NEW LINE END====
       console.log(answer);
       return await answer;
@@ -66,6 +69,7 @@ export const findMovies = {
 
 
 // ========
+
 
 
 async function genresIDsDatabase() {
@@ -83,19 +87,31 @@ genresIDsDatabase();
 
 // =======
 
-
+function totalItemsAndPagesRestrict (obj) {
+  if (obj.total_results > 10000) {
+    obj.total_results = 10000;
+    obj.total_pages = 500;
+  }
+  console.log(`obj.total_pages ${obj.total_pages}`);
+  console.log(`obj.total_results ${ obj.total_results }`);
+}
 
 // arr - response.data.results
 function genresNames(arr) {
   const namesArr = arr.map(element => {
-    const genresArr = [];
-    for (const genreId of element.genre_ids) {
-      if (genres.find(genre => genre.id === genreId)) {
-        // console.log(genres.find(genre => genre.id === genreId).name);
-        genresArr.push(genres.find(genre => genre.id === genreId).name)
+    let genresArr = [];
+    if (element.genre_ids) {
+      for (const genreId of element.genre_ids) {
+        // console.log(element.genre_ids);
+        if (genres.find(genre => genre.id === genreId)) {
+          // console.log(genres.find(genre => genre.id === genreId).name);
+          genresArr.push(genres.find(genre => genre.id === genreId).name)
+        }
       }
+    } else {
+      genresArr.push('nogenre')//todo обговорити з командою
     }
-    // console.log(genresArr);
+    // console.log(`genresArr ${genresArr}`);
     // return genresArr
     element.genre_ids = genresArr;
     return element;
