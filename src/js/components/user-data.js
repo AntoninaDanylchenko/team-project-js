@@ -1,5 +1,5 @@
 export const users = [
-	{photo: "..src/images/team-photo/Antonina.jpg",
+	{photo: '.src/images/team-photo/Antonina.jpg',
 	photowebp: "..src/images/team-photo/Antonina.webp",
 	   name: 'Антоніна Іванець',
 	   position: 'team leader',

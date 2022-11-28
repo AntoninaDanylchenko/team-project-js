@@ -3,5 +3,6 @@ export const refs = {
   closeModalBtn: document.querySelector('[data-action="close-modal"]'),
   backdrop: document.querySelector('.js-backdrop'),
   container: document.querySelector('.team-info'),
+  title: document.querySelector('h2')
 };
 
