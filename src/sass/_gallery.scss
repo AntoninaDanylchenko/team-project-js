@@ -1,0 +1,142 @@
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+  
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+        @media screen and (min-width: 320px) {
+          padding: 20px 20px 40px 20px;
+          row-gap: 20px;
+        }
+        @media screen and (min-width: 768px) 
+        {
+          grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+
+          padding: 60px 32px;
+          row-gap: 32px;
+          column-gap: 32px;
+        }
+        @media screen and (min-width: 1200px) {
+           column-gap: 16px; 
+        }
+  }
+  
+//   @media screen and (min-width: 320px) {
+    
+// }
+
+// @media screen and (min-width: 768px) {
+// }
+
+// @media screen and (min-width: 1200px) {
+// }
+// @media screen and (min-width: 768px) and (max-width: 1200px)
+// {}
+
+  .card{
+ 
+  color: var(--footer-img-cl)
+    
+   }
+   
+   .card .card-img{
+     display: block;
+     width: 100%;
+     height: 402px;
+     object-fit: cover;
+     border-radius: 5px;
+ 
+      @media screen and (min-width: 768px) {
+        height: 455px;
+      }
+
+      @media screen and (min-width: 1200px) {
+        height: 574px;
+      }
+   }
+   .info{
+     display: grid;
+     grid-template-row: 1fr 1fr;
+     margin-top: 10px;
+     font-size: 20px;
+      line-height: 24px;
+      font-weight: 700;;
+
+     @media screen and (min-width: 768px) {
+      margin-top: 8px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      margin-top: 12px;
+    }
+    
+
+     
+   }
+   .info-title{
+    text-transform: uppercase;
+    color: var(--header-text-card);
+    margin: 0;
+   }
+   .info-genre{
+    margin: 0;
+   }
+   .info-average{
+    margin: 0;
+   }
+
+   .info-item{
+     display: grid;
+
+     grid-gap: 6px;
+     align-items: center;
+     justify-items: center;
+   }
+
+  //  ==========================================================================================================================================================
+
+
+    // .counter {
+    //   display: flex;
+    //   text-align: center;
+    // }
+  
+    // .posts {
+    //   display: flex;
+    //   flex-direction: column;
+    //   align-items: center;
+    // }
+  
+    // .post {
+    //   padding: 8px;
+    //   border-color: antiquewhite;
+    //   border: 1px;
+    // }
+  
+    // .pagination {
+    //   display: flex;
+    //   justify-content: center;
+    // }
+  
+    // .pagination__list {
+    //   display: flex;
+    //   list-style-type: none;
+    // }
+  
+    // .pagination__item {
+    //   padding: 8px;
+    //   margin: 8px;
+    //   cursor: pointer;
+    // }
+  
+    // .pagination__item--active {
+    //   font-weight: 800;
+    //   color: gold;
+    // }
+
+
+  
+
+
