@@ -8,12 +8,15 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .list {
   list-style: none;
   margin: 0;
   padding: 0;
+  background-color: azure;
 }
 
 .list__item {

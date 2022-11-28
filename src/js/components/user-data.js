@@ -1,19 +1,21 @@
 export const users = [
-	{photo:'./src/images/team-photo/AntoninaI.jpg',
+	{photo: "..src/images/team-photo/Antonina.jpg",
+	photowebp: "..src/images/team-photo/Antonina.webp",
 	   name: 'Антоніна Іванець',
 	   position: 'team leader',
 	   socialmedia:'',
 	   github:'https://github.com/AntoninaDanylchenko',
+	   giticon: "..src/images/team-photo/symbol.defs.svg##icon-github"
 	   },
 	   {
-		   photo:'./src/images/team-photo/AndriyK.jpg',
+		   photo:'../src/images/team-photo/AndriyK.jpg',
 		   name: 'Андрій Корчевський',
 	   position: 'scrum master',
 	   socialmedia:'',
 	   github:'https://github.com/Salamandero',
 	   },
 	   {
-		   photo:'./src/images/team-photo/Vlad.png',
+		   photo:'./src/images/team-photo/Vlad.jpg',
 		   name: 'Владислав Пліско',
 	   position: '',
 	   socialmedia:'',
