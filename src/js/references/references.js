@@ -4,7 +4,9 @@ export const refs = {
   backdrop: document.querySelector('.js-backdrop'),
 
   container: document.querySelector('.team-info'),
-  title: document.querySelector('h2')
+
+
+
 
   galleryEl: document.querySelector(".gallery"),
   pagination: document.querySelector(".pagination"),
