@@ -6,6 +6,8 @@ export const refs = {
   container: document.querySelector('.team-info'),
 
 
+
+
   galleryEl: document.querySelector(".gallery"),
   pagination: document.querySelector(".pagination"),
   paginationList: document.querySelector(".pagination_list"),
