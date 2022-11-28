@@ -1,8 +1,9 @@
 body.body-is-hidden {
     overflow-y: hidden;
     height: 100vh;
+    
   }
-.modal-film {
+.modalbackdrop-film{
     z-index: 50;
     opacity: 0;
     visibility: hidden;
@@ -27,6 +28,7 @@ body.body-is-hidden {
     z-index: 100;
     opacity: 0;
     visibility: hidden;
+    
     overflow-x: hidden;
     overflow-y: scroll;
     background-color: #f7f7f7;
