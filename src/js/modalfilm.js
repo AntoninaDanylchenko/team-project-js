@@ -3,6 +3,8 @@ import { findMovies } from './fetch/find-movies';
 
 refs.galleryEl.addEventListener('click', onModalOpenFilm);
 
+const LOCAL_STOTAGE_KEY_B = 'box';
+
 export function onModalOpenFilm(e) {
   e.preventDefault();
   refs.filmCardEl.innerHTML = '';
@@ -29,6 +31,8 @@ export function closeModal() {
   refs.modalFilmBtnClose.removeEventListener('click', closeModal);
   document.removeEventListener('keydown', onEscBtnPress);
   refs.modalBackdrop.removeEventListener('click', onBackdropClick);
+
+  localStorage.removeItem(LOCAL_STOTAGE_KEY_B);
 }
 
 export function onEscBtnPress(e) {
@@ -46,6 +50,7 @@ export function onBackdropClick(e) {
 async function getInfoByID() {
   try {
     const answer = await findMovies.find();
+    localStorage.setItem(LOCAL_STOTAGE_KEY_B, JSON.stringify(answer));
     return (refs.filmCardEl.innerHTML = createFilmCards(answer));
   } catch (error) {
     console.log(error.message);
@@ -54,7 +59,7 @@ async function getInfoByID() {
 
 function createFilmCards(card) {
   return `
-                  <div class='film-info'>
+  <div class='film-info'>
     <img
       src='https://image.tmdb.org/t/p/w500${card.poster_path}'
       class='film-info__poster'
