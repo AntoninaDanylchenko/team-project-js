@@ -54,8 +54,11 @@ export const findMovies = {
       const response = await axios.get(`${this.queryOut}`);
       const answer = await response.data;
       // ===NEW LINE START====
-      if (this.queryType === 'search-on-query' || this.queryType === 'popular') {
-        totalItemsAndPagesRestrict(response.data)
+      if (
+        this.queryType === 'search-on-query' ||
+        this.queryType === 'popular'
+      ) {
+        totalItemsAndPagesRestrict(response.data);
         answer.results = await genresNames(response.data.results);
       }
       // ===NEW LINE END====
@@ -67,33 +70,31 @@ export const findMovies = {
   },
 };
 
-
 // ========
-
-
 
 async function genresIDsDatabase() {
   try {
-    const response = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=fe13ab826a741d40ca015441d0a0f529&language=en-US`);
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=fe13ab826a741d40ca015441d0a0f529&language=en-US`
+    );
     const answer = await response.data;
     // console.log(answer.genres);
   } catch (error) {
     console.log(error.message);
   }
-};
+}
 
 genresIDsDatabase();
 
-
 // =======
 
-function totalItemsAndPagesRestrict (obj) {
+function totalItemsAndPagesRestrict(obj) {
   if (obj.total_results > 10000) {
     obj.total_results = 10000;
     obj.total_pages = 500;
   }
   console.log(`obj.total_pages ${obj.total_pages}`);
-  console.log(`obj.total_results ${ obj.total_results }`);
+  console.log(`obj.total_results ${obj.total_results}`);
 }
 
 // arr - response.data.results
@@ -105,21 +106,20 @@ function genresNames(arr) {
         // console.log(element.genre_ids);
         if (genres.find(genre => genre.id === genreId)) {
           // console.log(genres.find(genre => genre.id === genreId).name);
-          genresArr.push(genres.find(genre => genre.id === genreId).name)
+          genresArr.push(genres.find(genre => genre.id === genreId).name);
         }
       }
     } else {
-      genresArr.push('nogenre')//todo обговорити з командою
+      genresArr.push('nogenre'); //todo обговорити з командою
     }
     // console.log(`genresArr ${genresArr}`);
     // return genresArr
     element.genre_ids = genresArr;
     return element;
-  })
+  });
   // console.log(namesArr);
   return namesArr;
 }
-
 
 // ======= BACKUP 27/11/2022
 /*
