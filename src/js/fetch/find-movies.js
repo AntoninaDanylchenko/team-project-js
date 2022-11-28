@@ -4,25 +4,25 @@ const API_KEY = 'fe13ab826a741d40ca015441d0a0f529';
 const BACKEND = 'https://api.themoviedb.org/3/';
 
 const genres = [
-  { id: 28, name: 'Action' },
-  { id: 12, name: 'Adventure' },
-  { id: 16, name: 'Animation' },
-  { id: 35, name: 'Comedy' },
-  { id: 80, name: 'Crime' },
-  { id: 99, name: 'Documentary' },
-  { id: 18, name: 'Drama' },
-  { id: 10751, name: 'Family' },
-  { id: 14, name: 'Fantasy' },
-  { id: 36, name: 'History' },
-  { id: 27, name: 'Horror' },
-  { id: 10402, name: 'Music' },
-  { id: 9648, name: 'Mystery' },
-  { id: 10749, name: 'Romance' },
-  { id: 878, name: 'Science Fiction' },
-  { id: 10770, name: 'TV Movie' },
-  { id: 53, name: 'Thriller' },
-  { id: 10752, name: 'War' },
-  { id: 37, name: 'Western' },
+  { id: 28, name: ' Action' },
+  { id: 12, name: ' Adventure' },
+  { id: 16, name: ' Animation' },
+  { id: 35, name: ' Comedy' },
+  { id: 80, name: ' Crime' },
+  { id: 99, name: ' Documentary' },
+  { id: 18, name: ' Drama' },
+  { id: 10751, name: ' Family' },
+  { id: 14, name: ' Fantasy' },
+  { id: 36, name: ' History' },
+  { id: 27, name: ' Horror' },
+  { id: 10402, name: ' Music' },
+  { id: 9648, name: ' Mystery' },
+  { id: 10749, name: ' Romance' },
+  { id: 878, name: ' Science Fiction' },
+  { id: 10770, name: ' TV Movie' },
+  { id: 53, name: ' Thriller' },
+  { id: 10752, name: ' War' },
+  { id: 37, name: ' Western' },
 ];
 
 export const findMovies = {
@@ -109,12 +109,56 @@ function genresNames(arr) {
           genresArr.push(genres.find(genre => genre.id === genreId).name);
         }
       }
+      if (genresArr.length === 0) {
+        genresArr.push('Other'); //todo обговорити з командою
+      }
     } else {
-      genresArr.push('nogenre'); //todo обговорити з командою
+      genresArr.push('Other'); //todo обговорити з командою
     }
-    // console.log(`genresArr ${genresArr}`);
-    // return genresArr
+    if (genresArr.length > 2) {
+      const genres = genresArr.slice(0, 2);
+      genresArr = [...genres, ' Other']
+    }
     element.genre_ids = genresArr;
+    // ===YEAR ====
+    let yearsReleaseArr = [];
+    if (element.release_date) {
+      // for (const data of element.release_date) {
+        const year = element.release_date.slice(0, 4);
+        // console.log(year);
+        yearsReleaseArr.push(year);
+      // }
+      }  else {
+      yearsReleaseArr.push('');
+    }
+    element.release_date = yearsReleaseArr;
+        // ====
+    let yearsFirstArr = [];
+    if (element.first_air_date) {
+      // for (const data of element.release_date) {
+      const year = element.first_air_date.slice(0, 4);
+      // console.log(year);
+      yearsFirstArr.push(year);
+      // }
+    }  else {
+      yearsFirstArr.push('');
+    }
+    element.first_air_date = yearsFirstArr;
+    // ===YEAR ====
+    // =====  VOTEAVERAGE =====
+    let voteAverage = [];
+    if (element.vote_average) {
+      // for (const data of element.release_date) {
+      const vote = element.vote_average.toFixed(1);
+      // console.log(year);
+      voteAverage.push(vote);
+      // }
+    }  else {
+      voteAverage.push('');
+    }
+    element.vote_average = voteAverage;
+    // =====  VOTEAVERAGE =====
+
     return element;
   });
   // console.log(namesArr);
