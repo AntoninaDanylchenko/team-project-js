@@ -1,12 +1,8 @@
 .search-form-container {
-    width: 475px;
     position: relative;
     margin: auto;
     margin-bottom: 90px;
-
-    @media screen and (min-width: 320px) {
-        width: 280px;
-    }
+    width: 280px;
 
     @media screen and (min-width: 768px) {
         width: 395px;
@@ -20,10 +16,8 @@
 .search-form {
     position: relative;
     margin: auto;
+    width: 280px;
 
-    @media screen and (min-width: 320px) {
-        width: 280px;
-    }
 
     @media screen and (min-width: 768px) {
         width: 336px;
@@ -53,7 +47,16 @@
     &__input {
         border: 0;
         background-color: transparent;
-        width: 378px;
+        width: 256px;
+
+        @media screen and (min-width: 768px) {
+            width: 312px;
+        }
+
+        @media screen and (min-width: 1200px) {
+            width: 370px;
+        }
+
         color: rgba(255, 255, 255, 1);
         font-weight: 400;
         font-size: 14px;
