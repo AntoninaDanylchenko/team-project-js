@@ -1,6 +1,11 @@
 {{#each this}}
   <li class='library-item'>
-    <a class='gallery__item' href='#' target='_blank' rel='noopener noreferrer'>
+    <a
+      class='library-gallery__item'
+      href='#'
+      target='_blank'
+      rel='noopener noreferrer'
+    >
       <div class='card'>
 
         <img
@@ -11,13 +16,9 @@
         />
         <div class='library-info'>
           <h3 class='library-info__title'>{{title}}</h3>
-          <div class='desc-wrapper'>
+          <div class='library-wrapper'>
             <p class='library-info__genre'>{{genre_ids}} | {{release_date}}</p>
-            {{!-- <p class="info-line">|</p>
-                <p class="library-info__release"> {{release_date}}</p> --}}
-            <p
-              class='info-average category-accent is-hidden'
-            >{{vote_average}}</p>
+            <p class='library-rating is-hidden'>{{vote_average}}</p>
           </div>
         </div>
       </div>
