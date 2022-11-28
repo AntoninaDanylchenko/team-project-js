@@ -23,7 +23,10 @@
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
-    "tui-pagination": "^3.4.1"
+    "nprogress": "^0.2.0",
+    "sweetalert2": "^11.4.8",
+    "tui-pagination": "^3.4.1",
+    "vanilla-back-to-top": "^7.2.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
