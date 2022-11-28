@@ -1,0 +1,26 @@
+{{#each this}}
+  <li class='library-item'>
+    <a class='gallery__item' href='#' target='_blank' rel='noopener noreferrer'>
+      <div class='card'>
+
+        <img
+          src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+          class='library-card__img'
+          alt='{{title}}'
+          id='{{id}}'
+        />
+        <div class='library-info'>
+          <h3 class='library-info__title'>{{title}}</h3>
+          <div class='desc-wrapper'>
+            <p class='library-info__genre'>{{genre_ids}} | {{release_date}}</p>
+            {{!-- <p class="info-line">|</p>
+                <p class="library-info__release"> {{release_date}}</p> --}}
+            <p
+              class='info-average category-accent is-hidden'
+            >{{vote_average}}</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  </li>
+{{/each}}
