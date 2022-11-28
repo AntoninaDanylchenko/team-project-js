@@ -1,0 +1,72 @@
+.is-hidden{
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.team-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: azure;  border: 1px solid black;
+  height: 90%;
+}
+
+.list__wrapper {
+  text-transform: uppercase;
+  text-align: center;
+  color: black;
+  height: auto;
+}
+
+.list__title {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+}
+
+.list__subtitle {
+   margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+}
+
+.social-media {
+    text-transform: lowercase;
+  display: block;
+  color: blue;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 0.14;
+  letter-spacing: 0.01em;
+}
+
+.social-media__link {
+  text-decoration: none;
+  color: inherit;
+}

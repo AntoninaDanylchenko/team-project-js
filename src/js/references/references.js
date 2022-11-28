@@ -2,6 +2,10 @@ export const refs = {
   openModalBtn: document.querySelector('[data-action="open-team-modal"]'),
   closeModalBtn: document.querySelector('[data-action="close-modal"]'),
   backdrop: document.querySelector('.js-backdrop'),
+
+  container: document.querySelector('.team-info'),
+  title: document.querySelector('h2')
+
   galleryEl: document.querySelector(".gallery"),
   pagination: document.querySelector(".pagination"),
   paginationList: document.querySelector(".pagination_list"),
@@ -12,4 +16,5 @@ export const refs = {
   modalBackdrop: document.querySelector('.modalbackdrop-film'),
   modalFilmBtnClose: document.querySelector('.film-card-close'),
   modalFilm: document.querySelector('.modal-film'),
+
 };
