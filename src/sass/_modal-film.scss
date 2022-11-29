@@ -222,13 +222,25 @@ body.body-is-hidden {
 }
 
 .button-container {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+
+  margin-left: auto;
+  margin-right: 20px;
+  width: 220px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 10px;
+
+  @media screen and (min-width: 768px) {
+    // max-height: 125px;
+    width: 250px;
+    margin-right: 70px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-right: 75px;
+    width: 300px;
+  }
 }
 
 .film-card-addToWatched,
@@ -266,6 +278,8 @@ body.body-is-hidden {
 }
 
 .film-card-addToWatched {
+  margin-right: 10px;
+
   @media screen and (min-width: 768px) {
     margin-right: 20px;
   }
