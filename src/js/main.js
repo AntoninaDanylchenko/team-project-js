@@ -28,16 +28,27 @@ export async function searchingMorePopularity(page = 1) {
     }
   });
 }
-
+console.log(window.innerWidth);
 searchingMorePopularity();
-
+function adaptViewPagination(){
+  if (window.innerWidth <= 768) {
+    return {  
+      totalItems: 500,
+      itemsPerPage: 20,
+      visiblePages: 3,
+      centerAlign: true,
+    }}
+    if (window.innerWidth > 768) {
+      return {  
+        totalItems: 500,
+        itemsPerPage: 20,
+        visiblePages: 7,
+        centerAlign: true,
+      }}
+}
 const container = document.getElementById('tui-pagination-container');
-export let pagination = new Pagination(container, {
-  totalItems: 500,
-  itemsPerPage: 20,
-  visiblePages: 3,
-  centerAlign: true,
-});
+export let pagination = new Pagination(container, adaptViewPagination());
+
 
 pagination.on('afterMove', event => {
   const currentPage = event.page;
