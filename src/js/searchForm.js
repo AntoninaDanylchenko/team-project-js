@@ -10,6 +10,7 @@ refs.searchFormEl.addEventListener('input', onInputSearch);
 function onBtnSearchClick(e) {
   e.preventDefault();
   refs.searchFormErrorEl.style.opacity = 0;
+
   findMovies.queryType = 'search-on-query';
   findMovies.query = e.currentTarget.elements.searchQuery.value;
   findMovies.page = 1;
