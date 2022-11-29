@@ -1,7 +1,10 @@
+import ann from '../../images/team-photo/Ann.jpg'
+import annWebp from '../../images/team-photo/Ann.jpg'
+
 export const users = [
   {
-    photo: 'images/team-photo/Antonina.jpg',
-    photowebp: '..src/images/team-photo/Antonina.webp',
+    photo: ann,
+    photowebp: annWebp,
     name: 'Антоніна Іванець',
     position: 'team leader',
     socialmedia: '',

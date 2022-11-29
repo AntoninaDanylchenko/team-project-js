@@ -5,7 +5,7 @@ const markup = users.map(user => {
   return `<li class='list'>
    
 
-    <img class="item__img" src="${user.photo}" alt="${user.name}" width="170"
+    <img class="item__img" src="#" alt="${user.name}" width="170"
       height="160" />   
 
         <div class='list__wrapper'>
@@ -32,3 +32,4 @@ const markup = users.map(user => {
     `;
 });
 refs.container.insertAdjacentHTML('beforeend', markup.join(''));
+
