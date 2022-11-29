@@ -34,6 +34,7 @@ export const findMovies = {
   queryOut: '',
   queryToPagination: '',
   queryTypeToPagination: '',
+  localAnswer: {},
   async find() {
     if (this.query !== '' && this.queryType === 'search-on-query') {
       // console.log(`lalala ${ this.query }`);
@@ -62,7 +63,9 @@ export const findMovies = {
         answer.results = await genresNames(response.data.results);
       }
       // ===NEW LINE END====
-      console.log(answer);
+      // console.log(answer);
+      this.localAnswer = answer;
+      console.log(this.localAnswer);
       return await answer;
     } catch (error) {
       console.log(error.message);
