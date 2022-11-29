@@ -35,7 +35,7 @@ const container = document.getElementById('tui-pagination-container');
 export let pagination = new Pagination(container, {
   totalItems: 500,
   itemsPerPage: 20,
-  visiblePages: 5,
+  visiblePages: 3,
   centerAlign: true,
 });
 
@@ -91,3 +91,7 @@ async function loadMovie2() {
     refs.searchFormErrorEl.style.opacity = 1;
   }
 }
+
+
+
+
