@@ -49,7 +49,6 @@ export function onBackdropClick(e) {
 async function getInfoByID() {
   try {
     const answer = await findMovies.find();
-    console.log(answer);
     return (refs.filmCardEl.innerHTML = createFilmCards(answer));
   } catch (error) {
     console.log(error.message);
