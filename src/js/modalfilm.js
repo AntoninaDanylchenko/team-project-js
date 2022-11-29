@@ -83,18 +83,6 @@ function createFilmCards(card) {
       <p class='film-info__about'>About</p>
       <p class='film-info__desc'>${card.overview}
       </p>
-      <div class="button-container">
-        <button
-          type="button"
-          class="film-card-addToWatched"
-          data-name="watched"
-        >
-          Add to watched
-        </button>
-        <button type="button" class="film-card-addToQueue" data-name="queue">
-          Add to queue
-        </button>
-      </div>
     </div>
   </div>`;
 }

@@ -222,18 +222,13 @@ body.body-is-hidden {
 }
 
 .button-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 20px;
-
-  // @media screen and (min-width: 768px) {
-  //   width: 390px;
-  // }
-
-  // @media screen and (min-width: 1200px) {
-  //   width: 423px;
-  // }
 }
 
 .film-card-addToWatched,
