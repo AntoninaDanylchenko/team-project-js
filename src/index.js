@@ -5,6 +5,7 @@ import { card } from './js/components/info-user.js';
 import { main } from './js/main.js';
 import { searchForm } from './js/searchForm.js';
 import { modalfilm } from './js/modalfilm.js';
+import { queue } from './js/queue/queue.js';
 
 import { libraryMain } from './js/libraryMain.js';
 import { createMarkupLibrary } from './js/components/createMarkupLibrary.js';
