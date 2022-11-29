@@ -1,5 +1,6 @@
 import { refs } from './references/references';
 import { findMovies } from './fetch/find-movies';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 refs.galleryEl.addEventListener('click', onModalOpenFilm);
 refs.btnAddToWatch.addEventListener('click', locSetOne);
@@ -108,7 +109,7 @@ export async function locSetOne(e) {
     // логіка додавання фільмів до localStoreg
     if (filmInLocal === null) {
       if (filmToAdd.title === undefined) {
-        console.log('стався збій, спробуйте ще раз');
+        Notify.failure('стався збій, спробуйте ще раз');
         return;
       }
       filmArr.push(filmToAdd);
@@ -119,10 +120,10 @@ export async function locSetOne(e) {
       filmInLocal.find(item => item.id === filmToAdd.id) ||
       filmToAdd.title === undefined
     ) {
-      console.log('вже є');
+      Notify.warning('вже є');
       return;
     }
-    console.log('фільму ще не маю, добавляємо');
+    Notify.success('фільму ще не маю, добавляємо');
     filmArr = [...filmInLocal, filmToAdd];
     filmArr.map(i => (i.title ? console.log(i.title) : console.log(i.name)));
     localStorage.setItem(key, JSON.stringify(filmArr));
@@ -152,3 +153,5 @@ function drawMyFilm(e) {
 
   someEl('.card').innerHTML = draw;
 }
+
+
