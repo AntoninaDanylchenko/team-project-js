@@ -5,7 +5,7 @@ export const refs = {
 
   container: document.querySelector('.team-info'),
   btnAddToWatch: document.querySelector('.film-card-addToWatched'),
-  btnAddToaddToQueue:document.querySelector('.film-card-addToQueue'),
+  btnAddToaddToQueue: document.querySelector('.film-card-addToQueue'),
   galleryEl: document.querySelector('.gallery'),
   pagination: document.querySelector('.pagination'),
   paginationList: document.querySelector('.pagination_list'),
@@ -19,4 +19,5 @@ export const refs = {
   galleryLibraryEl: document.querySelector('.library-gallery'),
   filmCardEl: document.querySelector('.film-card'),
   filmCardElImg: document.querySelector('.film-card > .film-info'),
+  btnQueue: document.querySelector('.btn-library-Queue'),
 };

@@ -32,4 +32,4 @@ const markup = users.map(user => {
     `;
 });
 refs.container.insertAdjacentHTML('beforeend', markup.join(''));
-// console.log(markup);
+
