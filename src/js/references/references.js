@@ -20,4 +20,5 @@ export const refs = {
   filmCardEl: document.querySelector('.film-card'),
   filmCardElImg: document.querySelector('.film-card > .film-info'),
   btnQueue: document.querySelector('.btn-library-Queue'),
+  btnWatched: document.querySelector('.btn-library-Watched'),
 };

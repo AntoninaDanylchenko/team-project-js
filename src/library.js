@@ -3,47 +3,86 @@ import { queue } from './js/queue/queue.js';
 
 import { libraryMain } from './js/libraryMain.js';
 import { createMarkupLibrary } from './js/components/createMarkupLibrary.js';
-
-
-
-
+import { refs } from './js/references/references.js';
+refs.btnQueue.addEventListener('click', drawMyQueue);
 function drawMyQueue() {
-  // someEl('.card').innerHTML = '';
-
+  // refs.galleryLibraryEl.innerHTML = '';
   const filmInLocal = JSON.parse(localStorage.getItem('Add-to-watched'));
   console.log(filmInLocal);
   const draw = filmInLocal
     .map(
       item => `<div class="container">
-    <h4><b>${item.title}</b></h4>
-    <p>${item.vote_count}</p>
+    <li class='library-item'>
+    <a
+      class='library-gallery__item'
+      href='#'
+      target='_blank'
+      rel='noopener noreferrer'
+    >
+      <div class='card'>
+
+        <img
+          src='https://image.tmdb.org/t/p/w500${item.poster_path}'
+          class='library-card__img'
+          alt='${item.title}'
+          id='${item.id}'
+        />
+        <div class='library-info'>
+          <h3 class='library-info__title'>${item.title}</h3>
+          <div class='library-wrapper'>
+            <p class='library-info__genre'>${item.genre_ids} | ${item.release_date}</p>
+            <p class='library-rating is-hidden'>${item.vote_average}</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  </li>
   </div>`
     )
     .join();
   console.log(draw);
 
-
-  // someEl('.card').innerHTML = draw;
+  refs.galleryLibraryEl.innerHTML = draw;
 }
-drawMyQueue()
-
+drawMyQueue();
+refs.btnWatched.addEventListener('click', drawMyWatched);
 function drawMyWatched() {
-  // someEl('.card').innerHTML = '';
+  // refs.galleryLibraryEl.innerHTML = '';
 
   const filmInLocal = JSON.parse(localStorage.getItem('Add-to-queue'));
   console.log(filmInLocal);
   const draw = filmInLocal
     .map(
       item => `<div class="container">
-    <h4><b>${item.title}</b></h4>
-    <p>${item.vote_count}</p>
+    <li class='library-item'>
+    <a
+      class='library-gallery__item'
+      href='#'
+      target='_blank'
+      rel='noopener noreferrer'
+    >
+      <div class='card'>
+
+        <img
+          src='https://image.tmdb.org/t/p/w500${item.poster_path}'
+          class='library-card__img'
+          alt='${item.title}'
+          id='${item.id}'
+        />
+        <div class='library-info'>
+          <h3 class='library-info__title'>${item.title}</h3>
+          <div class='library-wrapper'>
+            <p class='library-info__genre'>${item.genre_ids} | ${item.release_date}</p>
+            <p class='library-rating is-hidden'>${item.vote_average}</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  </li>
   </div>`
     )
     .join();
-  console.log(draw);
-
-
-  // someEl('.card').innerHTML = draw;
+  console.log();
+  refs.galleryLibraryEl.innerHTML = draw;
 }
-drawMyWatched()
-
+drawMyWatched();
