@@ -1,0 +1,22 @@
+.tui-pagination .tui-page-btn {
+    width: 35px;
+    color: #333;
+    background-color: white;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    // border-radius: 50%;
+    border-width: 1px 0;
+    margin-left: 0;
+    padding: 8px 0 6px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+}
+
+
+strong.tui-page-btn.tui-is-selected{
+    background-color: #ff6b08;
+}
