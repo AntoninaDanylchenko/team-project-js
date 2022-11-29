@@ -205,18 +205,18 @@ body.body-is-hidden {
 
 .film-info__desc {
   position: relative;
-  max-height: 240px;
+  // max-height: 240px;
   overflow-y: auto;
   line-height: 1.67;
   margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
-    max-height: 125px;
+    // max-height: 125px;
     width: 280px;
   }
 
   @media screen and (min-width: 1200px) {
-    max-height: 220px;
+    // max-height: 220px;
     width: 385px;
   }
 }
@@ -225,20 +225,15 @@ body.body-is-hidden {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 20px;
 
-  @media screen and (min-width: 768px) {
-    justify-content: center;
-    position: absolute;
-    transform: translateY(-100%);
-    right: 0;
-    gap: 20px;
-    width: 390px;
-  }
+  // @media screen and (min-width: 768px) {
+  //   width: 390px;
+  // }
 
-  @media screen and (min-width: 1200px) {
-    gap: 15px;
-    width: 423px;
-  }
+  // @media screen and (min-width: 1200px) {
+  //   width: 423px;
+  // }
 }
 
 .film-card-addToWatched,
@@ -272,6 +267,16 @@ body.body-is-hidden {
     color: #ffffff;
     border: none;
     background-color: #ff6b01;
+  }
+}
+
+.film-card-addToWatched {
+  @media screen and (min-width: 768px) {
+    margin-right: 20px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-right: 15px;
   }
 }
 
