@@ -19,7 +19,7 @@ export async function searchingMorePopularity(page = 1) {
     console.log(answer);
     createResultMarkup(answer.results);
     console.log(answer); // у відповідь отримуємо об'єкт, який для прикладу консолимо.
-
+    window.scrollTo(0, -400);
     if (!paginationItemsSetup) {
       //todo: YVG
       console.log('paginationItemsSetup run');
