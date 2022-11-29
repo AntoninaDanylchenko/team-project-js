@@ -76,13 +76,25 @@ function createFilmCards(card) {
         <ul>
           <li class='film-info__characteristic'><span class="film-info-vote">${card.vote_average}</span> / ${card.vote_count}</li>
           <li class='film-info__characteristic'>${card.popularity}</li>
-          <li class='film-info__characteristic film-info-upper'>${card.original_title}${card.original_name}</li>
+          <li class='film-info__characteristic film-info-upper'>${card.original_title}</li>
           <li class='film-info__characteristic'>${card.genres}}</li>
         </ul>
       </div>
       <p class='film-info__about'>About</p>
       <p class='film-info__desc'>${card.overview}
       </p>
+      <div class="button-container">
+        <button
+          type="button"
+          class="film-card-addToWatched"
+          data-name="watched"
+        >
+          Add to watched
+        </button>
+        <button type="button" class="film-card-addToQueue" data-name="queue">
+          Add to queue
+        </button>
+      </div>
     </div>
   </div>`;
 }
