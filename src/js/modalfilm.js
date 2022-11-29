@@ -90,7 +90,8 @@ function createFilmCards(card) {
 // функція що додає фільм в локалсторедж по ключу(текст який вказаний на кнопці), в задежносты на яку кнопку тиснеш
 export async function locSetOne(e) {
   try {
-    const key = e.target.textContent;
+    let key = e.target.textContent;
+    key = key.trim().split(' ').join('-')
     console.log(key);
     console.log(e.target.textContent);
     const filmInLocal = JSON.parse(localStorage.getItem(key));
