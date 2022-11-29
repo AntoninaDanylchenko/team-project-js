@@ -2,8 +2,8 @@ import { refs } from './references/references';
 import { findMovies } from './fetch/find-movies';
 
 refs.galleryEl.addEventListener('click', onModalOpenFilm);
-
-const LOCAL_STOTAGE_KEY_B = 'box';
+refs.btnAddToWatch.addEventListener('click', locSetOne);
+refs.btnAddToaddToQueue.addEventListener('click', locSetOne);
 
 export function onModalOpenFilm(e) {
   e.preventDefault();
@@ -50,7 +50,7 @@ export function onBackdropClick(e) {
 async function getInfoByID() {
   try {
     const answer = await findMovies.find();
-    localStorage.setItem(LOCAL_STOTAGE_KEY_B, JSON.stringify(answer));
+    // localStorage.setItem(LOCAL_STOTAGE_KEY_B, JSON.stringify(answer));
     return (refs.filmCardEl.innerHTML = createFilmCards(answer));
   } catch (error) {
     console.log(error.message);
@@ -86,3 +86,68 @@ function createFilmCards(card) {
     </div>
   </div>`;
 }
+
+// функція що додає фільм в локалсторедж по ключу(текст який вказаний на кнопці), в задежносты на яку кнопку тиснеш
+export async function locSetOne(e) {
+  try {
+    const key = e.target.textContent;
+    console.log(key);
+    console.log(e.target.textContent);
+    const filmInLocal = JSON.parse(localStorage.getItem(key));
+  if (filmInLocal === null) {
+    console.log("Пусто");
+  }
+  else {
+    console.log(filmInLocal, "фільми що містяться у локал стореджі");
+    filmInLocal.map(i => i.title ? console.log(i.title) : console.log(i.name));
+    }
+    const filmToAdd = await findMovies.find();
+    // const filmToAdd = await  myFilm(filmId).then(results => results);
+  console.log(filmToAdd, "фільм що хочемо додати до локал сторедж");
+  console.log(filmToAdd.title);
+  // масив що будемо додавати до localStorage
+  let filmArr = [];
+  // логіка додавання фільмів до localStoreg
+  if (filmInLocal === null) {
+    if (filmToAdd.title === undefined) {
+      console.log('стався збій, спробуйте ще раз');
+      return
+    }
+    filmArr.push(filmToAdd);
+    localStorage.setItem(key, JSON.stringify(filmArr))
+    console.log("localStoreg була пуста, фільм додано");
+    return
+  }
+  else if (filmInLocal.find(item => item.id === filmToAdd.id) || filmToAdd.title === undefined)
+  { 
+    console.log("вже є");
+    return
+  }
+  console.log("фільму ще не маю, добавляємо");
+  filmArr = [...filmInLocal, filmToAdd];
+  filmArr.map(i => i.title ? console.log(i.title) : console.log(i.name));
+  localStorage.setItem(key, JSON.stringify(filmArr));
+  return
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+//функція выдмальовки сторінки сторінки My Library. по натисканню на кнопку.
+// !!!ВАЖЛИВО замінити "array" на ключ з локал сторедж!!!(Add to queue або Add to watched) 
+
+function drawMyFilm(e) {
+  e.preventDefault();
+    someEl(".card").innerHTML = "";
+    
+  const filmInLocal = JSON.parse(localStorage.getItem("array"));
+  const draw = filmInLocal.map((item) =>`<div class="container">
+    <h4><b>${item.title}</b></h4>
+    <p>${item.vote_count}</p>
+  </div>`
+    ).join()
+  console.log(draw);
+
+  
+  someEl(".card").innerHTML = draw;
+  }

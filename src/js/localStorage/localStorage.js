@@ -11,6 +11,8 @@ function drawMyFilm(e) {
   </div>`
     ).join()
   console.log(draw);
+
+  
   someEl(".card").innerHTML = draw;
   }
 

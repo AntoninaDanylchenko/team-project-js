@@ -4,7 +4,8 @@ export const refs = {
   backdrop: document.querySelector('.js-backdrop'),
 
   container: document.querySelector('.team-info'),
-
+  btnAddToWatch: document.querySelector('.film-card-addToWatched'),
+  btnAddToaddToQueue:document.querySelector('.film-card-addToQueue'),
   galleryEl: document.querySelector('.gallery'),
   pagination: document.querySelector('.pagination'),
   paginationList: document.querySelector('.pagination_list'),
@@ -17,4 +18,5 @@ export const refs = {
   modalFilm: document.querySelector('.modal-film'),
   galleryLibraryEl: document.querySelector('.library-gallery'),
   filmCardEl: document.querySelector('.film-card'),
+  filmCardElImg: document.querySelector('.film-card > .film-info'),
 };
