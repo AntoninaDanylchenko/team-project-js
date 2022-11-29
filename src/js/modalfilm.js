@@ -66,18 +66,20 @@ function createFilmCards(card) {
     />
     <div class='flex-wrapper'>
       <h1 class='film-info__title'>${card.title}${card.name}</h1>
-      <ul>
-        <li class='film-info__param'>Vote / Votes</li>
-        <li class='film-info__param'>Popularity</li>
-        <li class='film-info__param'>Original Title</li>
-        <li class='film-info__param'>Genre</li>
-      </ul>
-      <ul>
-        <li class='film-info__vote'>${card.vote_average} / ${card.vote_count}</li>
-        <li class='film-info__vote'>${card.popularity}</li>
-        <li class='film-info__vote'>${card.original_title}${card.original_name}</li>
-        <li class='film-info__vote'>${card.genres}}</li>
-      </ul>
+      <div class="film-info__container">
+        <ul class="film-info_list">
+          <li class='film-info__param'>Vote / Votes</li>
+          <li class='film-info__param'>Popularity</li>
+          <li class='film-info__param'>Original Title</li>
+          <li class='film-info__param'>Genre</li>
+        </ul>
+        <ul>
+          <li class='film-info__characteristic'><span class="film-info-vote">${card.vote_average}</span> / ${card.vote_count}</li>
+          <li class='film-info__characteristic'>${card.popularity}</li>
+          <li class='film-info__characteristic film-info-upper'>${card.original_title}${card.original_name}</li>
+          <li class='film-info__characteristic'>${card.genres}}</li>
+        </ul>
+      </div>
       <p class='film-info__about'>About</p>
       <p class='film-info__desc'>${card.overview}
       </p>
@@ -153,5 +155,3 @@ function drawMyFilm(e) {
 
   someEl('.card').innerHTML = draw;
 }
-
-
