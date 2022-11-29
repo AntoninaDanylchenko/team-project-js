@@ -49,6 +49,7 @@ export function onBackdropClick(e) {
 async function getInfoByID() {
   try {
     const answer = await findMovies.find();
+    console.log(answer);
     return (refs.filmCardEl.innerHTML = createFilmCards(answer));
   } catch (error) {
     console.log(error.message);
@@ -56,6 +57,11 @@ async function getInfoByID() {
 }
 
 function createFilmCards(card) {
+  const genreArr = card.genres.map(genre => genre.name);
+  const genreStr = genreArr.join(', ');
+  const genreVoit = card.vote_average.toFixed(1);
+  const genrePopularity = Math.round(card.popularity);
+
   return `
   <div class='film-info'>
     <img
@@ -74,10 +80,10 @@ function createFilmCards(card) {
           <li class='film-info__param'>Genre</li>
         </ul>
         <ul>
-          <li class='film-info__characteristic'><span class="film-info-vote">${card.vote_average}</span> / ${card.vote_count}</li>
-          <li class='film-info__characteristic'>${card.popularity}</li>
+          <li class='film-info__characteristic'><span class="film-info-vote">${genreVoit}</span> / ${card.vote_count}</li>
+          <li class='film-info__characteristic'>${genrePopularity}</li>
           <li class='film-info__characteristic film-info-upper'>${card.original_title}</li>
-          <li class='film-info__characteristic'>${card.genres}}</li>
+          <li class='film-info__characteristic'>${genreStr}</li>
         </ul>
       </div>
       <p class='film-info__about'>About</p>
