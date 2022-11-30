@@ -11,15 +11,15 @@ function drawMyQueue() {
   console.log(filmInLocal);
   const draw = filmInLocal
     .map(
-      item => `<div class="container">
-    <li class='library-item'>
+      item => `<div class="library-wraper">
+    
     <a
       class='library-gallery__item'
       href='#'
       target='_blank'
       rel='noopener noreferrer'
     >
-      <div class='card'>
+      
 
         <img
           src='https://image.tmdb.org/t/p/w500${item.poster_path}'
@@ -29,14 +29,14 @@ function drawMyQueue() {
         />
         <div class='library-info'>
           <h3 class='library-info__title'>${item.title}</h3>
-          <div class='library-wrapper'>
-            <p class='library-info__genre'>${item.genre_ids} | ${item.release_date}</p>
-            <p class='library-rating is-hidden'>${item.vote_average}</p>
-          </div>
-        </div>
+          <div class='wrap-library'>
+            <p class='library-info__genre'>${item.genre_id} | ${item.release_date}</p>
+                      <span class ="film-rating">${item.vote_average}</span>
+            </div>
+        
       </div>
     </a>
-  </li>
+  
   </div>`
     )
     .join();
@@ -53,15 +53,15 @@ function drawMyWatched() {
   console.log(filmInLocal);
   const draw = filmInLocal
     .map(
-      item => `<div class="container">
-    <li class='library-item'>
+      item => `<div class="library-wraper">
+   
     <a
       class='library-gallery__item'
       href='#'
       target='_blank'
       rel='noopener noreferrer'
     >
-      <div class='card'>
+      
 
         <img
           src='https://image.tmdb.org/t/p/w500${item.poster_path}'
@@ -71,14 +71,14 @@ function drawMyWatched() {
         />
         <div class='library-info'>
           <h3 class='library-info__title'>${item.title}</h3>
-          <div class='library-wrapper'>
-            <p class='library-info__genre'>${item.genre_ids} | ${item.release_date}</p>
-            <p class='library-rating is-hidden'>${item.vote_average}</p>
+          <div class='wrap-library'>
+            <p class='library-info__genre'>${item.genre_id} | ${item.release_date}</p>
+         <span class ="film-rating">${item.vote_average}</span>
           </div>
-        </div>
+       
       </div>
     </a>
-  </li>
+  
   </div>`
     )
     .join();
