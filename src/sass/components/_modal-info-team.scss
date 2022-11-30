@@ -39,14 +39,13 @@ body.show-modal .modal {
   width: 90%;
   // min-height: 581px;
   height: 90%;
-   background-color: brown;
+   background-color: var(--footer-text-cl);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   overflow: auto;
   margin: auto;
   padding: 48px 20px 0;
-
  
 
   // @media screen and (min-width: 480px) {
@@ -71,8 +70,7 @@ body.show-modal .modal {
   border: none;
   border-radius: 50%;
   background-color: transparent;
-    // border: 1px solid rgba(0, 0, 0, 0.1);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 color: white;
   cursor: pointer;
     outline: none;
@@ -81,13 +79,14 @@ background-position: center;
   background-repeat: no-repeat;
   }
 
-  &__icon {
-    fill: #000000;
-  }
+  // &__icon {
+  //   fill: #000000;
+  // }
 
   &__btn:hover &__icon,
   &__btn:focus &__icon {
   fill: var(--footer-img-cl);
   }
+
 }
 

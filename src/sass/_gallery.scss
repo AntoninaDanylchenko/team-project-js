@@ -36,10 +36,17 @@
 // {}
 
   .card{
+  color: var(--footer-img-cl);
  
-  color: var(--footer-img-cl)
-    
    }
+
+.card:hover, .card:focus{
+  scale: 1.03;
+  box-shadow: 0px 3px 18px 0px rgba(255, 107, 1, 0.9);
+}
+
+
+
    
    .card .card-img{
      display: block;
@@ -60,7 +67,9 @@
      display: grid;
      grid-template-row: 1fr 1fr;
      margin-top: 10px;
+    margin-left: 4px;
      font-size: 20px;
+     
       line-height: 24px;
       font-weight: 500;;
 

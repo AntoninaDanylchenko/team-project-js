@@ -4,8 +4,8 @@ export const noAnswer = {
   "belongs_to_collection": {
     "id": 529892,
     "name": "Слава ЗСУ!",
-    "poster_path": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Vlad.jpg",
-    "backdrop_path": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Vlad.jpg"
+    "poster_path": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/we-win.webp",
+    "backdrop_path": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/we-win.webp"
   },
   "budget": 250000000,
   "genres": [
@@ -21,7 +21,7 @@ export const noAnswer = {
   "original_title": "Слава ЗСУ!",
   "overview": "ми не змогли знайти інформацію про цей фільм, але Ви можете допомогти і задонатити для дитячого реабілітаційного центру «Джерело». https://send.monobank.ua/jar/A1W1qKxyyk",
   "popularity": 9999,
-  "poster_path": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Vlad.jpg",
+  "poster_path": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/we-win.webp",
   "production_companies": [
     {
       "id": 420,

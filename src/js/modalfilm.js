@@ -1,7 +1,7 @@
 import { refs } from './references/references';
 import { findMovies } from './fetch/find-movies';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import {noAnswer} from './components/noAnswer-template';
+import { noAnswer } from './components/noAnswer-template';
 
 refs.galleryEl.addEventListener('click', onModalOpenFilm);
 refs.btnAddToWatch.addEventListener('click', locSetOne);
@@ -47,8 +47,6 @@ export function onBackdropClick(e) {
     closeModal();
   }
 }
-
-
 
 async function getInfoByID() {
   try {
@@ -117,6 +115,7 @@ function createFilmCards(card) {
 // функція що додає фільм в локалсторедж по ключу(текст який вказаний на кнопці), в задежносты на яку кнопку тиснеш
 export async function locSetOne(e) {
   try {
+
     let key = ""
     if (e.target.classList.value === "film-card-addToWatched") {
       key = "Add-to-watched";
@@ -169,26 +168,27 @@ export async function locSetOne(e) {
     else {
       refs.btnAddToaddToQueue.textContent = "Remove Film";
     }
+
     const filmInLocal = JSON.parse(localStorage.getItem(key));
-    if (filmInLocal === null) {
-      console.log('Пусто');
+
+    if (!filmInLocal) {
+      console.log('Clear');
+
     } else {
-      console.log(filmInLocal, 'фільми що містяться у локал стореджі');
+      // console.log(filmInLocal, 'фільми що містяться у локал стореджі');
       filmInLocal.map(i =>
         i.title ? console.log(i.title) : console.log(i.name)
       );
     }
 
-
     findMovies.queryType = 'full-info';
+
     // let filmToAdd = await findMovies.find();// todo: оригінальний варіант
+
     // const filmToAdd = findMovies.localAnswer;
 
-
-
-
     // const filmToAdd = await  myFilm(filmId).then(results => results);
-    console.log(filmToAdd, 'фільм що хочемо додати до локал сторедж');
+    // console.log(filmToAdd, 'фільм що хочемо додати до localStorage');
     if (filmToAdd === 'noAnswer') {
       filmToAdd = noAnswer;
     }
@@ -196,23 +196,29 @@ export async function locSetOne(e) {
     // масив що будемо додавати до localStorage
     let filmArr = [];
     // логіка додавання фільмів до localStoreg
-    if (filmInLocal === null) {
-      if (filmToAdd.title === undefined) {
-        Notify.failure('стався збій, спробуйте ще раз');
+
+    if (!filmInLocal) {
+      if (!filmToAdd.title) {
+        Notify.failure('Sorry error, try again');
+
         return;
       }
       filmArr.push(filmToAdd);
       localStorage.setItem(key, JSON.stringify(filmArr));
-      console.log('localStoreg була пуста, фільм додано');
+
+      console.log('localStorage was clear, Film Added');
+
       return;
     } else if (
       filmInLocal.find(item => item.id === filmToAdd.id) ||
-      filmToAdd.title === undefined
+      !filmToAdd.title
     ) {
-      Notify.warning('вже є');
+
+      Notify.warning('Sorry, you have this film in the Library');
       return;
     }
-    Notify.success('фільму ще не маю, добавляємо');
+    Notify.success('We add film to Library');
+
     filmArr = [...filmInLocal, filmToAdd];
     filmArr.map(i => (i.title ? console.log(i.title) : console.log(i.name)));
     localStorage.setItem(key, JSON.stringify(filmArr));
@@ -238,7 +244,7 @@ function drawMyFilm(e) {
   </div>`
     )
     .join();
-  console.log(draw);
+  // console.log(draw);
 
   someEl('.card').innerHTML = draw;
 }

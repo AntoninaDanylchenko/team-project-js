@@ -24,7 +24,7 @@ async function loadMovie() {
   try {
     const answer = await findMovies.find();
     console.log(answer);
-    if (answer.results.length !== 0) {
+    if (answer.results.length) {
       pagination.setTotalItems(answer.total_results); //YVG задає кількість картинок, щоб була вірна загальна кількість сторінок пагінації
       pagination.movePageTo(1); //YVG скидає на першу сторінку
       return createResultMarkup(answer.results);
@@ -38,7 +38,7 @@ async function loadMovie() {
 function onInputSearch(e) {
   findMovies.query = e.currentTarget.elements.searchQuery.value;
   console.log(findMovies.query);
-  if (findMovies.query === '') {
+  if (!findMovies.query) {
     refs.searchFormErrorEl.style.opacity = 0;
     return searchingMorePopularity();
   }
