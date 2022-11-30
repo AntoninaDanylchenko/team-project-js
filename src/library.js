@@ -4,12 +4,56 @@ import { queue } from './js/queue/queue.js';
 import { libraryMain } from './js/libraryMain.js';
 import { createMarkupLibrary } from './js/components/createMarkupLibrary.js';
 import { refs } from './js/references/references.js';
-refs.btnQueue.addEventListener('click', drawMyQueue);
+
+import addPhotoLib from './images/lib-photo.jpg'
+
+let drawQueue = {};
+let drawWatched = {};
+refs.btnWatched.addEventListener('click', renderWatched);
+refs.btnQueue.addEventListener('click', renderQueue);
+
+refs.btnWatched.classList.remove('active');
+refs.btnQueue.classList.remove('active');
+
+
+function renderWatched(evt) {
+  evt.preventDefault();
+  refs.galleryLibraryEl.innerHTML = '';
+  onWatchedBtnActive()
+  if (!drawWatched || drawWatched.length === 0) {
+    showPhotoLibrary();
+  }
+
+  else {
+    drawMyWatched()
+  }
+}
+
+function renderQueue(evt) {
+  evt.preventDefault();
+  refs.galleryLibraryEl.innerHTML = '';
+  onQueueBtnActive()
+  if (!drawWatched || drawWatched.length === 0) {
+    showPhotoLibrary();
+  }
+
+  else {
+    drawMyQueue()
+  }
+}
+
+
+
+
+
+
+
+
+
 function drawMyQueue() {
-  // refs.galleryLibraryEl.innerHTML = '';
   const filmInLocal = JSON.parse(localStorage.getItem('Add-to-watched'));
   console.log(filmInLocal);
-  const draw = filmInLocal
+  drawQueue = filmInLocal
     .map(
       item => `<div class="container">
     <li class='library-item'>
@@ -40,18 +84,18 @@ function drawMyQueue() {
   </div>`
     )
     .join();
-  console.log(draw);
+  console.log(drawQueue);
 
-  refs.galleryLibraryEl.innerHTML = draw;
+  refs.galleryLibraryEl.innerHTML = drawQueue;
 }
-drawMyQueue();
-refs.btnWatched.addEventListener('click', drawMyWatched);
+// drawMyQueue();
+
 function drawMyWatched() {
   // refs.galleryLibraryEl.innerHTML = '';
 
   const filmInLocal = JSON.parse(localStorage.getItem('Add-to-queue'));
   console.log(filmInLocal);
-  const draw = filmInLocal
+  const drawWatched = filmInLocal
     .map(
       item => `<div class="container">
     <li class='library-item'>
@@ -83,6 +127,30 @@ function drawMyWatched() {
     )
     .join();
   console.log();
-  refs.galleryLibraryEl.innerHTML = draw;
+  refs.galleryLibraryEl.innerHTML = drawWatched ;
 }
-drawMyWatched();
+// drawMyWatched();
+
+
+function onWatchedBtnActive() { 
+  refs.btnWatched.classList.toggle('active');
+  // refs.btnWatched.classList.add('active');
+}
+
+function onQueueBtnActive() {
+  refs.btnQueue.classList.toggle('active');
+  // refs.btnQueue.classList.add('active');
+}
+
+
+function showPhotoLibrary() {
+  refs.galleryLibraryEl.innerHTML = 
+    `<div class="container">
+  <li>
+   <a>
+      <p class="library__text">There are no films yet</p>
+      <img class="library__picture" src="${addPhotoLib}" alt="blank cinema">
+    </a>
+    </li>
+ </div> `;
+}

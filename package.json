@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://antoninadanylchenko.github.io/team-project-js",
   "scripts": {
-    "start": "parcel src/*.html",
+    "start": "parcel src/*.html --open",
     "build": "parcel build src/*.html --public-url /team-project-js/"
   },
   "repository": {
