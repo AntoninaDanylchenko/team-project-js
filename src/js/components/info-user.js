@@ -1,11 +1,11 @@
 import { users } from './user-data';
 import { refs } from '../references/references.js';
 
+   
 const markup = users.map(user => {return `<li class='list'>
    
-
-    <img class="item__img" src="${user.photo}" alt="${user.name}" width="170"
-      height="160" />
+ <img class="item__img" src="${user.photo}" alt="${user.name}" width="170"
+      height="160" >
       
 
   <div class='list__wrapper'>
@@ -33,3 +33,12 @@ const markup = users.map(user => {return `<li class='list'>
  refs.container.insertAdjacentHTML('beforeend', markup.join(''));
  console.log(markup);
 
+//  const imageBase = document.createElement('img');
+//  imageBase.setAttribute('src', 'images/team-photo/AndriyL.jpg');
+//  imageBase.setAttribute("width", '170');
+//  imageBase.setAttribute('height', '160');
+// //  imageBase.setAttribute('alt', `${user.name}`);
+// console.log(imageBase);
+
+
+// document.querySelector('.list').appendChild(imageBase);
