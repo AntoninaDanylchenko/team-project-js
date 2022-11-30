@@ -1,7 +1,7 @@
 
 export const users = [
 
-	{photo: 'https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/AntoninaI.jpg',
+	{photo: 'https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/Antonina.webp',
 		   name: 'Антоніна Іванець',
 	   position: 'team leader',
 	   socialmedia:'',
