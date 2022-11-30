@@ -117,14 +117,24 @@ function createFilmCards(card) {
 // функція що додає фільм в локалсторедж по ключу(текст який вказаний на кнопці), в задежносты на яку кнопку тиснеш
 export async function locSetOne(e) {
   try {
-
-    let key = e.target.textContent;
+    let key = ""
+    if (e.target.classList.value === "film-card-addToWatched") {
+      key = "Add-to-watched";
+      console.log(key, 22);
+    }
+    if (e.target.classList.value === "film-card-addToQueue") {
+      key = "Add-to-queue";
+      console.log(key, 23);
+    }
+    // e.target.classList.value === "Add-to-watched"
+    // let key = e.target.textContent;
     key = key.trim().split(' ').join('-')
     console.log(key, 107);
-    console.log(e.target.textContent);
+    // console.log(e.target.textContent);
     let filmToAdd = await findMovies.find();
     console.log(filmToAdd, 110);
-    if (refs.btnAddToWatch.textContent === "Remove Film") {
+    console.log(e.target.classList.value);
+    if (refs.btnAddToWatch.textContent === "Remove Film" && e.target.classList.value === "film-card-addToWatched") {
       const filmInLocal = JSON.parse(localStorage.getItem("Add-to-watched"));
       console.log(filmInLocal, 14);
       const index = filmInLocal.findIndex(item => item.id === filmToAdd.id);
@@ -133,12 +143,32 @@ export async function locSetOne(e) {
       localStorage.removeItem("Add-to-watched");
       localStorage.setItem("Add-to-watched", JSON.stringify(filmInLocal));
       refs.btnAddToWatch.textContent = "Add-to-watched";
-      return      
+      return
       // filmInLocal.includes(filmToAdd);
       // console.log("aga e");
       
     }
-    refs.btnAddToWatch.textContent = "Remove Film"
+
+    if (refs.btnAddToaddToQueue.textContent === "Remove Film" && e.target.classList.value === "film-card-addToQueue") {
+      const filmInLocal = JSON.parse(localStorage.getItem("Add-to-queue"));
+      console.log(filmInLocal, 14);
+      const index = filmInLocal.findIndex(item => item.id === filmToAdd.id);
+      filmInLocal.splice(index, 1);
+      console.log(filmInLocal, 15);
+      localStorage.removeItem("Add-to-queue");
+      localStorage.setItem("Add-to-queue", JSON.stringify(filmInLocal));
+      refs.btnAddToaddToQueue.textContent = "Add-to-queue";
+      return
+      // filmInLocal.includes(filmToAdd);
+      // console.log("aga e");
+      
+    }
+    if (key === "Add-to-watched") {
+      refs.btnAddToWatch.textContent = "Remove Film";
+    }
+    else {
+      refs.btnAddToaddToQueue.textContent = "Remove Film";
+    }
     const filmInLocal = JSON.parse(localStorage.getItem(key));
     if (filmInLocal === null) {
       console.log('Пусто');
