@@ -4,7 +4,7 @@ import { refs } from '../references/references';
 refs.btnQueue.addEventListener('click', BtnQueue);
 
 export function BtnQueue() {
-  refs.btnWathed.dataset.watch = '';
+  refs.btnWatched.dataset.watch = '';
   refs.btnQueue.dataset.queue = 'active';
 
   try {
