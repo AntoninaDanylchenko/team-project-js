@@ -85,8 +85,9 @@ background-position: center;
     fill: #000000;
   }
 
+  &__btn:hover &__icon,
   &__btn:focus &__icon {
-    fill: #2196f3;
+  fill: var(--footer-img-cl);
   }
 }
 

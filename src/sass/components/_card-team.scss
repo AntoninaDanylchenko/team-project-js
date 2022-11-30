@@ -49,14 +49,16 @@ img {
 }
 
 .item__img {
+  object-fit: cover;
+
   min-width: 100%;
   border-radius: 20px;
-  height: 200px;
+  height: 250px;
   margin: auto;
   margin-bottom: 5px;
   transition: 1s;
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 }
 
