@@ -20,6 +20,7 @@ export function onModalOpenFilm(e) {
   refs.modalBackdrop.addEventListener('click', onBackdropClick);
 
   const idClickFilm = e.target.id;
+  console.log(idClickFilm);
   findMovies.query = idClickFilm;
   findMovies.queryType = 'full-info';
   getInfoByID();
@@ -52,6 +53,20 @@ export function onBackdropClick(e) {
 async function getInfoByID() {
   try {
     const answer = await findMovies.find();
+    console.log(answer.id, 56);
+    const filmInLocalAdd = JSON.parse(localStorage.getItem("Add-to-watched"));
+    const filmInLocalQu = JSON.parse(localStorage.getItem("Add-to-queue"));
+    console.log(filmInLocalQu);
+    //  можна переписати окремою функцією
+    if (filmInLocalAdd) {
+      filmInLocalAdd.find(item => { console.log(item.id); return item.id === answer.id }) ?
+        refs.btnAddToWatch.textContent = "Remove Film" : refs.btnAddToWatch.textContent = "Add-to-watched"
+    }
+    if (filmInLocalQu) {
+      filmInLocalQu.find(item => { console.log(item.id); return item.id === answer.id }) ?
+        refs.btnAddToaddToQueue.textContent = "Remove Film" : refs.btnAddToaddToQueue.textContent = "Add-to-queue"
+    }
+ // 
     if (answer === 'noAnswer') {
       console.log('noAnswer is there');
       return (refs.filmCardEl.innerHTML = createFilmCards(noAnswer));
@@ -102,10 +117,28 @@ function createFilmCards(card) {
 // функція що додає фільм в локалсторедж по ключу(текст який вказаний на кнопці), в задежносты на яку кнопку тиснеш
 export async function locSetOne(e) {
   try {
+
     let key = e.target.textContent;
     key = key.trim().split(' ').join('-')
-    console.log(key);
+    console.log(key, 107);
     console.log(e.target.textContent);
+    let filmToAdd = await findMovies.find();
+    console.log(filmToAdd, 110);
+    if (refs.btnAddToWatch.textContent === "Remove Film") {
+      const filmInLocal = JSON.parse(localStorage.getItem("Add-to-watched"));
+      console.log(filmInLocal, 14);
+      const index = filmInLocal.findIndex(item => item.id === filmToAdd.id);
+      filmInLocal.splice(index, 1);
+      console.log(filmInLocal, 15);
+      localStorage.removeItem("Add-to-watched");
+      localStorage.setItem("Add-to-watched", JSON.stringify(filmInLocal));
+      refs.btnAddToWatch.textContent = "Add-to-watched";
+      return      
+      // filmInLocal.includes(filmToAdd);
+      // console.log("aga e");
+      
+    }
+    refs.btnAddToWatch.textContent = "Remove Film"
     const filmInLocal = JSON.parse(localStorage.getItem(key));
     if (filmInLocal === null) {
       console.log('Пусто');
@@ -118,7 +151,7 @@ export async function locSetOne(e) {
 
 
     findMovies.queryType = 'full-info';
-    let filmToAdd = await findMovies.find();// todo: оригінальний варіант
+    // let filmToAdd = await findMovies.find();// todo: оригінальний варіант
     // const filmToAdd = findMovies.localAnswer;
 
 
