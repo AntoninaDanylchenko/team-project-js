@@ -21,7 +21,7 @@ function drawMyQueue() {
     >
       
         <img
-          src='https://image.tmdb.org/t/p/w500${item.poster_path}'
+          src='${item.poster_path}'
           class='library-card__img'
           alt='${item.title}'
           id='${item.id}'
@@ -65,7 +65,7 @@ function drawMyWatched() {
       
 
         <img
-          src='https://image.tmdb.org/t/p/w500${item.poster_path}'
+          src='${item.poster_path}'
           class='library-card__img'
           alt='${item.title}'
           id='${item.id}'

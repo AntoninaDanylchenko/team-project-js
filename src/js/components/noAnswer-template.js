@@ -3,32 +3,24 @@ export const noAnswer = {
   "backdrop_path": "/xDMIl84Qo5Tsu62c9DGWhmPI67A.jpg",
   "belongs_to_collection": {
     "id": 529892,
-    "name": "Black Panther Collection",
+    "name": "Слава ЗСУ!",
     "poster_path": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Vlad.jpg",
     "backdrop_path": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Vlad.jpg"
   },
   "budget": 250000000,
   "genres": [
     {
-      "id": 28,
-      "name": "Action"
-    },
-    {
       "id": 12,
       "name": "Adventure"
-    },
-    {
-      "id": 878,
-      "name": "Science Fiction"
     }
   ],
   "homepage": "https://wakandaforevertickets.com",
   "id": 505642,
   "imdb_id": "tt9114286",
   "original_language": "en",
-  "original_title": "Black Panther: Wakanda Forever",
-  "overview": "Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross and forge a new path for the kingdom of Wakanda.",
-  "popularity": 1960.335,
+  "original_title": "Слава ЗСУ!",
+  "overview": "ми не змогли знайти інформацію про цей фільм, але Ви можете допомогти і задонатити для дитячого реабілітаційного центру «Джерело». https://send.monobank.ua/jar/A1W1qKxyyk",
+  "popularity": 9999,
   "poster_path": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Vlad.jpg",
   "production_companies": [
     {
@@ -78,6 +70,6 @@ export const noAnswer = {
   "tagline": "Forever.",
   "title": "Black Panther: Wakanda Forever",
   "video": false,
-  "vote_average": 7.528,
-  "vote_count": 1090
+  "vote_average": 10,
+  "vote_count": 9999
 };
