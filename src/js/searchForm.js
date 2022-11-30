@@ -2,13 +2,18 @@ import { refs } from './references/references';
 import { findMovies } from './fetch/find-movies';
 import { createResultMarkup } from './components/createMarkupGalleryCards';
 import debounce from 'lodash.debounce';
-import { pagination, searchingMorePopularity } from './main.js'; //YVG
+import { pagination, searchingMorePopularity } from './main.js';
+import { cssLoader } from './css-loader'; //YVG
+import {container} from './main.js';
+
 
 refs.searchFormEl.addEventListener('submit', onBtnSearchClick);
 refs.searchFormEl.addEventListener('input', onInputSearch);
 
 function onBtnSearchClick(e) {
   e.preventDefault();
+  container.classList.add('pagination-invisible')
+  cssLoader('show',  refs.cssLoader)
   refs.searchFormErrorEl.style.opacity = 0;
 
   findMovies.queryType = 'search-on-query';
@@ -27,6 +32,8 @@ async function loadMovie() {
     if (answer.results.length) {
       pagination.setTotalItems(answer.total_results); //YVG задає кількість картинок, щоб була вірна загальна кількість сторінок пагінації
       pagination.movePageTo(1); //YVG скидає на першу сторінку
+      cssLoader('hide', refs.cssLoader)
+      container.classList.remove('pagination-invisible')
       return createResultMarkup(answer.results);
     }
     refs.searchFormErrorEl.style.opacity = 1;
