@@ -33,7 +33,7 @@ export const users = [
 	   github:'https://github.com/Bohatynska',
 	   },
 	   {photo:'https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Yuriy.jpg',
-		   name: 'Yuriy',
+		   name: 'Yuriy Gomenyuk',
 	   position: 'developer',
 	   socialmedia:'',
 	   github:'https://github.com/YurGoV',
