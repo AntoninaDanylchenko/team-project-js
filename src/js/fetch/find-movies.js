@@ -62,13 +62,26 @@ export const findMovies = {
         totalItemsAndPagesRestrict(response.data);
         answer.results = await genresNames(response.data.results);
       }
+      // IMG CHECK ON ID QWERRY ANSWER
+      if (!answer.poster_path && 'full-info') {
+        answer.poster_path = 'https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Vlad.jpg';
+      } else if (answer.poster_path && 'full-info') {
+        answer.poster_path = `https://image.tmdb.org/t/p/w500${answer.poster_path}`;
+      }
+      // IMG CHECK ON ID QWERRY ANSWER
       // ===NEW LINE END====
       // console.log(answer);
+
+      if (answer.status === false) {
+        throw new Error(answer.status);
+      }
+
       this.localAnswer = answer;
       console.log(this.localAnswer);
       return await answer;
     } catch (error) {
       console.log(error.message);
+      return 'noAnswer';
     }
   },
 };
@@ -161,6 +174,15 @@ function genresNames(arr) {
     }
     element.vote_average = voteAverage;
     // =====  VOTEAVERAGE =====
+
+    // // =====  IMG CHECK =====
+    if (!element.poster_path) {
+
+      element.poster_path = 'https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Vlad.jpg';//:todo !!!!
+    } else {
+      element.poster_path = `https://image.tmdb.org/t/p/w500${element.poster_path}`;
+    }
+    // // =====  IMG CHECK =====
 
     return element;
   });
