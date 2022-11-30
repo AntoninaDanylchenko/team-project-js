@@ -83,8 +83,10 @@ background-position: center;
   //   fill: #000000;
   // }
 
-  // &__btn:focus &__icon {
-  //   fill: #2196f3;
-  // }
+  &__btn:hover &__icon,
+  &__btn:focus &__icon {
+  fill: var(--footer-img-cl);
+  }
+
 }
 
