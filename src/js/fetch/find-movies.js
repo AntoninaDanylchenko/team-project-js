@@ -64,7 +64,7 @@ export const findMovies = {
       }
       // IMG CHECK ON ID QWERRY ANSWER
       if (!answer.poster_path && 'full-info') {
-        answer.poster_path = 'https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Vlad.jpg';
+        answer.poster_path = 'https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/we-win.webp';
       } else if (answer.poster_path && 'full-info') {
         answer.poster_path = `https://image.tmdb.org/t/p/w500${answer.poster_path}`;
       }
@@ -178,7 +178,7 @@ function genresNames(arr) {
     // // =====  IMG CHECK =====
     if (!element.poster_path) {
 
-      element.poster_path = 'https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Vlad.jpg';//:todo !!!!
+      element.poster_path = 'https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/we-win.webp';//:todo !!!!
     } else {
       element.poster_path = `https://image.tmdb.org/t/p/w500${element.poster_path}`;
     }

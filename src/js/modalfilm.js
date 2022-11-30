@@ -108,9 +108,9 @@ export async function locSetOne(e) {
     console.log(e.target.textContent);
     const filmInLocal = JSON.parse(localStorage.getItem(key));
     if (filmInLocal === null) {
-      console.log('Пусто');
+      console.log('Clear');
     } else {
-      console.log(filmInLocal, 'фільми що містяться у локал стореджі');
+      // console.log(filmInLocal, 'фільми що містяться у локал стореджі');
       filmInLocal.map(i =>
         i.title ? console.log(i.title) : console.log(i.name)
       );
@@ -125,7 +125,7 @@ export async function locSetOne(e) {
 
 
     // const filmToAdd = await  myFilm(filmId).then(results => results);
-    console.log(filmToAdd, 'фільм що хочемо додати до локал сторедж');
+    // console.log(filmToAdd, 'фільм що хочемо додати до localStorage');
     if (filmToAdd === 'noAnswer') {
       filmToAdd = noAnswer;
     }
@@ -135,21 +135,21 @@ export async function locSetOne(e) {
     // логіка додавання фільмів до localStoreg
     if (filmInLocal === null) {
       if (filmToAdd.title === undefined) {
-        Notify.failure('стався збій, спробуйте ще раз');
+        Notify.failure('Sorry error, try again');
         return;
       }
       filmArr.push(filmToAdd);
       localStorage.setItem(key, JSON.stringify(filmArr));
-      console.log('localStoreg була пуста, фільм додано');
+      console.log('localStorage was clear, Film Added');
       return;
     } else if (
       filmInLocal.find(item => item.id === filmToAdd.id) ||
       filmToAdd.title === undefined
     ) {
-      Notify.warning('вже є');
+      Notify.warning('Sorry, you have this film in the Library');
       return;
     }
-    Notify.success('фільму ще не маю, добавляємо');
+    Notify.success('We add film to Library');
     filmArr = [...filmInLocal, filmToAdd];
     filmArr.map(i => (i.title ? console.log(i.title) : console.log(i.name)));
     localStorage.setItem(key, JSON.stringify(filmArr));
@@ -175,7 +175,7 @@ function drawMyFilm(e) {
   </div>`
     )
     .join();
-  console.log(draw);
+  // console.log(draw);
 
   someEl('.card').innerHTML = draw;
 }
