@@ -5,7 +5,6 @@ import { refs } from './references/references';
 import { log } from 'handlebars';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import { loadMovie } from './searchForm'; //todo
 
 import {cssLoader} from './css-loader';
 // cssLoader('show', refs.cssLoader)
@@ -24,6 +23,7 @@ export async function searchingMorePopularity(page = 1) {
     createResultMarkup(answer.results);
     console.log(answer); // у відповідь отримуємо об'єкт, який для прикладу консолимо.
     window.scrollTo(0, -400);
+    container.classList.remove('pagination-invisible')
     if (!paginationItemsSetup) {
       //todo: YVG
       console.log('paginationItemsSetup run');
