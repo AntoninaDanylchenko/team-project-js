@@ -105,10 +105,12 @@ export async function locSetOne(e) {
     console.log(key);
     console.log(e.target.textContent);
     const filmInLocal = JSON.parse(localStorage.getItem(key));
+
     if (!filmInLocal) {
-      console.log('Пусто');
+      console.log('Clear');
+
     } else {
-      console.log(filmInLocal, 'фільми що містяться у локал стореджі');
+      // console.log(filmInLocal, 'фільми що містяться у локал стореджі');
       filmInLocal.map(i =>
         i.title ? console.log(i.title) : console.log(i.name)
       );
@@ -119,7 +121,7 @@ export async function locSetOne(e) {
     // const filmToAdd = findMovies.localAnswer;
 
     // const filmToAdd = await  myFilm(filmId).then(results => results);
-    console.log(filmToAdd, 'фільм що хочемо додати до локал сторедж');
+    // console.log(filmToAdd, 'фільм що хочемо додати до localStorage');
     if (filmToAdd === 'noAnswer') {
       filmToAdd = noAnswer;
     }
@@ -127,23 +129,29 @@ export async function locSetOne(e) {
     // масив що будемо додавати до localStorage
     let filmArr = [];
     // логіка додавання фільмів до localStoreg
+
     if (!filmInLocal) {
       if (!filmToAdd.title) {
-        Notify.failure('Cтався збій, спробуйте ще раз');
+        Notify.failure('Sorry error, try again');
+
         return;
       }
       filmArr.push(filmToAdd);
       localStorage.setItem(key, JSON.stringify(filmArr));
-      console.log('LocalStoreg була пуста, фільм додано');
+
+      console.log('localStorage was clear, Film Added');
+
       return;
     } else if (
       filmInLocal.find(item => item.id === filmToAdd.id) ||
       !filmToAdd.title
     ) {
-      Notify.warning('Вітаємо, фільм додано');
+
+      Notify.warning('Sorry, you have this film in the Library');
       return;
     }
-    Notify.success('Фільму ще не маю, добавляємо');
+    Notify.success('We add film to Library');
+
     filmArr = [...filmInLocal, filmToAdd];
     filmArr.map(i => (i.title ? console.log(i.title) : console.log(i.name)));
     localStorage.setItem(key, JSON.stringify(filmArr));
@@ -169,7 +177,7 @@ function drawMyFilm(e) {
   </div>`
     )
     .join();
-  console.log(draw);
+  // console.log(draw);
 
   someEl('.card').innerHTML = draw;
 }
