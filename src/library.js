@@ -7,55 +7,26 @@ import { refs } from './js/references/references.js';
 
 import addPhotoLib from './images/lib-photo.jpg'
 
-let drawQueue = {};
-let drawWatched = {};
-refs.btnWatched.addEventListener('click', renderWatched);
-refs.btnQueue.addEventListener('click', renderQueue);
-
-refs.btnWatched.classList.remove('active');
-refs.btnQueue.classList.remove('active');
+// let drawQueue = {};
+// let drawWatched = {};
+refs.btnWatched.addEventListener('click', drawMyWatched);
+refs.btnQueue.addEventListener('click', drawMyQueue);
 
 
-function renderWatched(evt) {
-  evt.preventDefault();
+
+function drawMyQueue(evt) {
+    evt.preventDefault();
   refs.galleryLibraryEl.innerHTML = '';
-  onWatchedBtnActive()
-  if (!drawWatched || drawWatched.length === 0) {
+  onWatchedBtnActive();
+  let draw = [];
+  if (!draw || draw.length === 0) {
     showPhotoLibrary();
   }
-
   else {
-    drawMyWatched()
-  }
-}
-
-function renderQueue(evt) {
-  evt.preventDefault();
-  refs.galleryLibraryEl.innerHTML = '';
-  onQueueBtnActive()
-  if (!drawWatched || drawWatched.length === 0) {
-    showPhotoLibrary();
-  }
-
-  else {
-    drawMyQueue()
-  }
-}
-
-
-
-
-
-
-
-
-
-function drawMyQueue() {
-  const filmInLocal = JSON.parse(localStorage.getItem('Add-to-watched'));
-  console.log(filmInLocal);
-  drawQueue = filmInLocal
-    .map(
-      item => `<div class="container">
+    const filmInLocal = JSON.parse(localStorage.getItem('Add-to-watched'));
+    draw = filmInLocal
+      .map(
+        item => `<div class="container">
     <li class='library-item'>
     <a
       class='library-gallery__item'
@@ -82,22 +53,26 @@ function drawMyQueue() {
     </a>
   </li>
   </div>`
-    )
-    .join();
-  console.log(drawQueue);
+      )
+      .join();
 
-  refs.galleryLibraryEl.innerHTML = drawQueue;
+    refs.galleryLibraryEl.innerHTML = draw;
+  }
 }
-// drawMyQueue();
 
-function drawMyWatched() {
-  // refs.galleryLibraryEl.innerHTML = '';
-
-  const filmInLocal = JSON.parse(localStorage.getItem('Add-to-queue'));
-  console.log(filmInLocal);
-  const drawWatched = filmInLocal
-    .map(
-      item => `<div class="container">
+function drawMyWatched(evt) {
+  evt.preventDefault();
+  refs.galleryLibraryEl.innerHTML = '';
+  onQueueBtnActive();
+  let draw = [];
+  if (!draw || draw.lenght === 0) {
+    showPhotoLibrary();
+  }
+  else {
+    const filmInLocal = JSON.parse(localStorage.getItem('Add-to-queue'));
+    draw = filmInLocal
+      .map(
+        item => `<div class="container">
     <li class='library-item'>
     <a
       class='library-gallery__item'
@@ -124,22 +99,24 @@ function drawMyWatched() {
     </a>
   </li>
   </div>`
-    )
-    .join();
-  console.log();
-  refs.galleryLibraryEl.innerHTML = drawWatched ;
+      )
+      .join();
+    refs.galleryLibraryEl.innerHTML = draw;
+  }
+
 }
-// drawMyWatched();
 
 
 function onWatchedBtnActive() { 
-  refs.btnWatched.classList.toggle('active');
-  // refs.btnWatched.classList.add('active');
+   refs.btnQueue.classList.add('active');
+  refs.btnWatched.classList.remove('active');
+ 
 }
 
 function onQueueBtnActive() {
-  refs.btnQueue.classList.toggle('active');
-  // refs.btnQueue.classList.add('active');
+   refs.btnWatched.classList.add('active');
+  refs.btnQueue.classList.remove('active');
+ 
 }
 
 
@@ -154,3 +131,39 @@ function showPhotoLibrary() {
     </li>
  </div> `;
 }
+
+
+
+
+
+// function renderWatched(evt) {
+//   evt.preventDefault();
+//   refs.galleryLibraryEl.innerHTML = '';
+//   onQueueBtnActive()
+//   if (!drawWatched || drawWatched.length === 0) {
+//     showPhotoLibrary();
+//   }
+
+//   else {
+//     drawMyWatched()
+//   }
+// }
+
+// function renderQueue(evt) {
+//   evt.preventDefault();
+//   refs.galleryLibraryEl.innerHTML = '';
+//    onWatchedBtnActive()
+ 
+//   if (!drawWatched || drawWatched.length === 0) {
+//     showPhotoLibrary();
+//   }
+
+//   else {
+//     drawMyQueue()
+//   }
+// }
+
+
+
+
+
