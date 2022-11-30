@@ -13,14 +13,14 @@ const markup = users.map(user => {return `<li class='list'>
   <a class="social-media__link" href="${user.socialmedia}"
   rel="noopener noreferrer" aria-label="linkedin">
   <svg class="social-media__icon" width="20" height="20">
-    <use href="https://cdn4.iconfinder.com/data/icons/social-media-free-13/32/Linkedin_social_media_logo-512.png"></use>
+    <use href="../../images/icon-git.svg#icon-gitgub"></use>
   </svg></a>
   </li>
   <li class='social-media__item'>
   <a class="social-media__link" href="${user.github}"
   rel="noopener noreferrer" aria-label="github">
   <svg class="social-media__icon" width="20" height="20">
-    <use href="http://www.w3.org/2000/svg"></use>
+    <use href="https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/symbol-defs.svg#icon-github"></use>
   </svg></a>
   </li>
   </ul>
