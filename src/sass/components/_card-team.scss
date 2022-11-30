@@ -1,4 +1,4 @@
-.is-hidden{
+.is-hidden {
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -18,49 +18,91 @@ img {
 }
 
 .team-info {
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
+  justify-content: space-around;
+  // grid-template-columns: 1fr;
+  // grid-template-rows: repeat(11, 1fr);
+
+  // @media screen and (min-width: 768px) and (max-width: 1199px) {
+  //   grid-template-columns: repeat(3, 1fr);
+  //   grid-template-rows: repeat(4, 1fr);
+  // }
+
+  // @media screen and (min-width: 1200px) {
+  //   grid-template-columns: repeat(4, 1fr);
+  //   grid-template-rows: repeat(3, 1fr);
+  //   grid-column-gap: 0px;
+  // }
 }
 
 .list {
   list-style: none;
   margin: 0;
   padding: 0;
-  background-color: azure;  
-  border: 1px solid black;
-  border-radius: 10px;
-  height: 100%;
+  // background-color: azure;
+  // border: 1px solid black;
+  // border-radius: 10px;
+    width: 200px;
+  margin-bottom: 25px;
+}
+
+.item__img {
+  min-width: 100%;
+  border-radius: 20px;
+  height: 200px;
+  margin: auto;
+  margin-bottom: 5px;
+  transition: 1s;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .list__wrapper {
   text-transform: uppercase;
   text-align: center;
- 
   height: auto;
+    margin-bottom: 20px;
+  margin-top: 20px;
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
 }
 
 .list__title {
-  margin-bottom: 10px;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.14;
+  text-align: center;
+  margin-top: 10px;
+  line-height: 1.12;
   letter-spacing: 0.03em;
-}
+  font-weight: 900px;
+  font-size: 16px;
+  }
 
 .list__subtitle {
-   margin-bottom: 10px;
-  font-weight: 500;
+  text-align: center;
   font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.03em;
+
+  //   @media screen and (min-width: 768px) and (max-width: 1199px) {
+  //     margin-bottom: 15px;
+  //     font-size: 17px;
+  //     line-height: 1.15px;
+  //   }
+  //   @media screen and (min-width: 1200px) {
+  //     margin-bottom: 15px;
+  //     font-size: 18px;
+  //     line-height: 1.1px;
+  //   }
 }
 
 .social-media {
-    text-transform: lowercase;
+  text-transform: lowercase;
   display: block;
   color: blue;
   font-weight: 400;
@@ -72,4 +114,21 @@ img {
 .social-media__link {
   text-decoration: none;
   color: inherit;
+  width: 30px;
+}
+
+.social-media__icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin: 0;
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    width: 30px;
+    height: 30px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 30px;
+    height: 30px;
+  }
 }
