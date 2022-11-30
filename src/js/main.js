@@ -7,6 +7,9 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { loadMovie } from './searchForm'; //todo
 
+import {cssLoader} from './css-loader';
+// cssLoader('show', refs.cssLoader)
+
 let paginationItemsSetup = false; //todo: YVG (чи правильна логіка?)
 // https://www.themoviedb.org/talk/634aafe8688cd0008135482c//todo: (обговорити разом ліміт)
 export async function searchingMorePopularity(page = 1) {
@@ -16,10 +19,11 @@ export async function searchingMorePopularity(page = 1) {
   findMovies.queryType = 'popular';
   const request = await findMovies.find().then(function (answer) {
     console.log('searching by popularity, page #:', page);
+    cssLoader('hide', refs.cssLoader)
     console.log(answer);
     createResultMarkup(answer.results);
     console.log(answer); // у відповідь отримуємо об'єкт, який для прикладу консолимо.
-
+    window.scrollTo(0, -400);
     if (!paginationItemsSetup) {
       //todo: YVG
       console.log('paginationItemsSetup run');
@@ -28,16 +32,27 @@ export async function searchingMorePopularity(page = 1) {
     }
   });
 }
-
+console.log(window.innerWidth);
 searchingMorePopularity();
-
+function adaptViewPagination(){
+  if (window.innerWidth <= 768) {
+    return {
+      totalItems: 500,
+      itemsPerPage: 20,
+      visiblePages: 3,
+      centerAlign: true,
+    }}
+    if (window.innerWidth > 768) {
+      return {
+        totalItems: 500,
+        itemsPerPage: 20,
+        visiblePages: 7,
+        centerAlign: true,
+      }}
+}
 const container = document.getElementById('tui-pagination-container');
-export let pagination = new Pagination(container, {
-  totalItems: 500,
-  itemsPerPage: 20,
-  visiblePages: 5,
-  centerAlign: true,
-});
+export let pagination = new Pagination(container, adaptViewPagination());
+
 
 pagination.on('afterMove', event => {
   const currentPage = event.page;
@@ -91,3 +106,5 @@ async function loadMovie2() {
     refs.searchFormErrorEl.style.opacity = 1;
   }
 }
+
+

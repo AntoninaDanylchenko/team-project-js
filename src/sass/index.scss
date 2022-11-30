@@ -1,6 +1,10 @@
 @import './common';
 
 @import './utils/variables';
+@import './utils/schroll';
+@import './utils/pagination';
+
+@import './utils/loader';
 
 @import './components/container';
 @import './components/button';

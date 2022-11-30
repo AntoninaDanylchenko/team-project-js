@@ -1,6 +1,7 @@
 import { refs } from './references/references';
 import { findMovies } from './fetch/find-movies';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import {noAnswer} from './components/noAnswer-template';
 
 refs.galleryEl.addEventListener('click', onModalOpenFilm);
 refs.btnAddToWatch.addEventListener('click', locSetOne);
@@ -46,9 +47,15 @@ export function onBackdropClick(e) {
   }
 }
 
+
+
 async function getInfoByID() {
   try {
     const answer = await findMovies.find();
+    if (answer === 'noAnswer') {
+      console.log('noAnswer is there');
+      return (refs.filmCardEl.innerHTML = createFilmCards(noAnswer));
+    }
     return (refs.filmCardEl.innerHTML = createFilmCards(answer));
   } catch (error) {
     console.log(error.message);
@@ -56,10 +63,15 @@ async function getInfoByID() {
 }
 
 function createFilmCards(card) {
+  const genreArr = card.genres.map(genre => genre.name);
+  const genreStr = genreArr.join(', ');
+  const genreVoit = card.vote_average.toFixed(1);
+  const genrePopularity = Math.round(card.popularity);
+
   return `
   <div class='film-info'>
     <img
-      src='https://image.tmdb.org/t/p/w500${card.poster_path}'
+      src='${card.poster_path}'
       class='film-info__poster'
       alt='${card.title}}'
       id=${card.id}'
@@ -74,10 +86,10 @@ function createFilmCards(card) {
           <li class='film-info__param'>Genre</li>
         </ul>
         <ul>
-          <li class='film-info__characteristic'><span class="film-info-vote">${card.vote_average}</span> / ${card.vote_count}</li>
-          <li class='film-info__characteristic'>${card.popularity}</li>
+          <li class='film-info__characteristic'><span class="film-info-vote">${genreVoit}</span> / ${card.vote_count}</li>
+          <li class='film-info__characteristic'>${genrePopularity}</li>
           <li class='film-info__characteristic film-info-upper'>${card.original_title}</li>
-          <li class='film-info__characteristic'>${card.genres}}</li>
+          <li class='film-info__characteristic'>${genreStr}</li>
         </ul>
       </div>
       <p class='film-info__about'>About</p>
@@ -103,9 +115,20 @@ export async function locSetOne(e) {
         i.title ? console.log(i.title) : console.log(i.name)
       );
     }
-    const filmToAdd = await findMovies.find();
+
+
+    findMovies.queryType = 'full-info';
+    let filmToAdd = await findMovies.find();// todo: оригінальний варіант
+    // const filmToAdd = findMovies.localAnswer;
+
+
+
+
     // const filmToAdd = await  myFilm(filmId).then(results => results);
     console.log(filmToAdd, 'фільм що хочемо додати до локал сторедж');
+    if (filmToAdd === 'noAnswer') {
+      filmToAdd = noAnswer;
+    }
     console.log(filmToAdd.title);
     // масив що будемо додавати до localStorage
     let filmArr = [];
