@@ -3,8 +3,7 @@
     align-items: center;
     justify-content: space-between;
     padding-top: 40px;
-    padding-bottom: 60px;
-
+    margin-bottom: 60px;
 }
 
 .header {
@@ -70,9 +69,7 @@
 }
 
 // клас для активної кнопки
-.active {
-    margin-right: 40px;
-
+.active-header {
     &::after {
         position: absolute;
         content: '';

@@ -1,6 +1,5 @@
 import { users } from './user-data';
 import { refs } from '../references/references.js';
-
    
 const markup = users.map(user => {return `<li class='list'>
     <img class="item__img" src="${user.photo}" alt="${user.name}" width="170"
@@ -15,6 +14,7 @@ const markup = users.map(user => {return `<li class='list'>
   <svg class="social-media__icon" width="20" height="20">
     <use href="../../images/icon-git.svg#icon-gitgub"></use>
   </svg></a>
+
   </li>
   <li class='social-media__item'>
   <a class="social-media__link" href="${user.github}"
@@ -26,8 +26,8 @@ const markup = users.map(user => {return `<li class='list'>
   </ul>
   </div>
 </li>
-    `});
- refs.container.insertAdjacentHTML('beforeend', markup.join(''));
- console.log(markup);
+    `;
+});
+refs.container.insertAdjacentHTML('beforeend', markup.join(''));
 
 

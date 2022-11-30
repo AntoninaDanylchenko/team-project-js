@@ -1,24 +1,30 @@
-.library-item {
-  flex-grow: 1;
-}
 .library-gallery {
-  text-align: center;
-  @media screen and(min-width:768px) {
+  @media screen and (min-width: 320px) {
+    padding: 20px;
+  }
+  @media screen and (min-width: 768px) {
     display: grid;
-    gap: 32px;
-    grid-template-columns: repeat(2, calc((100% - 32px) / 2));
+    // gap: 32px;
+    grid-template-columns: repeat(2, 336px);
   }
   @media screen and(min-width:1280px) {
-    gap: 32px 12px;
-    grid-template-columns: repeat(4, calc((100% - 32px) / 4));
-    padding: 80px 20px 40px 20px;
+    // gap: 32px 16px;
+    grid-template-columns: repeat(3, 395);
   }
 }
 
+// .library-wraper {
+//   justify-content: center;
+//   display: flex;
+// }
+
+.library-gallery__item {
+  padding: 20px;
+}
 .library-card__img {
-  width: 100%;
   border-radius: 5px;
   height: 398px;
+  display: block;
   @media screen and (min-width: 768px) {
     height: 455px;
   }
@@ -29,15 +35,24 @@
 
 .library-info {
   text-align: left;
+  margin-bottom: 10px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 8px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 12px;
+  }
 }
 
 .library-info__title {
+  padding-top: 12px;
   text-align: left;
-  font-family: Roboto;
+  font-family: 'Roboto';
+  font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 1);
+  color: var(--header-text-card);
   @media screen and (min-width: 1280px) {
     font-size: 20px;
     line-height: 1.2;
@@ -45,9 +60,9 @@
 }
 
 .library-info__genre {
-  display: flex;
-  font-family: Roboto;
   font-size: 12px;
+  font-family: 'Roboto';
+  font-weight: 500;
   line-height: 1.17;
   color: #ff6b08;
   @media screen and(min-width:768px) {
@@ -61,4 +76,20 @@
 
 .library-info__release {
   margin-left: 2px;
+}
+.film-rating {
+  width: 40px;
+  height: 20px;
+  color: #ffffff;
+  background-color: #ff6b08;
+  border-radius: 5px;
+  margin-left: 6px;
+  padding: 3px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.17;
+}
+.wrap-library {
+  display: flex;
+  align-items: center;
 }
