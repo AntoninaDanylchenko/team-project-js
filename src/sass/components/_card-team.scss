@@ -1,51 +1,27 @@
-.is-hidden {
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+.modal__title{
+  text-align: center;
+  color: var(--footer-img-cl);
+  margin-bottom: 55px;
+  font-weight: 900px;
+  font-size: 40px;
 }
 
 .team-info {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+
   justify-content: space-around;
-  // grid-template-columns: 1fr;
-  // grid-template-rows: repeat(11, 1fr);
-
-  // @media screen and (min-width: 768px) and (max-width: 1199px) {
-  //   grid-template-columns: repeat(3, 1fr);
-  //   grid-template-rows: repeat(4, 1fr);
-  // }
-
-  // @media screen and (min-width: 1200px) {
-  //   grid-template-columns: repeat(4, 1fr);
-  //   grid-template-rows: repeat(3, 1fr);
-  //   grid-column-gap: 0px;
-  // }
+  margin-left: -10px;
+  margin-top: -10px;
 }
 
 .list {
   list-style: none;
   margin: 0;
   padding: 0;
-  // background-color: azure;
-  // border: 1px solid black;
-  // border-radius: 10px;
-    width: 200px;
-  margin-bottom: 25px;
+     width: 200px;
+  margin-bottom: 10px;
 }
 
 .item__img {
@@ -61,6 +37,7 @@ img {
 }
 
 .list__wrapper {
+  color: orange;
   text-transform: uppercase;
   text-align: center;
   height: auto;
@@ -101,34 +78,36 @@ img {
   //   }
 }
 
-.social-media {
-  text-transform: lowercase;
-  display: block;
-  color: blue;
-  font-weight: 400;
-  font-size: 11px;
-  line-height: 0.14;
-  letter-spacing: 0.01em;
-}
+// .social-media {
+//   text-transform: lowercase;
+//   display: block;
+//   // color: blue;
+//   font-weight: 400;
+//   font-size: 11px;
+//   line-height: 0.14;
+//   letter-spacing: 0.01em;
+// }
 
-.social-media__link {
-  text-decoration: none;
-  color: inherit;
-  width: 30px;
-}
+// .social-media__link {
+//   // text-decoration: none;
+//   // color: inherit;
+//   // width: 30px;
+// }
 
-.social-media__icon {
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  margin: 0;
+// .social-media__icon {
+//   display: inline-block;
+//   // width: 25px;
+//   // height: 25px;
+//   margin: 0;
+//   // z-index: 1;
+//   // position: relative;
 
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
-    width: 30px;
-    height: 30px;
-  }
-  @media screen and (min-width: 1200px) {
-    width: 30px;
-    height: 30px;
-  }
-}
+//   @media screen and (min-width: 768px) and (max-width: 1199px) {
+//     width: 30px;
+//     height: 30px;
+//   }
+//   @media screen and (min-width: 1200px) {
+//     width: 30px;
+//     height: 30px;
+//   }
+// }
