@@ -19,7 +19,7 @@ export const noAnswer = {
   "imdb_id": "tt9114286",
   "original_language": "en",
   "original_title": "Слава ЗСУ!",
-  "overview": "ми не змогли знайти інформацію про цей фільм, але Ви можете допомогти і задонатити для дитячого реабілітаційного центру «Джерело». https://send.monobank.ua/jar/A1W1qKxyyk",
+  "overview": "ми не змогли знайти інформацію про цей фільм, але Ви можете допомогти і задонатити для дитячого реабілітаційного центру «Джерело». <br> https://send.monobank.ua/jar/A1W1qKxyyk",
   "popularity": 9999,
   "poster_path": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/we-win.webp",
   "production_companies": [
@@ -68,7 +68,8 @@ export const noAnswer = {
   ],
   "status": "Released",
   "tagline": "Forever.",
-  "title": "Black Panther: Wakanda Forever",
+  "title": "Слава Україні! <br> If you can, HELP child",
+  "name": "",
   "video": false,
   "vote_average": 10,
   "vote_count": 9999
