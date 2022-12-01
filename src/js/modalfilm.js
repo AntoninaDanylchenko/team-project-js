@@ -10,9 +10,8 @@ refs.btnAddToaddToQueue.addEventListener('click', locSetOne);
 export function onModalOpenFilm(e) {
   e.preventDefault();
   refs.filmCardEl.innerHTML = '';
+  refs.modalLoader.classList.add('loader-points')
 
-  refs.modalBackdrop.classList.add('active');
-  refs.modalFilm.classList.add('active');
   document.body.classList.add('body-is-hidden');
 
   refs.modalFilmBtnClose.addEventListener('click', closeModal);
@@ -64,11 +63,18 @@ async function getInfoByID() {
       filmInLocalQu.find(item => { console.log(item.id); return item.id === answer.id }) ?
         refs.btnAddToaddToQueue.textContent = "Remove Film" : refs.btnAddToaddToQueue.textContent = "Add-to-queue"
     }
- // 
+ //
     if (answer === 'noAnswer') {
       console.log('noAnswer is there');
+
+      refs.modalBackdrop.classList.add('active');
+      refs.modalFilm.classList.add('active');
+
       return (refs.filmCardEl.innerHTML = createFilmCards(noAnswer));
     }
+    refs.modalBackdrop.classList.add('active');
+    refs.modalFilm.classList.add('active');
+    // refs.modalLoader.classList.remove('loader-points')
     return (refs.filmCardEl.innerHTML = createFilmCards(answer));
   } catch (error) {
     console.log(error.message);
@@ -80,7 +86,7 @@ function createFilmCards(card) {
   const genreStr = genreArr.join(', ');
   const genreVoit = card.vote_average.toFixed(1);
   const genrePopularity = Math.round(card.popularity);
-
+  refs.modalLoader.classList.remove('loader-points')
   return `
   <div class='film-info'>
     <img
@@ -88,6 +94,8 @@ function createFilmCards(card) {
       class='film-info__poster'
       alt='${card.title}}'
       id=${card.id}'
+      height ='562.5px'
+      width = '375px'
     />
     <div class='flex-wrapper'>
       <h1 class='film-info__title'>${card.title}${card.name}</h1>
@@ -145,7 +153,6 @@ export async function locSetOne(e) {
       return
       // filmInLocal.includes(filmToAdd);
       // console.log("aga e");
-      
     }
 
     if (refs.btnAddToaddToQueue.textContent === "Remove Film" && e.target.classList.value === "film-card-addToQueue") {
@@ -160,7 +167,7 @@ export async function locSetOne(e) {
       return
       // filmInLocal.includes(filmToAdd);
       // console.log("aga e");
-      
+
     }
     if (key === "Add-to-watched") {
       refs.btnAddToWatch.textContent = "Remove Film";

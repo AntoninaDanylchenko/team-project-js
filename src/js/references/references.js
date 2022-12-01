@@ -23,4 +23,5 @@ export const refs = {
   btnWatched: document.querySelector('.btn-library-Watched'),
 
   cssLoader: document.querySelector('.css-loader'),
+  modalLoader: document.querySelector('.js-modal-loader'),
 };
