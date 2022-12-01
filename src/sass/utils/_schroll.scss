@@ -21,92 +21,12 @@ html{
     -webkit-transform: translateZ(0) scale(1.0);
     transform: translateZ(0) scale(1.0);
     transition: all 0.3s;
-    @media screen and (min-width: 350px) and (max-width: 359px){
-    top: 69%;
-    right: 16%;
-    }
-    @media screen and (min-width: 360px) and (max-width: 419px) {
-    top: 68%;
-    right: +18%;
-    }
-   @media screen and (min-width: 420px) and (max-width: 469px) {
-    top: 69%;
-    right: +22%;
-   }
-   @media screen and (min-width: 470px) and (max-width: 500px) {
-    top: 69%;
-    right: +25%;
-   }
-   @media screen and (min-width: 501px) and (max-width: 559px) {
-    top: 69%;
-    right: +26%;
-   }
-    @media screen and (min-width: 560px) and (max-width: 600px) {
-    top: 69%;
-    right: +28%;
-    }
-    @media screen and (min-width: 601px) and (max-width: 699px) {
-     top: 69%;
-     right: +30%;
-    }
-    @media screen and (min-width: 700px) and (max-width: 740px) {
-     top: 69%;
-    right: +32%;
-    }
-    @media screen and (min-width: 741px) and (max-width: 767px) {
-    top: 69%;
-    right: +34%;
-    }
-    
-    @media screen and (min-width: 768px) and (max-width: 797px){
+  
+    @media screen and (min-width: 768px) {
     top: 80%;
     right: +7%;
     }
-    @media screen and (min-width: 798px) and (max-width: 835px) {
-    top: 80%;
-    right: +9%;
-    }
-    @media screen and (min-width: 836px) and (max-width: 900px) {
-    top: 85%;
-    right: +12%;
-    }
 
-    @media screen and (min-width: 901px) and (max-width: 948px) {
-    top: 85%;
-    right: +14%;
-    }
-    @media screen and (min-width: 949px) and (max-width: 970px) {
-    top: 84%;
-    right: +15%;
-    }
-    @media screen and (min-width: 971px) and (max-width: 1006px) {
-    top: 82%;
-    right: +16%;
-    }
-    @media screen and (min-width: 1007px) and (max-width: 1040px) {
-    top: 80%;
-    right: +17%;
-    }
-    @media screen and (min-width: 1041px) and (max-width: 1090px) {
-    top: 80%;
-    right: +18%;
-    }
-    @media screen and (min-width: 1091px) and (max-width: 1149px) {
-    top: 79%;
-    right: +20%;
-    }
-    @media screen and (min-width: 1150px) and (max-width: 1160px) {
-    top: 79%;
-    right: +21%;
-    }
-    @media screen and (min-width: 1160px) and (max-width: 1176px) {
-    top: 79%;
-    right: +20%;
-         }
-    @media screen and (min-width: 1177px) and (max-width: 1199px) {
-    top: 79%;
-    right: +13%;
-    }
     @media screen and (min-width: 1200px){
     top: 79%;
     right: +1%;
