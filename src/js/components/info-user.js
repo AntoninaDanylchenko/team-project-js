@@ -1,27 +1,25 @@
 import { users } from './user-data';
 import { refs } from '../references/references.js';
-   
-const markup = users.map(user => {return `<li class='list'>
-    <img class="item__img" src="${user.photo}" alt="${user.name}" width="300"
+
+const markup = users.map(user => {
+  return `<li class='list'>
+<picture>
+<sourse type='img/webp' 
+srcset="${user.photo}?as=${user.webp}&width=400,
+${user.photo}?as=${user.webp}&width=800 2x">
+<sourse type='img/jpeg' 
+srcset="${user.photo}?width=400,
+${user.photo}?width=800 2x">
+ <img class="list__img" src="${user.photo}" alt="${user.name}" width="300"
       height="200" >
-        <div class='list__wrapper'>
+</picture>
+           <div class='list__wrapper'>
   <p class='list__title'>${user.name}</p>
   <p class='list__subtitle'>${user.position}</p>
-  <ul class='social-media'>
-  <li class='social-media__item'>
-  <a class="social-media__link" href="${user.socialmedia}"
-  rel="noopener noreferrer" aria-label="linkedin">
-  <svg class="social-media__icon" width="40" height="40">
-    <use href="${user.socialmedia}"></use>
-  </svg></a>
-
-  </li>
-  <li class='social-media__item'>
-  <a class="social-media__link" href="${user.github}"
+      <a class="list__link" href="${user.github}"
   rel="noopener noreferrer" aria-label="github">
-  <svg class="social-media__icon" width="40" height="40">
-  <use href="https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/symbol-defs.svg"
-  </svg></a>
+  <span class="list__icon"></span>
+ </a>
   </li>
   </ul>
   </div>
@@ -29,5 +27,3 @@ const markup = users.map(user => {return `<li class='list'>
     `;
 });
 refs.container.insertAdjacentHTML('beforeend', markup.join(''));
-
-
