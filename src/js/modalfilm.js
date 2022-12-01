@@ -93,6 +93,7 @@ function createFilmCards(card) {
   const genreVoit = card.vote_average.toFixed(1);
   const genrePopularity = Math.round(card.popularity);
   refs.modalLoader.classList.remove('loader-points');
+  refs.modalLoader.classList.remove('loader-lines');
   const cardS = {
     poster_path: card.poster_path,
     title: card.title,
