@@ -50,20 +50,17 @@ export function onBackdropClick(e) {
 async function getInfoByID() {
   try {
     const answer = await findMovies.find();
-    console.log(answer.id, 56);
     const filmInLocalAdd = JSON.parse(localStorage.getItem("Add-to-watched"));
     const filmInLocalQu = JSON.parse(localStorage.getItem("Add-to-queue"));
-    console.log(filmInLocalQu);
-    //  можна переписати окремою функцією
+    //  перевірка наявності фільма у локал сторедж
     if (filmInLocalAdd) {
-      filmInLocalAdd.find(item => { console.log(item.id); return item.id === answer.id }) ?
+      filmInLocalAdd.find(item => { return item.id === answer.id }) ?
         refs.btnAddToWatch.textContent = "Remove Film" : refs.btnAddToWatch.textContent = "Add-to-watched"
     }
     if (filmInLocalQu) {
-      filmInLocalQu.find(item => { console.log(item.id); return item.id === answer.id }) ?
+      filmInLocalQu.find(item => { return item.id === answer.id }) ?
         refs.btnAddToaddToQueue.textContent = "Remove Film" : refs.btnAddToaddToQueue.textContent = "Add-to-queue"
     }
- //
     if (answer === 'noAnswer') {
       console.log('noAnswer is there');
 
@@ -133,26 +130,21 @@ export async function locSetOne(e) {
       key = "Add-to-queue";
       console.log(key, 23);
     }
-    // e.target.classList.value === "Add-to-watched"
-    // let key = e.target.textContent;
+
     key = key.trim().split(' ').join('-')
-    console.log(key, 107);
-    // console.log(e.target.textContent);
     let filmToAdd = await findMovies.find();
-    console.log(filmToAdd, 110);
+    console.log(filmToAdd);
     console.log(e.target.classList.value);
     if (refs.btnAddToWatch.textContent === "Remove Film" && e.target.classList.value === "film-card-addToWatched") {
       const filmInLocal = JSON.parse(localStorage.getItem("Add-to-watched"));
-      console.log(filmInLocal, 14);
+      console.log(filmInLocal);
       const index = filmInLocal.findIndex(item => item.id === filmToAdd.id);
-      filmInLocal.splice(index, 1);
-      console.log(filmInLocal, 15);
+      filmInLocal.splice(index);
+      console.log(filmInLocal);
       localStorage.removeItem("Add-to-watched");
       localStorage.setItem("Add-to-watched", JSON.stringify(filmInLocal));
       refs.btnAddToWatch.textContent = "Add-to-watched";
       return
-      // filmInLocal.includes(filmToAdd);
-      // console.log("aga e");
     }
 
     if (refs.btnAddToaddToQueue.textContent === "Remove Film" && e.target.classList.value === "film-card-addToQueue") {
@@ -165,9 +157,6 @@ export async function locSetOne(e) {
       localStorage.setItem("Add-to-queue", JSON.stringify(filmInLocal));
       refs.btnAddToaddToQueue.textContent = "Add-to-queue";
       return
-      // filmInLocal.includes(filmToAdd);
-      // console.log("aga e");
-
     }
     if (key === "Add-to-watched") {
       refs.btnAddToWatch.textContent = "Remove Film";
@@ -182,7 +171,6 @@ export async function locSetOne(e) {
       console.log('Clear');
 
     } else {
-      // console.log(filmInLocal, 'фільми що містяться у локал стореджі');
       filmInLocal.map(i =>
         i.title ? console.log(i.title) : console.log(i.name)
       );
@@ -190,22 +178,15 @@ export async function locSetOne(e) {
 
     findMovies.queryType = 'full-info';
 
-    // let filmToAdd = await findMovies.find();// todo: оригінальний варіант
-
-    // const filmToAdd = findMovies.localAnswer;
-
-    // const filmToAdd = await  myFilm(filmId).then(results => results);
-    // console.log(filmToAdd, 'фільм що хочемо додати до localStorage');
     if (filmToAdd === 'noAnswer') {
       filmToAdd = noAnswer;
     }
     console.log(filmToAdd.title);
-    // масив що будемо додавати до localStorage
     let filmArr = [];
-    // логіка додавання фільмів до localStoreg
 
     if (!filmInLocal) {
       if (!filmToAdd.title) {
+       
         Notify.failure('Sorry error, try again');
 
         return;
@@ -224,7 +205,7 @@ export async function locSetOne(e) {
       Notify.warning('Sorry, you have this film in the Library');
       return;
     }
-    Notify.success('We add film to Library');
+   
 
     filmArr = [...filmInLocal, filmToAdd];
     filmArr.map(i => (i.title ? console.log(i.title) : console.log(i.name)));
