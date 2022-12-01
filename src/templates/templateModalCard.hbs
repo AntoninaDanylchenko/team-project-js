@@ -1,0 +1,36 @@
+<div class='film-info'>
+  <img
+    src='{{poster_path}}'
+    class='film-info__poster'
+    alt='{{title}}'
+    id='{{id}}'
+    height='562.5px'
+    width='375px'
+  />
+  <div class='flex-wrapper'>
+    <h1 class='film-info__title'>{{title}}{{name}}</h1>
+    <div class='film-info__container'>
+      <ul class='film-info_list'>
+        <li class='film-info__param'>Vote / Votes</li>
+        <li class='film-info__param'>Popularity</li>
+        <li class='film-info__param'>Original Title</li>
+        <li class='film-info__param'>Genre</li>
+      </ul>
+      <ul>
+        <li class='film-info__characteristic'><span
+            class='film-info-vote'
+          >{{genreVoit}}</span>
+          /
+          {{vote_count}}</li>
+        <li class='film-info__characteristic'>{{genrePopularity}}</li>
+        <li
+          class='film-info__characteristic film-info-upper'
+        >{{original_title}}</li>
+        <li class='film-info__characteristic'>{{genreStr}}</li>
+      </ul>
+    </div>
+    <p class='film-info__about'>About</p>
+    <p class='film-info__desc'>{{overview}}
+    </p>
+  </div>
+</div>

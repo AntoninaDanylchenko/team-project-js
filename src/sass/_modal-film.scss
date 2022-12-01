@@ -103,23 +103,23 @@ body.body-is-hidden {
 
 .film-info__poster {
   flex-shrink: 0;
-  min-width: 240px;
-  min-height: 357px;
-  height: auto;
+  width: 240px;
+  height: 357px;
   background-color: #8c8c8c;
   border-radius: 5px;
   margin-bottom: 20px;
+  object-fit: cover;
 
   @media screen and (min-width: 768px) {
     width: 264px;
-    min-height: 374px;
+    height: 374px;
     margin-right: 68px;
     margin-bottom: 0;
   }
 
   @media screen and (min-width: 1200px) {
     width: 375px;
-    min-height: 478px;
+    height: 478px;
     margin-right: 16px;
   }
 }
