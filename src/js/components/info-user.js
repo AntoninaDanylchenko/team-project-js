@@ -4,14 +4,10 @@ import { refs } from '../references/references.js';
 const markup = users.map(user => {
   return `<li class='list'>
 <picture>
-<sourse type='img/webp' 
-srcset="${user.photo}?as=${user.webp}&width=400,
-${user.photo}?as=${user.webp}&width=800 2x">
-<sourse type='img/jpeg' 
-srcset="${user.photo}?width=400,
-${user.photo}?width=800 2x">
- <img class="list__img" src="${user.photo}" alt="${user.name}" width="300"
-      height="200" >
+<source srcset="${user.webp}" 
+type="image/webp">
+ <img class="list__img" src="${user.photo}" alt="${user.name}" width="190"
+      height="190" >
 </picture>
            <div class='list__wrapper'>
   <p class='list__title'>${user.name}</p>
