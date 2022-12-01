@@ -20,7 +20,7 @@ const markup = users.map(user => {return `<li class='list'>
   <a class="social-media__link" href="${user.github}"
   rel="noopener noreferrer" aria-label="github">
   <svg class="social-media__icon" width="40" height="40">
-  <use href="https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/icon-git.svg#icon-github"
+  <use href="https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/symbol-defs.svg"
   </svg></a>
   </li>
   </ul>
