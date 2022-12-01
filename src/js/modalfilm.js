@@ -11,7 +11,9 @@ refs.btnAddToaddToQueue.addEventListener('click', locSetOne);
 export function onModalOpenFilm(e) {
   e.preventDefault();
   refs.filmCardEl.innerHTML = '';
-  refs.modalLoader.classList.add('loader-points');
+
+  refs.modalLoader.classList.add('loader-lines')
+
 
   document.body.classList.add('body-is-hidden');
 
@@ -51,6 +53,7 @@ export function onBackdropClick(e) {
 async function getInfoByID() {
   try {
     const answer = await findMovies.find();
+
     const filmInLocalAdd = JSON.parse(localStorage.getItem('Add-to-watched'));
     const filmInLocalQu = JSON.parse(localStorage.getItem('Add-to-queue'));
     //  можна переписати окремою функцією
@@ -71,6 +74,7 @@ async function getInfoByID() {
         : (refs.btnAddToaddToQueue.textContent = 'Add-to-queue');
     }
     //
+
     if (answer === 'noAnswer') {
       console.log('noAnswer is there');
 
@@ -81,7 +85,9 @@ async function getInfoByID() {
     }
     refs.modalBackdrop.classList.add('active');
     refs.modalFilm.classList.add('active');
+
     return createFilmCards(answer);
+
   } catch (error) {
     console.log(error.message);
   }
@@ -92,6 +98,7 @@ function createFilmCards(card) {
   const genreStr = genreArr.join(', ');
   const genreVoit = card.vote_average.toFixed(1);
   const genrePopularity = Math.round(card.popularity);
+
   refs.modalLoader.classList.remove('loader-points');
   const cardS = {
     poster_path: card.poster_path,
@@ -108,6 +115,8 @@ function createFilmCards(card) {
   };
   console.log(cardS);
   return (refs.filmCardEl.innerHTML = templateModalCard(cardS));
+
+
 }
 
 // функція що додає фільм в локалсторедж по ключу(текст який вказаний на кнопці), в задежносты на яку кнопку тиснеш
@@ -122,29 +131,23 @@ export async function locSetOne(e) {
       key = 'Add-to-queue';
       console.log(key, 23);
     }
-    // e.target.classList.value === "Add-to-watched"
-    // let key = e.target.textContent;
-    key = key.trim().split(' ').join('-');
-    console.log(key, 107);
-    // console.log(e.target.textContent);
+
+    key = key.trim().split(' ').join('-')
+
     let filmToAdd = await findMovies.find();
-    console.log(filmToAdd, 110);
+    console.log(filmToAdd);
     console.log(e.target.classList.value);
-    if (
-      refs.btnAddToWatch.textContent === 'Remove Film' &&
-      e.target.classList.value === 'film-card-addToWatched'
-    ) {
-      const filmInLocal = JSON.parse(localStorage.getItem('Add-to-watched'));
-      console.log(filmInLocal, 14);
+
+    if (refs.btnAddToWatch.textContent === "Remove Film" && e.target.classList.value === "film-card-addToWatched") {
+      const filmInLocal = JSON.parse(localStorage.getItem("Add-to-watched"));
+      console.log(filmInLocal);
       const index = filmInLocal.findIndex(item => item.id === filmToAdd.id);
-      filmInLocal.splice(index, 1);
-      console.log(filmInLocal, 15);
-      localStorage.removeItem('Add-to-watched');
-      localStorage.setItem('Add-to-watched', JSON.stringify(filmInLocal));
-      refs.btnAddToWatch.textContent = 'Add-to-watched';
-      return;
-      // filmInLocal.includes(filmToAdd);
-      // console.log("aga e");
+      filmInLocal.splice(index);
+      console.log(filmInLocal);
+      localStorage.removeItem("Add-to-watched");
+      localStorage.setItem("Add-to-watched", JSON.stringify(filmInLocal));
+      refs.btnAddToWatch.textContent = "Add-to-watched";
+      return
     }
 
     if (
@@ -156,12 +159,12 @@ export async function locSetOne(e) {
       const index = filmInLocal.findIndex(item => item.id === filmToAdd.id);
       filmInLocal.splice(index, 1);
       console.log(filmInLocal, 15);
+
       localStorage.removeItem('Add-to-queue');
       localStorage.setItem('Add-to-queue', JSON.stringify(filmInLocal));
       refs.btnAddToaddToQueue.textContent = 'Add-to-queue';
       return;
-      // filmInLocal.includes(filmToAdd);
-      // console.log("aga e");
+      
     }
     if (key === 'Add-to-watched') {
       refs.btnAddToWatch.textContent = 'Remove Film';
@@ -174,7 +177,6 @@ export async function locSetOne(e) {
     if (!filmInLocal) {
       console.log('Clear');
     } else {
-      // console.log(filmInLocal, 'фільми що містяться у локал стореджі');
       filmInLocal.map(i =>
         i.title ? console.log(i.title) : console.log(i.name)
       );
@@ -182,22 +184,15 @@ export async function locSetOne(e) {
 
     findMovies.queryType = 'full-info';
 
-    // let filmToAdd = await findMovies.find();// todo: оригінальний варіант
-
-    // const filmToAdd = findMovies.localAnswer;
-
-    // const filmToAdd = await  myFilm(filmId).then(results => results);
-    // console.log(filmToAdd, 'фільм що хочемо додати до localStorage');
     if (filmToAdd === 'noAnswer') {
       filmToAdd = noAnswer;
     }
     console.log(filmToAdd.title);
-    // масив що будемо додавати до localStorage
     let filmArr = [];
-    // логіка додавання фільмів до localStoreg
 
     if (!filmInLocal) {
       if (!filmToAdd.title) {
+       
         Notify.failure('Sorry error, try again');
 
         return;
@@ -215,7 +210,7 @@ export async function locSetOne(e) {
       Notify.warning('Sorry, you have this film in the Library');
       return;
     }
-    Notify.success('We add film to Library');
+   
 
     filmArr = [...filmInLocal, filmToAdd];
     filmArr.map(i => (i.title ? console.log(i.title) : console.log(i.name)));
