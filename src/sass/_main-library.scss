@@ -14,9 +14,13 @@
   }
 }
 
+.library-wraper{
+  transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .library-wraper:hover, .library-wraper:focus{
   scale: 1.03;
-  box-shadow: 0px 3px 18px 0px rgba(255, 107, 1, 0.9);
+  box-shadow: 0px 3px 18px 0px rgba(255, 107, 8, 0.902);
 }
 
 .library-card__img {
