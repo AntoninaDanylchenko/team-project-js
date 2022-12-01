@@ -2,6 +2,8 @@ import { refs } from './references/references.js';
 
 refs.btnQueue.addEventListener('click', drawMyQueue);
 function drawMyQueue(item) {
+  refs.btnWatched.classList.remove('active-lbr');
+  refs.btnQueue.classList.add('active-lbr');
   // refs.galleryLibraryEl.innerHTML = '';
   const filmInLocal = JSON.parse(localStorage.getItem('Add-to-queue'));
   console.log(filmInLocal);
@@ -49,6 +51,8 @@ function drawMyQueue(item) {
 refs.btnWatched.addEventListener('click', drawMyWatched);
 function drawMyWatched(item) {
   // refs.galleryLibraryEl.innerHTML = '';
+  refs.btnQueue.classList.remove('active-lbr');
+  refs.btnWatched.classList.add('active-lbr');
 
   const filmInLocal = JSON.parse(localStorage.getItem('Add-to-watched'));
   console.log(filmInLocal);
