@@ -48,15 +48,7 @@ body.show-modal .modal {
   padding: 48px 20px 0;
  
 
-  // @media screen and (min-width: 480px) {
-  //   width: 450px;
-  // }
-
-  // @media screen and (min-width: 1200px) {
-  //   width: 528px;
-  //  }
-
-  &__btn {
+    &__btn {
     
     position: absolute;  top: 2%;
   right: 2%;
@@ -79,10 +71,7 @@ background-position: center;
   background-repeat: no-repeat;
   }
 
-  // &__icon {
-  //   fill: #000000;
-  // }
-
+  
   &__btn:hover &__icon,
   &__btn:focus &__icon {
   fill: var(--footer-img-cl);
