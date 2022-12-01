@@ -2,6 +2,7 @@ import { refs } from './references/references';
 import { findMovies } from './fetch/find-movies';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { noAnswer } from './components/noAnswer-template';
+import templateModalCard from '../templates/templateModalCard.hbs';
 
 refs.galleryEl.addEventListener('click', onModalOpenFilm);
 refs.btnAddToWatch.addEventListener('click', locSetOne);
@@ -10,7 +11,9 @@ refs.btnAddToaddToQueue.addEventListener('click', locSetOne);
 export function onModalOpenFilm(e) {
   e.preventDefault();
   refs.filmCardEl.innerHTML = '';
+
   refs.modalLoader.classList.add('loader-lines')
+
 
   document.body.classList.add('body-is-hidden');
 
@@ -50,29 +53,41 @@ export function onBackdropClick(e) {
 async function getInfoByID() {
   try {
     const answer = await findMovies.find();
-    const filmInLocalAdd = JSON.parse(localStorage.getItem("Add-to-watched"));
-    const filmInLocalQu = JSON.parse(localStorage.getItem("Add-to-queue"));
-    //  перевірка наявності фільма у локал сторедж
+
+    const filmInLocalAdd = JSON.parse(localStorage.getItem('Add-to-watched'));
+    const filmInLocalQu = JSON.parse(localStorage.getItem('Add-to-queue'));
+    //  можна переписати окремою функцією
     if (filmInLocalAdd) {
-      filmInLocalAdd.find(item => { return item.id === answer.id }) ?
-        refs.btnAddToWatch.textContent = "Remove Film" : refs.btnAddToWatch.textContent = "Add-to-watched"
+      filmInLocalAdd.find(item => {
+        console.log(item.id);
+        return item.id === answer.id;
+      })
+        ? (refs.btnAddToWatch.textContent = 'Remove Film')
+        : (refs.btnAddToWatch.textContent = 'Add-to-watched');
     }
     if (filmInLocalQu) {
-      filmInLocalQu.find(item => { return item.id === answer.id }) ?
-        refs.btnAddToaddToQueue.textContent = "Remove Film" : refs.btnAddToaddToQueue.textContent = "Add-to-queue"
+      filmInLocalQu.find(item => {
+        console.log(item.id);
+        return item.id === answer.id;
+      })
+        ? (refs.btnAddToaddToQueue.textContent = 'Remove Film')
+        : (refs.btnAddToaddToQueue.textContent = 'Add-to-queue');
     }
+    //
+
     if (answer === 'noAnswer') {
       console.log('noAnswer is there');
 
       refs.modalBackdrop.classList.add('active');
       refs.modalFilm.classList.add('active');
 
-      return (refs.filmCardEl.innerHTML = createFilmCards(noAnswer));
+      return createFilmCards(noAnswer);
     }
     refs.modalBackdrop.classList.add('active');
     refs.modalFilm.classList.add('active');
-    // refs.modalLoader.classList.remove('loader-lines')
-    return (refs.filmCardEl.innerHTML = createFilmCards(answer));
+
+    return createFilmCards(answer);
+
   } catch (error) {
     console.log(error.message);
   }
@@ -83,58 +98,46 @@ function createFilmCards(card) {
   const genreStr = genreArr.join(', ');
   const genreVoit = card.vote_average.toFixed(1);
   const genrePopularity = Math.round(card.popularity);
-  refs.modalLoader.classList.remove('loader-lines')
-  return `
-  <div class='film-info'>
-    <img
-      src='${card.poster_path}'
-      class='film-info__poster'
-      alt='${card.title}}'
-      id=${card.id}'
-      height ='562.5px'
-      width = '375px'
-    />
-    <div class='flex-wrapper'>
-      <h1 class='film-info__title'>${card.title}${card.name}</h1>
-      <div class="film-info__container">
-        <ul class="film-info_list">
-          <li class='film-info__param'>Vote / Votes</li>
-          <li class='film-info__param'>Popularity</li>
-          <li class='film-info__param'>Original Title</li>
-          <li class='film-info__param'>Genre</li>
-        </ul>
-        <ul>
-          <li class='film-info__characteristic'><span class="film-info-vote">${genreVoit}</span> / ${card.vote_count}</li>
-          <li class='film-info__characteristic'>${genrePopularity}</li>
-          <li class='film-info__characteristic film-info-upper'>${card.original_title}</li>
-          <li class='film-info__characteristic'>${genreStr}</li>
-        </ul>
-      </div>
-      <p class='film-info__about'>About</p>
-      <p class='film-info__desc'>${card.overview}
-      </p>
-    </div>
-  </div>`;
+
+  refs.modalLoader.classList.remove('loader-points');
+  const cardS = {
+    poster_path: card.poster_path,
+    title: card.title,
+    id: card.id,
+    title: card.title,
+    name: card.name,
+    genreVoit,
+    vote_count: card.vote_count,
+    genrePopularity,
+    original_title: card.original_title,
+    genreStr,
+    overview: card.overview,
+  };
+  console.log(cardS);
+  return (refs.filmCardEl.innerHTML = templateModalCard(cardS));
+
+
 }
 
 // функція що додає фільм в локалсторедж по ключу(текст який вказаний на кнопці), в задежносты на яку кнопку тиснеш
 export async function locSetOne(e) {
   try {
-
-    let key = ""
-    if (e.target.classList.value === "film-card-addToWatched") {
-      key = "Add-to-watched";
+    let key = '';
+    if (e.target.classList.value === 'film-card-addToWatched') {
+      key = 'Add-to-watched';
       console.log(key, 22);
     }
-    if (e.target.classList.value === "film-card-addToQueue") {
-      key = "Add-to-queue";
+    if (e.target.classList.value === 'film-card-addToQueue') {
+      key = 'Add-to-queue';
       console.log(key, 23);
     }
 
     key = key.trim().split(' ').join('-')
+
     let filmToAdd = await findMovies.find();
     console.log(filmToAdd);
     console.log(e.target.classList.value);
+
     if (refs.btnAddToWatch.textContent === "Remove Film" && e.target.classList.value === "film-card-addToWatched") {
       const filmInLocal = JSON.parse(localStorage.getItem("Add-to-watched"));
       console.log(filmInLocal);
@@ -147,29 +150,32 @@ export async function locSetOne(e) {
       return
     }
 
-    if (refs.btnAddToaddToQueue.textContent === "Remove Film" && e.target.classList.value === "film-card-addToQueue") {
-      const filmInLocal = JSON.parse(localStorage.getItem("Add-to-queue"));
+    if (
+      refs.btnAddToaddToQueue.textContent === 'Remove Film' &&
+      e.target.classList.value === 'film-card-addToQueue'
+    ) {
+      const filmInLocal = JSON.parse(localStorage.getItem('Add-to-queue'));
       console.log(filmInLocal, 14);
       const index = filmInLocal.findIndex(item => item.id === filmToAdd.id);
       filmInLocal.splice(index, 1);
       console.log(filmInLocal, 15);
-      localStorage.removeItem("Add-to-queue");
-      localStorage.setItem("Add-to-queue", JSON.stringify(filmInLocal));
-      refs.btnAddToaddToQueue.textContent = "Add-to-queue";
-      return
+
+      localStorage.removeItem('Add-to-queue');
+      localStorage.setItem('Add-to-queue', JSON.stringify(filmInLocal));
+      refs.btnAddToaddToQueue.textContent = 'Add-to-queue';
+      return;
+      
     }
-    if (key === "Add-to-watched") {
-      refs.btnAddToWatch.textContent = "Remove Film";
-    }
-    else {
-      refs.btnAddToaddToQueue.textContent = "Remove Film";
+    if (key === 'Add-to-watched') {
+      refs.btnAddToWatch.textContent = 'Remove Film';
+    } else {
+      refs.btnAddToaddToQueue.textContent = 'Remove Film';
     }
 
     const filmInLocal = JSON.parse(localStorage.getItem(key));
 
     if (!filmInLocal) {
       console.log('Clear');
-
     } else {
       filmInLocal.map(i =>
         i.title ? console.log(i.title) : console.log(i.name)
@@ -201,7 +207,6 @@ export async function locSetOne(e) {
       filmInLocal.find(item => item.id === filmToAdd.id) ||
       !filmToAdd.title
     ) {
-
       Notify.warning('Sorry, you have this film in the Library');
       return;
     }
