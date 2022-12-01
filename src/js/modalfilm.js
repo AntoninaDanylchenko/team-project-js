@@ -10,7 +10,7 @@ refs.btnAddToaddToQueue.addEventListener('click', locSetOne);
 export function onModalOpenFilm(e) {
   e.preventDefault();
   refs.filmCardEl.innerHTML = '';
-  refs.modalLoader.classList.add('loader-points')
+  refs.modalLoader.classList.add('loader-lines')
 
   document.body.classList.add('body-is-hidden');
 
@@ -74,7 +74,7 @@ async function getInfoByID() {
     }
     refs.modalBackdrop.classList.add('active');
     refs.modalFilm.classList.add('active');
-    // refs.modalLoader.classList.remove('loader-points')
+    // refs.modalLoader.classList.remove('loader-lines')
     return (refs.filmCardEl.innerHTML = createFilmCards(answer));
   } catch (error) {
     console.log(error.message);
@@ -86,7 +86,7 @@ function createFilmCards(card) {
   const genreStr = genreArr.join(', ');
   const genreVoit = card.vote_average.toFixed(1);
   const genrePopularity = Math.round(card.popularity);
-  refs.modalLoader.classList.remove('loader-points')
+  refs.modalLoader.classList.remove('loader-lines')
   return `
   <div class='film-info'>
     <img
