@@ -50,7 +50,7 @@ function adaptViewPagination(){
         centerAlign: true,
       }}
 }
-const container = document.getElementById('tui-pagination-container');
+export const container = document.getElementById('tui-pagination-container');
 export let pagination = new Pagination(container, adaptViewPagination());
 
 

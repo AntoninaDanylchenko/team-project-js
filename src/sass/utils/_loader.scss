@@ -71,15 +71,15 @@
 
 
 .loader {
-  width: 120px;
-  height: 80px;
+  width: 180px;
+  height: 120px;
   position: relative;
   transform: rotate(-90deg);
   background: linear-gradient(174deg, #0000 49%,#000 50%, #0000 51%);
 
     position: absolute;
-    left: 50%;
-    top: 40px;
+    left: 40%;// todo: правильно центрувати
+    top: 60px;
 
     transform: translate(-50%, -50%);
 }
@@ -95,7 +95,7 @@
   bottom: 49px;
   transform: rotate(0deg);
   box-sizing: border-box;
-  animation: tape 4s linear infinite;
+  animation: tape 2s linear infinite;
 
 }
 .loader:before {
