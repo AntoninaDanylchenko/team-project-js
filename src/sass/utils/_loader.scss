@@ -1,73 +1,156 @@
-//
-//
-//
-//.loader {
-//  color: darkmagenta;
-//  font-size: 20px;
-//  width: 1em;
-//  height: 1em;
-//  border-radius: 50%;
-//  position: relative;
-//  text-indent: -9999em;
-//  animation: mulShdSpin 1.3s infinite linear;
-//  transform: translateZ(0);
-//
-//  position: absolute;
-//  left: 50%;
-//  top: 250px;
-//
-//  transform: translate(-50%, -50%);
-//
-//}
-//
-//@keyframes mulShdSpin {
-//  0%,
-//  100% {
-//    box-shadow: 0 -3em 0 0.2em,
-//    2em -2em 0 0em, 3em 0 0 -1em,
-//    2em 2em 0 -1em, 0 3em 0 -1em,
-//    -2em 2em 0 -1em, -3em 0 0 -1em,
-//    -2em -2em 0 0;
-//  }
-//  12.5% {
-//    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em,
-//    3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em,
-//    -2em 2em 0 -1em, -3em 0 0 -1em,
-//    -2em -2em 0 -1em;
-//  }
-//  25% {
-//    box-shadow: 0 -3em 0 -0.5em,
-//    2em -2em 0 0, 3em 0 0 0.2em,
-//    2em 2em 0 0, 0 3em 0 -1em,
-//    -2em 2em 0 -1em, -3em 0 0 -1em,
-//    -2em -2em 0 -1em;
-//  }
-//  37.5% {
-//    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
-//    3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em,
-//    -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
-//  }
-//  50% {
-//    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
-//    3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em,
-//    -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
-//  }
-//  62.5% {
-//    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
-//    3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0,
-//    -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
-//  }
-//  75% {
-//    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em,
-//    3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
-//    -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
-//  }
-//  87.5% {
-//    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em,
-//    3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
-//    -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
-//  }
-//}
+.js-modal-loader {
+  z-index: 55;
+  //position: fixed;
+}
+
+.loader-points {
+  transform: rotateZ(45deg);
+  perspective: 1000px;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  color: #fff;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+}
+.loader-points:before,
+.loader-points:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  transform: rotateX(70deg);
+  animation: 1s spin linear infinite;
+}
+.loader-points:after {
+  color: #FF3D00;
+  transform: rotateY(70deg);
+  animation-delay: .4s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateZ(360deg);
+  }
+}
+
+@keyframes rotateccw {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+@keyframes spin {
+  0%,
+  100% {
+    box-shadow: .2em 0px 0 0px currentcolor;
+  }
+  12% {
+    box-shadow: .2em .2em 0 0 currentcolor;
+  }
+  25% {
+    box-shadow: 0 .2em 0 0px currentcolor;
+  }
+  37% {
+    box-shadow: -.2em .2em 0 0 currentcolor;
+  }
+  50% {
+    box-shadow: -.2em 0 0 0 currentcolor;
+  }
+  62% {
+    box-shadow: -.2em -.2em 0 0 currentcolor;
+  }
+  75% {
+    box-shadow: 0px -.2em 0 0 currentcolor;
+  }
+  87% {
+    box-shadow: .2em -.2em 0 0 currentcolor;
+  }
+}
+
+
+.loader-points-ttt {
+  color: darkmagenta;
+  font-size: 25px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  //position: relative;
+  text-indent: -9999em;
+  animation: mulShdSpin 1.3s infinite linear;
+  transform: translateZ(0);
+
+  //position: absolute;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+  //z-index: 8;
+
+}
+
+@keyframes mulShdSpin {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em,
+    2em -2em 0 0em, 3em 0 0 -1em,
+    2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 -1em, -3em 0 0 -1em,
+    -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em,
+    3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 -1em, -3em 0 0 -1em,
+    -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em,
+    2em -2em 0 0, 3em 0 0 0.2em,
+    2em 2em 0 0, 0 3em 0 -1em,
+    -2em 2em 0 -1em, -3em 0 0 -1em,
+    -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+    3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em,
+    -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+    3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em,
+    -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+    3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0,
+    -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em,
+    3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em,
+    3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
 
 
 .loader {
