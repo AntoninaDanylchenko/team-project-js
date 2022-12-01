@@ -3,9 +3,10 @@
 @import './utils/variables';
 @import './utils/schroll';
 @import './utils/pagination';
-@import './utils/pagination-invisible';
+@import 'utils/pagination-invisible';
 
-@import './utils/loader';
+@import 'utils/loader-film';
+@import 'utils/loader-lines';
 
 @import './components/container';
 @import './components/button';
