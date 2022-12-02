@@ -1,27 +1,28 @@
 {{#each this}}
-  <li class='library-item'>
+  <div class='library-wraper'>
     <a
       class='library-gallery__item'
       href='#'
       target='_blank'
       rel='noopener noreferrer'
     >
-      <div class='card'>
 
-        <img
-          src='{{poster_path}}'
-          class='library-card__img'
-          alt='{{title}}'
-          id='{{id}}'
-        />
-        <div class='library-info'>
-          <h3 class='library-info__title'>{{title}}</h3>
-          <div class='library-wrapper'>
-            <p class='library-info__genre'>{{genre_ids}} | {{release_date}}</p>
-            <p class='library-rating is-hidden'>{{vote_average}}</p>
-          </div>
+      <img
+        src='{{poster_path}}'
+        class='library-card__img'
+        alt='{{title}}{{name}}'
+        id='{{id}}'
+      />
+      <div class='library-info'>
+        <h3 class='library-info__title'>{{title}}{{name}}</h3>
+        <div class='wrap-library'>
+          <p class='library-info__genre'>{{genreFilmStr}}|
+            {{year}}</p>
+          <span class='film-rating'>{{genreVoit}}</span>
         </div>
+
       </div>
     </a>
-  </li>
+
+  </div>
 {{/each}}
