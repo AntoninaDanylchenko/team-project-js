@@ -65,7 +65,7 @@ async function getInfoByID() {
         return item.id === answer.id;
       })
         ? (refs.btnAddToWatch.textContent = 'Remove Film')
-        : (refs.btnAddToWatch.textContent = 'Add-to-watched');
+        : (refs.btnAddToWatch.textContent = 'Add to watched');
     }
     if (filmInLocalQu) {
       filmInLocalQu.find(item => {
@@ -73,7 +73,7 @@ async function getInfoByID() {
         return item.id === answer.id;
       })
         ? (refs.btnAddToaddToQueue.textContent = 'Remove Film')
-        : (refs.btnAddToaddToQueue.textContent = 'Add-to-queue');
+        : (refs.btnAddToaddToQueue.textContent = 'Add to queue');
     }
     //
 
@@ -178,7 +178,7 @@ export async function locSetOne(e) {
       console.log(filmInLocal);
       localStorage.removeItem("Add-to-watched");
       localStorage.setItem("Add-to-watched", JSON.stringify(filmInLocal));
-      refs.btnAddToWatch.textContent = "Add-to-watched";
+      refs.btnAddToWatch.textContent = "Add to watched";
       return
     }
 
@@ -194,7 +194,7 @@ export async function locSetOne(e) {
 
       localStorage.removeItem('Add-to-queue');
       localStorage.setItem('Add-to-queue', JSON.stringify(filmInLocal));
-      refs.btnAddToaddToQueue.textContent = 'Add-to-queue';
+      refs.btnAddToaddToQueue.textContent = 'Add to queue';
       return;
       
     }
