@@ -5,15 +5,16 @@ import { noAnswer } from './components/noAnswer-template.js';
 import templateModalCard from '../templates/templateModalCard.hbs';
 import templateNoInfoCard from '../templates/templateNoInfoCard.hbs';
 
-
 refs.galleryEl.addEventListener('click', onModalOpenFilm);
+
+
 refs.btnAddToWatch.addEventListener('click', locSetOne);
 refs.btnAddToaddToQueue.addEventListener('click', locSetOne);
 
 export function onModalOpenFilm(e) {
   e.preventDefault();
   refs.filmCardEl.innerHTML = '';
-
+  id = Number(e.target.closest('a ').dataset.id);
   refs.modalLoader.classList.add('loader-lines')
 
 
