@@ -37,6 +37,7 @@ function templateInfoLibrary(item) {
   });
 
   refs.galleryLibraryEl.innerHTML = templateLibraryCard(cardArr);
+
 }
 refs.btnWatched.addEventListener('click', drawMyWatched);
 function drawMyWatched(item) {
