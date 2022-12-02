@@ -14,21 +14,23 @@ html{
     text-align: center;
     position: fixed;
     top: 70%;
-    right: 50%;
+    right: 10%;
     border-radius: 99em;
     cursor: pointer;
     box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
     -webkit-transform: translateZ(0) scale(1.0);
     transform: translateZ(0) scale(1.0);
     transition: all 0.3s;
-    @media screen and (min-width: 768px){
+  
+    @media screen and (min-width: 768px) {
     top: 80%;
-    right: 2%;
+    right: +7%;
     }
-        @media screen and (max-width: 1200px){
-    bottom: 15%;
-    right: 1%;
-        }
+
+    @media screen and (min-width: 1200px){
+    top: 79%;
+    right: +1%;
+    }
 }
 
 .isShowBtn{

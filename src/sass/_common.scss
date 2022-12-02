@@ -2,6 +2,14 @@
 
 html {
     box-sizing: border-box;
+  //overflow-y: scroll;//todo: замінити
+}
+
+@media screen and (min-width: 960px) {
+  html {
+    margin-left: calc(100vw - 100%);
+    margin-right: 0;
+  }
 }
 
 *,
@@ -20,6 +28,10 @@ body {
     line-height: 14px;
     letter-spacing: 0em;
     /* text-align: center; */
+    
+    &.no-scroll {
+            overflow: hidden;
+        }
 }
 
 a,

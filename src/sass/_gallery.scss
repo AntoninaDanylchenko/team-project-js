@@ -37,12 +37,13 @@
 
   .card{
   color: var(--footer-img-cl);
+  transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
  
    }
 
 .card:hover, .card:focus{
   scale: 1.03;
-  box-shadow: 0px 3px 18px 0px rgba(255, 107, 1, 0.9);
+  box-shadow: 0px 3px 18px 0px rgba(255, 107, 8, 0.9);
 }
 
 
@@ -105,48 +106,4 @@
      justify-items: center;
    }
 
-  //  ==========================================================================================================================================================
-
-
-    // .counter {
-    //   display: flex;
-    //   text-align: center;
-    // }
   
-    // .posts {
-    //   display: flex;
-    //   flex-direction: column;
-    //   align-items: center;
-    // }
-  
-    // .post {
-    //   padding: 8px;
-    //   border-color: antiquewhite;
-    //   border: 1px;
-    // }
-  
-    // .pagination {
-    //   display: flex;
-    //   justify-content: center;
-    // }
-  
-    // .pagination__list {
-    //   display: flex;
-    //   list-style-type: none;
-    // }
-  
-    // .pagination__item {
-    //   padding: 8px;
-    //   margin: 8px;
-    //   cursor: pointer;
-    // }
-  
-    // .pagination__item--active {
-    //   font-weight: 800;
-    //   color: gold;
-    // }
-
-
-  
-
-
