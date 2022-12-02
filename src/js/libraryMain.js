@@ -26,6 +26,7 @@ function drawMyQueue(item) {
       const year = item.release_date.slice(0, 4);
       console.log(genreFilmStr, genreVoit);
       console.log(year);
+      
       return `<div class="library-wraper">
             <a
           class='library-gallery__item'

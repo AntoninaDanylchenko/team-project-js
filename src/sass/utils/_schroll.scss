@@ -3,9 +3,19 @@ html{
 }
 
 .simplifytotop{
+    display: none;
+  position: fixed;
+  right: 5px;
+  bottom: 28px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  z-index: 100;
+  transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
     visibility: hidden;
-    z-index: 2;
-    background: #ff6b08;
+    // z-index: 2;
+    background: var(--bg-col-current);
     color: #fff;
     font-size: 12px;
     width: 50px;
@@ -13,8 +23,8 @@ html{
     line-height: 50px;
     text-align: center;
     position: fixed;
-    top: 70%;
-    right: 10%;
+    // top: 70%;
+    // right: 10%;
     border-radius: 99em;
     cursor: pointer;
     box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
@@ -23,13 +33,13 @@ html{
     transition: all 0.3s;
   
     @media screen and (min-width: 768px) {
-    top: 80%;
-    right: +7%;
+        right: 5px;
+        bottom: 28px;
     }
 
     @media screen and (min-width: 1200px){
-    top: 79%;
-    right: +1%;
+        right: 5px;
+        bottom: 28px;
     }
 }
 

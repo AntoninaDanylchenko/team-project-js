@@ -38,6 +38,14 @@ export function closeModal() {
   refs.modalFilmBtnClose.removeEventListener('click', closeModal);
   document.removeEventListener('keydown', onEscBtnPress);
   refs.modalBackdrop.removeEventListener('click', onBackdropClick);
+
+  refs.btnAddToWatch.style.opacity = 1;
+  refs.btnAddToWatch.style.cursor = 'pointer'; 
+  refs.btnAddToWatch.disabled = false;
+
+  refs.btnAddToaddToQueue.style.opacity = 1;
+  refs.btnAddToaddToQueue.style.cursor = 'pointer'; 
+  refs.btnAddToWatch.disabled = false;
 }
 
 export function onEscBtnPress(e) {
