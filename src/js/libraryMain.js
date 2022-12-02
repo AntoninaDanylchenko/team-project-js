@@ -1,13 +1,23 @@
 import { refs } from './references/references.js';
 
+
+
 refs.btnQueue.addEventListener('click', drawMyQueue);
 function drawMyQueue(item) {
+
+  refs.galleryLibraryEl.innerHTML = '';
+
   refs.btnWatched.classList.remove('active-lbr');
   refs.btnQueue.classList.add('active-lbr');
-  // refs.galleryLibraryEl.innerHTML = '';
   const filmInLocal = JSON.parse(localStorage.getItem('Add-to-queue'));
-  console.log(filmInLocal);
-  console.log(filmInLocal[0].genres);
+
+  if(!filmInLocal || !filmInLocal.length){
+    refs.noCard.classList.remove('visually-hidden');
+  return ;
+  }
+
+  refs.noCard.classList.add('visually-hidden');
+
   const draw = filmInLocal
     .map(item => {
       const genreFilmsArr = item.genres.map(genre => genre.name);
@@ -43,20 +53,27 @@ function drawMyQueue(item) {
       </div>`;
     })
     .join(' ');
-  console.log(draw);
+  // console.log(draw);
   refs.galleryLibraryEl.innerHTML = draw;
   //   drawMyQueue();
 }
 
 refs.btnWatched.addEventListener('click', drawMyWatched);
 function drawMyWatched(item) {
-  // refs.galleryLibraryEl.innerHTML = '';
+
+  refs.galleryLibraryEl.innerHTML = '';
+
   refs.btnQueue.classList.remove('active-lbr');
   refs.btnWatched.classList.add('active-lbr');
 
   const filmInLocal = JSON.parse(localStorage.getItem('Add-to-watched'));
-  console.log(filmInLocal);
-  console.log(filmInLocal[0].genres);
+  if(!filmInLocal || !filmInLocal.length){
+
+   refs.noCard.classList.remove('visually-hidden');
+    return;
+  }
+  refs.noCard.classList.add('visually-hidden');
+  
   const draw = filmInLocal
     .map(item => {
       const genreFilmsArr = item.genres.map(genre => genre.name);
@@ -92,7 +109,9 @@ function drawMyWatched(item) {
       </div>`;
     })
     .join(' ');
-  console.log(draw);
+
   refs.galleryLibraryEl.innerHTML = draw;
+ 
 }
 drawMyWatched();
+
