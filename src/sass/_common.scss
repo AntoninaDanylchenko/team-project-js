@@ -5,12 +5,12 @@ html {
   //overflow-y: scroll;//todo: замінити
 }
 
-// @media screen and (min-width: 960px) {
-//   html {
-//     margin-left: calc(100vw - 100%);
-//     margin-right: 0;
-//   }
-// }
+@media screen and (min-width: 960px) {
+  html {
+    margin-left: calc(100vw - 100%);
+    margin-right: 0;
+  }
+}
 
 *,
 *::before,
@@ -20,13 +20,9 @@ html {
 
 body {
   // background: rgb(245, 244, 250);
+  background: black;
   // color: rgba(255, 255, 255, 1);
-  background-image: url(../images/bg-images/mobile-bg-image.jpg);
-  background-attachment: fixed;
-  background-size: cover;
-  backdrop-filter: blur(3px);
-
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   letter-spacing: 0.03em;
   font-weight: 500;
@@ -35,46 +31,32 @@ body {
   /* text-align: center; */
 
   &.no-scroll {
-    overflow: hidden;
-  }
+          overflow: hidden;
+      }
+    }
 
-  @media screen and (min-width: 768px) {
-    background-image: url(../images/bg-images/tablet-bg-image.jpg);
-  }
-
-  @media screen and (min-width: 1200px) {
-    background-image: url(../images/bg-images/desctop-bg-image.jpg);
-  }
-}
-
-a,
+    a,
 button {
-  text-decoration: none;
-  cursor: pointer;
-  font-style: normal;
-  color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    font-style: normal;
+    color: inherit;
 }
-
 
 ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
-
 }
 
 h1,
 h2,
 h3,
-p {
-    padding: 0;
-    margin: 0;
-  
-
+ul {
+  margin: 0;
+  padding: 0;
 }
 
 img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
 }

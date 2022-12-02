@@ -1,22 +1,26 @@
 .day_night{
     position: absolute;
     left: 85%;
-    color: var(--footer-bg-cl);
+    color:  var(--footer-bg-cl);
 }
 
-.day, 
-.night {
- fill: var(--footer-bg-cl);
+.day {
+    fill:rgb(240, 228, 53);
+   }
+.night
+ {
+ fill: rgb(240, 228, 53);
 }
 
 .night_layout{
- background-color: rgb(43, 42, 42);
+ background-color: var( --header-text-card)
 }
 
 .day_color{
-    fill: rgb(240, 228, 53);
+    fill:  var(--footer-bg-cl);
 }
 
 .night_color{
-    fill: blue;
+    
+    fill:   var(--footer-bg-cl);
 }
