@@ -88,15 +88,16 @@
         position: absolute;
         left: 7px;
         bottom: -45px;
+margin: 0;
 
         opacity: 0;
 
         font-weight: 400;
         font-size: 14px;
-        line-height: 16px;
+        line-height: 1.17;
         text-align: center;
 
-        color: #FF001B;
+        color: var(--error-text);
 
     }
 }

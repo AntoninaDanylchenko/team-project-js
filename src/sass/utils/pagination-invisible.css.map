@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,qBAAqB,CAAC;EACpB,OAAO,EAAE,CAAC;EACV,cAAc,EAAE,IAAI;CACrB",
+    "sources": [
+        "pagination-invisible.scss"
+    ],
+    "names": [],
+    "file": "pagination-invisible.css"
+}
