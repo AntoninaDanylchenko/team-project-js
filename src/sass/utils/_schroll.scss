@@ -1,0 +1,47 @@
+html{
+    scroll-behavior: smooth;
+}
+
+.simplifytotop{
+    visibility: hidden;
+    z-index: 2;
+    background: #ff6b08;
+    color: #fff;
+    font-size: 12px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    position: fixed;
+    top: 70%;
+    right: 10%;
+    border-radius: 99em;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
+    -webkit-transform: translateZ(0) scale(1.0);
+    transform: translateZ(0) scale(1.0);
+    transition: all 0.3s;
+
+    @media screen and (min-width: 768px) {
+    top: 80%;
+    right: +7%;
+    }
+
+    @media screen and (min-width: 1200px){
+        bottom: 30px;
+        right: calc(((100vw - 1200px) / 2) + 10px);
+        }
+    
+}
+
+.isShowBtn{
+    visibility:visible;
+    opacity: 1;
+    transition: 0.3s;
+
+}
+.isShowBtn_hide{
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s;
+}
