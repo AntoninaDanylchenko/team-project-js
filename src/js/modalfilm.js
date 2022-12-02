@@ -1,8 +1,10 @@
 import { refs } from './references/references';
 import { findMovies } from './fetch/find-movies';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { noAnswer } from './components/noAnswer-template';
+import { noAnswer } from './components/noAnswer-template.js';
 import templateModalCard from '../templates/templateModalCard.hbs';
+import templateNoInfoCard from '../templates/templateNoInfoCard.hbs';
+
 
 refs.galleryEl.addEventListener('click', onModalOpenFilm);
 refs.btnAddToWatch.addEventListener('click', locSetOne);
@@ -78,19 +80,48 @@ async function getInfoByID() {
     if (answer === 'noAnswer') {
       console.log('noAnswer is there');
 
+      refs.btnAddToWatch.style.opacity = 0;
+      refs.btnAddToWatch.style.cursor = 'default'; 
+      refs.btnAddToWatch.disabled = true;
+
+      refs.btnAddToaddToQueue.style.opacity = 0;
+      refs.btnAddToaddToQueue.style.cursor = 'default'; 
+      refs.btnAddToWatch.disabled = true;
+    
+
+      // refs.btnAddToWatch.remove();
+     
+  
       refs.modalBackdrop.classList.add('active');
       refs.modalFilm.classList.add('active');
 
-      return createFilmCards(noAnswer);
+      return noFilmCard(noAnswer);
     }
     refs.modalBackdrop.classList.add('active');
     refs.modalFilm.classList.add('active');
 
-    return createFilmCards(answer);
+    return createFilmCards(answer); 
 
   } catch (error) {
     console.log(error.message);
   }
+}
+function noFilmCard(card) {
+  // const genreArr = card.genres.map(genre => genre.name);
+  // const genreStr = genreArr.join(', ');
+  // const genreVoit = card.vote_average.toFixed(1);
+  // const genrePopularity = Math.round(card.popularity);
+
+  
+  refs.modalLoader.classList.remove('loader-points');
+  refs.modalLoader.classList.remove('loader-lines');
+  // const cardS = {
+  //   poster_path,
+  // };
+  console.log(card);
+  return (refs.filmCardEl.innerHTML = templateNoInfoCard(card));
+
+
 }
 
 function createFilmCards(card) {
