@@ -5,12 +5,12 @@ html {
   //overflow-y: scroll;//todo: замінити
 }
 
-// @media screen and (min-width: 960px) {
-//   html {
-//     margin-left: calc(100vw - 100%);
-//     margin-right: 0;
-//   }
-// }
+@media screen and (min-width: 960px) {
+  html {
+    margin-left: calc(100vw - 100%);
+    margin-right: 0;
+  }
+}
 
 *,
 *::before,
@@ -24,7 +24,7 @@ body {
   background-image: url(../images/bg-images/mobile-bg-image.jpg);
   background-attachment: fixed;
   background-size: cover;
-  backdrop-filter: blur(3px);
+  // backdrop-filter: blur(3px);
 
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
@@ -33,17 +33,17 @@ body {
   line-height: 14px;
   letter-spacing: 0em;
   /* text-align: center; */
-
-  &.no-scroll {
-    overflow: hidden;
-  }
-
+ 
   @media screen and (min-width: 768px) {
     background-image: url(../images/bg-images/tablet-bg-image.jpg);
   }
-
+  
   @media screen and (min-width: 1200px) {
     background-image: url(../images/bg-images/desctop-bg-image.jpg);
+  }
+
+  &.no-scroll {
+    overflow: hidden;
   }
 }
 
