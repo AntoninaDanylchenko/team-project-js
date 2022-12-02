@@ -55,18 +55,22 @@ button {
   color: inherit;
 }
 
-li {
-  list-style: none;
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
 }
 
 h1,
 h2,
 h3,
-ul {
-  padding-bottom: 0px;
-  padding-top: 0px;
-  margin: 0px;
-  padding-left: 0px;
+p {
+    padding: 0;
+    margin: 0;
+  
+
 }
 
 img {
