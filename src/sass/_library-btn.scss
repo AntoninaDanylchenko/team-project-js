@@ -31,14 +31,11 @@
         background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     color: #ffffff;
 
-    &:hover,
-    &:focus {
+    &:hover {
         color: #ffffff;
         border: none;
         background-color: #ff6b01;
     }
-
-
 
     @media screen and (min-width: 768px) {
         width: 152px;
@@ -47,8 +44,6 @@
     @media screen and (min-width: 1200px) {
         width: 148px;
     }
-
-
 }
 
 .btn-library-Queue {
@@ -61,6 +56,11 @@
     @media screen and (min-width: 1200px) {
         margin-left: 16px;
     }
+}
+
+.active-lbr {
+    border: none;
+    background-color: #ff6b01;
 }
 
 // .library-btn.active {

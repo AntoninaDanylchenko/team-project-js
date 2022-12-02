@@ -21,7 +21,11 @@ export const refs = {
   filmCardElImg: document.querySelector('.film-card > .film-info'),
   btnQueue: document.querySelector('.btn-library-Queue'),
   btnWatched: document.querySelector('.btn-library-Watched'),
+  noCard: document.querySelector('.no-card'),
 
   cssLoader: document.querySelector('.css-loader'),
   modalLoader: document.querySelector('.js-modal-loader'),
+
+  dayBtn: document.querySelector('.day_sun'),
+  nightBtn: document.querySelector('.night_moon')
 };

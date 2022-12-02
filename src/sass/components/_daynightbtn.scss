@@ -1,0 +1,14 @@
+.day_night{
+    position: absolute;
+    left: 85%;
+    color: var(--footer-bg-cl);
+}
+
+.day, 
+.night {
+ fill: var(--footer-bg-cl);
+}
+
+.night_layout{
+ background-color: rgb(43, 42, 42);
+}

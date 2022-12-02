@@ -3,9 +3,11 @@
 @import './utils/variables';
 @import './utils/schroll';
 @import './utils/pagination';
-@import './utils/pagination-invisible';
+@import 'utils/pagination-invisible';
 
-@import './utils/loader';
+@import 'utils/loader-film';
+@import 'utils/loader-lines';
+@import "utils/loader-kolo";
 
 @import './components/container';
 @import './components/button';
@@ -15,6 +17,7 @@
 
 @import './gallery';
 @import './header';
+@import './components/daynightbtn';
 @import './background-header';
 @import './search-form';
 @import './footer';
