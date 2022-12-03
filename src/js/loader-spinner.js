@@ -1,4 +1,4 @@
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';//todo: видалити разом із бібліотекою???
 
 const LoaderspinnerStart = Loading.pulse();
 

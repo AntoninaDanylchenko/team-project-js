@@ -7,7 +7,6 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
 import {cssLoader} from './css-loader';
-// cssLoader('show', refs.cssLoader)
 
 let paginationItemsSetup = false; //todo: YVG (чи правильна логіка?)
 // https://www.themoviedb.org/talk/634aafe8688cd0008135482c//todo: (обговорити разом ліміт)
@@ -18,7 +17,7 @@ export async function searchingMorePopularity(page = 1) {
   findMovies.queryType = 'popular';
   const request = await findMovies.find().then(function (answer) {
     console.log('searching by popularity, page #:', page);
-    cssLoader('hide', refs.cssLoader)
+    cssLoader('hide', refs.loader)
     console.log(answer);
     createResultMarkup(answer.results);
     console.log(answer); // у відповідь отримуємо об'єкт, який для прикладу консолимо.

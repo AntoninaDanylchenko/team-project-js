@@ -17,7 +17,7 @@ export function onModalOpenFilm(e) {
   }
 
   refs.filmCardEl.innerHTML = '';
-  refs.modalLoader.classList.add('loader-lines');
+  refs.loader.classList.add('loader-lines');
   document.body.classList.add('body-is-hidden');
 
   refs.modalFilmBtnClose.addEventListener('click', closeModal);
@@ -118,8 +118,8 @@ function noFilmCard(card) {
   // const genreVoit = card.vote_average.toFixed(1);
   // const genrePopularity = Math.round(card.popularity);
 
-  refs.modalLoader.classList.remove('loader-points');
-  refs.modalLoader.classList.remove('loader-lines');
+  refs.loader.classList.remove('loader-points');
+  refs.loader.classList.remove('loader-lines');
   // const cardS = {
   //   poster_path,
   // };
@@ -133,8 +133,8 @@ function createFilmCards(card) {
   const genreVoit = card.vote_average.toFixed(1);
   const genrePopularity = Math.round(card.popularity);
 
-  refs.modalLoader.classList.remove('loader-points');
-  refs.modalLoader.classList.remove('loader-lines');
+  refs.loader.classList.remove('loader-points');
+  refs.loader.classList.remove('loader-lines');
   const cardS = {
     poster_path: card.poster_path,
     title: card.title,
