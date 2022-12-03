@@ -11,15 +11,13 @@ refs.btnAddToaddToQueue.addEventListener('click', locSetOne);
 
 export function onModalOpenFilm(e) {
   e.preventDefault();
-  const isImgFromContainer = evt.target.classList.contains('gallery__item');
-  if (!isImgFromContainer) {
+
+  if (e.target.nodeName === 'DIV') {
     return;
   }
 
   refs.filmCardEl.innerHTML = '';
-
   refs.modalLoader.classList.add('loader-lines');
-
   document.body.classList.add('body-is-hidden');
 
   refs.modalFilmBtnClose.addEventListener('click', closeModal);
