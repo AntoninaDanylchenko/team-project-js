@@ -180,7 +180,7 @@ export async function locSetOne(e) {
       const index = filmInLocal.findIndex(item => item.id === filmToAdd.id);
       filmInLocal.splice(index);
       console.log(filmInLocal);
-      localStorage.removeItem('Add-to-watched');
+      // localStorage.removeItem('Add-to-watched');
       localStorage.setItem('Add-to-watched', JSON.stringify(filmInLocal));
       refs.btnAddToWatch.textContent = 'Add to watched';
       return;
