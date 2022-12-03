@@ -11,10 +11,11 @@ refs.btnAddToaddToQueue.addEventListener('click', locSetOne);
 
 export function onModalOpenFilm(e) {
   e.preventDefault();
-  if (e.target.nodeName !== 'a') {
+  const isImgFromContainer = evt.target.classList.contains('gallery__item');
+  if (!isImgFromContainer) {
     return;
   }
-  // id = Number(e.target.closest('a ').dataset.id);
+
   refs.filmCardEl.innerHTML = '';
 
   refs.modalLoader.classList.add('loader-lines');
