@@ -1,15 +1,36 @@
 .day_night {
-    position: absolute;
-    left: 85%;
+    @media screen and (min-width: 320px) {
+            position: absolute;
+            display: flex;
+            left: 50%;
+            top:50%;
+            transform: translate(-50%, 0);
+        }
+    
+    @media screen and (min-width: 768px) {
+            left: 85%;
+            top: auto;
+            display: inline;
+           
+        }
+    
     color: var(--footer-bg-cl);
 }
 
 .day {
     fill: rgb(240, 228, 53);
+    cursor: pointer;
+    &:hover{
+        fill: rgb(222, 134, 2);
+    }
 }
 
 .night {
     fill: rgb(240, 228, 53);
+    cursor: pointer;
+    &:hover {
+            fill: rgb(222, 134, 2);
+        }
 }
 
 .night_layout {
