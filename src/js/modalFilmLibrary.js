@@ -47,10 +47,8 @@ function getInfrofromLocalStorage(idfilm) {
   const filmInLocalAdd = JSON.parse(localStorage.getItem('Add-to-watched'));
   const filmInLocalQu = JSON.parse(localStorage.getItem('Add-to-queue'));
  idfilm = Number(idfilm);
-  const idLibraryObj = filmInLocalAdd.find(i => { if(i.id === idfilm ){
-     return i ;}}
-  );
-  console.log(idLibraryObj)
+
+ 
   //     //  можна переписати окремою функцією
   if (filmInLocalAdd) {
     filmInLocalAdd.find(item => {
@@ -71,8 +69,12 @@ function getInfrofromLocalStorage(idfilm) {
   refs.modalFilm.classList.add('active');
 
   // console.log(item.id);
-
-    createFilmCardsLibrary(idLibraryObj);
+  filmInLocalAdd.find(i => { if(i.id === idfilm ){
+    return createFilmCardsLibrary(i) ;}}
+ );
+filmInLocalQu.find(i => { if(i.id === idfilm ){
+   return    createFilmCardsLibrary(i); }});
+    // createFilmCardsLibrary(idLibraryObj);
 }
 ``
 function createFilmCardsLibrary(i) {
@@ -100,9 +102,9 @@ console.log(cardOb);
   return refs.filmCardEl.innerHTML = templateModalCard(cardOb);
 }
 
-// // функція що додає фільм в локалсторедж по ключу(текст який вказаний на кнопці), в задежносты на яку кнопку тиснеш
-// export async function locSetOne(e) {
-//   try {
+// функція що додає фільм в локалсторедж по ключу(текст який вказаний на кнопці), в задежносты на яку кнопку тиснеш
+//  function removeBtnLibrary(e) {
+  
 //     let key = '';
 //     if (e.target.classList.value === 'film-card-addToWatched') {
 //       key = 'Add-to-watched';
@@ -111,10 +113,87 @@ console.log(cardOb);
 //     if (e.target.classList.value === 'film-card-addToQueue') {
 //       key = 'Add-to-queue';
 //       console.log(key, 23);
-//     }
+    
 
 //     key = key.trim().split(' ').join('-');
 
-//     let filmToAdd = await findMovies.find();
-//     console.log(filmToAdd);
-//     console.log(e.target.classList.value);¸
+//     if (
+//       refs.btnAddToWatch.textContent === 'Remove Film' &&
+//       e.target.classList.value === 'film-card-addToWatched'
+//     ) {
+//       const filmInLocal = JSON.parse(localStorage.getItem('Add-to-watched'));
+//       console.log(filmInLocal);
+//       const index = filmInLocal.findIndex(item => item.id === filmToAdd.id);
+//       filmInLocal.splice(index);
+//       console.log(filmInLocal);
+//       localStorage.removeItem('Add-to-watched');
+//       localStorage.setItem('Add-to-watched', JSON.stringify(filmInLocal));
+//       refs.btnAddToWatch.textContent = 'Add to watched';
+//       return;
+//     }
+
+//     if (
+//       refs.btnAddToaddToQueue.textContent === 'Remove Film' &&
+//       e.target.classList.value === 'film-card-addToQueue'
+//     ) {
+//       const filmInLocal = JSON.parse(localStorage.getItem('Add-to-queue'));
+//       console.log(filmInLocal, 14);
+//       const index = filmInLocal.findIndex(item => item.id === filmToAdd.id);
+//       filmInLocal.splice(index, 1);
+//       console.log(filmInLocal, 15);
+
+//       localStorage.removeItem('Add-to-queue');
+//       localStorage.setItem('Add-to-queue', JSON.stringify(filmInLocal));
+//       refs.btnAddToaddToQueue.textContent = 'Add to queue';
+//       return;
+//     }
+//     if (key === 'Add-to-watched') {
+//       refs.btnAddToWatch.textContent = 'Remove Film';
+//     } else {
+//       refs.btnAddToaddToQueue.textContent = 'Remove Film';
+//     }
+
+//     const filmInLocal = JSON.parse(localStorage.getItem(key));
+
+//     if (!filmInLocal) {
+//       console.log('Clear');
+//     } else {
+//       filmInLocal.map(i =>
+//         i.title ? console.log(i.title) : console.log(i.name)
+//       );
+//     }
+
+//     findMovies.queryType = 'full-info';
+
+//     if (filmToAdd === 'noAnswer') {
+//       filmToAdd = noAnswer;
+//     }
+//     console.log(filmToAdd.title);
+//     let filmArr = [];
+
+//     if (!filmInLocal) {
+//       if (!filmToAdd.title) {
+//         Notify.failure('Sorry error, try again');
+
+//         return;
+//       }
+//       filmArr.push(filmToAdd);
+//       localStorage.setItem(key, JSON.stringify(filmArr));
+
+//       console.log('localStorage was clear, Film Added');
+
+//       return;
+//     } else if (
+//       filmInLocal.find(item => item.id === filmToAdd.id) ||
+//       !filmToAdd.title
+//     ) {
+//       Notify.warning('Sorry, you have this film in the Library');
+//       return;
+//     }
+
+//     filmArr = [...filmInLocal, filmToAdd];
+//     filmArr.map(i => (i.title ? console.log(i.title) : console.log(i.name)));
+//     localStorage.setItem(key, JSON.stringify(filmArr));
+//     return;
+//   }
+// }
