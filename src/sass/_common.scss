@@ -1,11 +1,12 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
- @media screen and (min-width: 960px) {
+
+
    html {
      margin-left: calc(100vw - 100%);
      margin-right: 0;
    }
- }
+
 
 *,
 *::before,
