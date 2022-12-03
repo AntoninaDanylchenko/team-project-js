@@ -11,10 +11,11 @@
   height: 300px;
   color: #fff;
   position: fixed;
-  left: 44%;
-  top: 50%;
 
-  transform: translate(-50%, -50%);
+  top: calc((100vh - 300px) / 2);
+  left: calc((100vw - 300px) / 2);
+
+
 }
 .loader-lines:before,
 .loader-lines:after {
