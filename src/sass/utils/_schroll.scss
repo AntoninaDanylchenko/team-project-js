@@ -21,16 +21,17 @@ html{
     -webkit-transform: translateZ(0) scale(1.0);
     transform: translateZ(0) scale(1.0);
     transition: all 0.3s;
-  
+
     @media screen and (min-width: 768px) {
     top: 80%;
     right: +7%;
     }
 
     @media screen and (min-width: 1200px){
-    top: 79%;
-    right: +1%;
-    }
+        bottom: 30px;
+        right: calc(((100vw - 1200px) / 2) + 10px);
+        }
+    
 }
 
 .isShowBtn{

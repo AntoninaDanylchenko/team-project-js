@@ -1,8 +1,9 @@
 import { refs } from './references/references';
 import { findMovies } from './fetch/find-movies';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { noAnswer } from './components/noAnswer-template';
+import { noAnswer } from './components/noAnswer-template.js';
 import templateModalCard from '../templates/templateModalCard.hbs';
+import templateNoInfoCard from '../templates/templateNoInfoCard.hbs';
 
 refs.galleryEl.addEventListener('click', onModalOpenFilm);
 refs.btnAddToWatch.addEventListener('click', locSetOne);
@@ -10,11 +11,13 @@ refs.btnAddToaddToQueue.addEventListener('click', locSetOne);
 
 export function onModalOpenFilm(e) {
   e.preventDefault();
+
+  if (e.target.nodeName === 'DIV') {
+    return;
+  }
+
   refs.filmCardEl.innerHTML = '';
-
-  refs.modalLoader.classList.add('loader-lines')
-
-
+  refs.loader.classList.add('loader-lines');
   document.body.classList.add('body-is-hidden');
 
   refs.modalFilmBtnClose.addEventListener('click', closeModal);
@@ -36,6 +39,14 @@ export function closeModal() {
   refs.modalFilmBtnClose.removeEventListener('click', closeModal);
   document.removeEventListener('keydown', onEscBtnPress);
   refs.modalBackdrop.removeEventListener('click', onBackdropClick);
+
+  refs.btnAddToWatch.style.opacity = 1;
+  refs.btnAddToWatch.style.cursor = 'pointer';
+  refs.btnAddToWatch.disabled = false;
+
+  refs.btnAddToaddToQueue.style.opacity = 1;
+  refs.btnAddToaddToQueue.style.cursor = 'pointer';
+  refs.btnAddToWatch.disabled = false;
 }
 
 export function onEscBtnPress(e) {
@@ -63,7 +74,7 @@ async function getInfoByID() {
         return item.id === answer.id;
       })
         ? (refs.btnAddToWatch.textContent = 'Remove Film')
-        : (refs.btnAddToWatch.textContent = 'Add-to-watched');
+        : (refs.btnAddToWatch.textContent = 'Add to watched');
     }
     if (filmInLocalQu) {
       filmInLocalQu.find(item => {
@@ -71,26 +82,49 @@ async function getInfoByID() {
         return item.id === answer.id;
       })
         ? (refs.btnAddToaddToQueue.textContent = 'Remove Film')
-        : (refs.btnAddToaddToQueue.textContent = 'Add-to-queue');
+        : (refs.btnAddToaddToQueue.textContent = 'Add to queue');
     }
     //
 
     if (answer === 'noAnswer') {
       console.log('noAnswer is there');
 
+      refs.btnAddToWatch.style.opacity = 0;
+      refs.btnAddToWatch.style.cursor = 'default';
+      refs.btnAddToWatch.disabled = true;
+
+      refs.btnAddToaddToQueue.style.opacity = 0;
+      refs.btnAddToaddToQueue.style.cursor = 'default';
+      refs.btnAddToWatch.disabled = true;
+
+      // refs.btnAddToWatch.remove();
+
       refs.modalBackdrop.classList.add('active');
       refs.modalFilm.classList.add('active');
 
-      return createFilmCards(noAnswer);
+      return noFilmCard(noAnswer);
     }
     refs.modalBackdrop.classList.add('active');
     refs.modalFilm.classList.add('active');
 
     return createFilmCards(answer);
-
   } catch (error) {
     console.log(error.message);
   }
+}
+function noFilmCard(card) {
+  // const genreArr = card.genres.map(genre => genre.name);
+  // const genreStr = genreArr.join(', ');
+  // const genreVoit = card.vote_average.toFixed(1);
+  // const genrePopularity = Math.round(card.popularity);
+
+  refs.loader.classList.remove('loader-points');
+  refs.loader.classList.remove('loader-lines');
+  // const cardS = {
+  //   poster_path,
+  // };
+  console.log(card);
+  return (refs.filmCardEl.innerHTML = templateNoInfoCard(card));
 }
 
 function createFilmCards(card) {
@@ -99,8 +133,8 @@ function createFilmCards(card) {
   const genreVoit = card.vote_average.toFixed(1);
   const genrePopularity = Math.round(card.popularity);
 
-  refs.modalLoader.classList.remove('loader-points');
-  refs.modalLoader.classList.remove('loader-lines');
+  refs.loader.classList.remove('loader-points');
+  refs.loader.classList.remove('loader-lines');
   const cardS = {
     poster_path: card.poster_path,
     title: card.title,
@@ -116,8 +150,6 @@ function createFilmCards(card) {
   };
   console.log(cardS);
   return (refs.filmCardEl.innerHTML = templateModalCard(cardS));
-
-
 }
 
 // функція що додає фільм в локалсторедж по ключу(текст який вказаний на кнопці), в задежносты на яку кнопку тиснеш
@@ -133,22 +165,25 @@ export async function locSetOne(e) {
       console.log(key, 23);
     }
 
-    key = key.trim().split(' ').join('-')
+    key = key.trim().split(' ').join('-');
 
     let filmToAdd = await findMovies.find();
     console.log(filmToAdd);
     console.log(e.target.classList.value);
 
-    if (refs.btnAddToWatch.textContent === "Remove Film" && e.target.classList.value === "film-card-addToWatched") {
-      const filmInLocal = JSON.parse(localStorage.getItem("Add-to-watched"));
+    if (
+      refs.btnAddToWatch.textContent === 'Remove Film' &&
+      e.target.classList.value === 'film-card-addToWatched'
+    ) {
+      const filmInLocal = JSON.parse(localStorage.getItem('Add-to-watched'));
       console.log(filmInLocal);
       const index = filmInLocal.findIndex(item => item.id === filmToAdd.id);
       filmInLocal.splice(index);
       console.log(filmInLocal);
-      localStorage.removeItem("Add-to-watched");
-      localStorage.setItem("Add-to-watched", JSON.stringify(filmInLocal));
-      refs.btnAddToWatch.textContent = "Add-to-watched";
-      return
+      localStorage.removeItem('Add-to-watched');
+      localStorage.setItem('Add-to-watched', JSON.stringify(filmInLocal));
+      refs.btnAddToWatch.textContent = 'Add to watched';
+      return;
     }
 
     if (
@@ -163,9 +198,8 @@ export async function locSetOne(e) {
 
       localStorage.removeItem('Add-to-queue');
       localStorage.setItem('Add-to-queue', JSON.stringify(filmInLocal));
-      refs.btnAddToaddToQueue.textContent = 'Add-to-queue';
+      refs.btnAddToaddToQueue.textContent = 'Add to queue';
       return;
-      
     }
     if (key === 'Add-to-watched') {
       refs.btnAddToWatch.textContent = 'Remove Film';
@@ -193,7 +227,6 @@ export async function locSetOne(e) {
 
     if (!filmInLocal) {
       if (!filmToAdd.title) {
-       
         Notify.failure('Sorry error, try again');
 
         return;
@@ -211,7 +244,6 @@ export async function locSetOne(e) {
       Notify.warning('Sorry, you have this film in the Library');
       return;
     }
-   
 
     filmArr = [...filmInLocal, filmToAdd];
     filmArr.map(i => (i.title ? console.log(i.title) : console.log(i.name)));

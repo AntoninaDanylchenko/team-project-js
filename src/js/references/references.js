@@ -22,10 +22,10 @@ export const refs = {
   btnQueue: document.querySelector('.btn-library-Queue'),
   btnWatched: document.querySelector('.btn-library-Watched'),
   noCard: document.querySelector('.no-card'),
-
-  cssLoader: document.querySelector('.css-loader'),
-  modalLoader: document.querySelector('.js-modal-loader'),
-
+  loader: document.querySelector('.js-loader'),
   dayBtn: document.querySelector('.day_sun'),
-  nightBtn: document.querySelector('.night_moon')
+  nightBtn: document.querySelector('.night_moon'),
+  dayIcon: document.querySelector(".day"),
+  nightIcon:document.querySelector(".night"),
+  bgImg: document.querySelector('.bg-img')
 };

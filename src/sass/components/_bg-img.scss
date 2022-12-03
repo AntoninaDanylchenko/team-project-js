@@ -1,0 +1,41 @@
+.bg-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+
+  background-image: url(../images/bg-images/mobile-bg-image.jpg);
+  //   background: fixed;
+  background-size: cover;
+  backdrop-filter: blur(10px);
+  opacity: 1;
+
+  @media screen and (min-width: 768px) {
+    background-image: url(../images/bg-images/tablet-bg-image.jpg);
+  }
+
+  @media screen and (min-width: 1200px) {
+    background-image: url(../images/bg-images/desctop-bg-image.jpg);
+  }
+
+}
+
+.bg-img-night {
+  opacity: 0.2;
+}
+
+.box {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  font-family: sans-serif;
+  text-align: center;
+  line-height: 1;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  width: 100vw;
+  height: 100vh;
+
+  z-index: -5;
+}
