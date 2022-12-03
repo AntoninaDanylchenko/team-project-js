@@ -3,7 +3,7 @@ export const refs = {
   closeModalBtn: document.querySelector('[data-action="close-modal"]'),
   backdrop: document.querySelector('.js-backdrop'),
 
-  container: document.querySelector('.team-info'),
+  container: document.querySelector('.modal__team-info'),
   btnAddToWatch: document.querySelector('.film-card-addToWatched'),
   btnAddToaddToQueue: document.querySelector('.film-card-addToQueue'),
   galleryEl: document.querySelector('.gallery'),
