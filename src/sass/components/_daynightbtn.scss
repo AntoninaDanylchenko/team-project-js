@@ -1,26 +1,26 @@
-.day_night{
+.day_night {
     position: absolute;
     left: 85%;
-    color:  var(--footer-bg-cl);
+    color: var(--footer-bg-cl);
 }
 
 .day {
-    fill:rgb(240, 228, 53);
-   }
-.night
- {
- fill: rgb(240, 228, 53);
+    fill: rgb(240, 228, 53);
 }
 
-.night_layout{
- background-color: var( --header-text-card)
+.night {
+    fill: rgb(240, 228, 53);
 }
 
-.day_color{
-    fill:  var(--footer-bg-cl);
+.night_layout {
+    background-color: var(--header-text-card);
 }
 
-.night_color{
-    
-    fill:   var(--footer-bg-cl);
+.day_color {
+    fill: var(--footer-bg-cl);
+}
+
+.night_color {
+
+    fill: var(--footer-bg-cl);
 }
