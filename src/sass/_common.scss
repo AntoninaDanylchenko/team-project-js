@@ -1,16 +1,16 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
-html {
-  box-sizing: border-box;
-  //overflow-y: scroll;//todo: замінити
-}
+// html {
+//   box-sizing: border-box;
+//   //overflow-y: scroll;//todo: замінити
+// }
 
-@media screen and (min-width: 960px) {
-  html {
-    margin-left: calc(100vw - 100%);
-    margin-right: 0;
-  }
-}
+// @media screen and (min-width: 960px) {
+//   html {
+//     margin-left: calc(100vw - 100%);
+//     margin-right: 0;
+//   }
+// }
 
 *,
 *::before,
@@ -28,23 +28,24 @@ body {
   font-weight: 500;
   line-height: 14px;
   letter-spacing: 0em;
-  /* text-align: center; */
+  cursor: default;
+
 
   &.no-scroll {
-          overflow: hidden;
-      }
-    }
+    overflow: hidden;
+  }
+}
 
-    a,
+a,
 button {
-    text-decoration: none;
-    cursor: pointer;
-    font-style: normal;
-    color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  font-style: normal;
+  color: inherit;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 h1,
@@ -56,7 +57,7 @@ ul {
 }
 
 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
