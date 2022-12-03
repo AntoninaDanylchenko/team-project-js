@@ -3,7 +3,8 @@
   color: var(--footer-img-cl);
   font-weight: 900px;
   font-size: 40px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+
 }
 
 .modal__team-info {
@@ -24,6 +25,7 @@
           column-gap: 10px;
         }
         @media screen and (min-width: 1200px) {
+          grid-template-columns: (1fr 1fr 1fr 1fr);
            column-gap: 10px; 
         }
   }
@@ -101,7 +103,6 @@
 }
 
 .list__team-link:hover,
-:active,
 :focus {
   color: var(--footer-img-cl);
   outline: none;
