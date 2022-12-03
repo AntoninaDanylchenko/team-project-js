@@ -38,6 +38,15 @@
   .card{
   color: var(--footer-img-cl);
   transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  height: 460px;
+  @media screen and (min-width: 768px) {
+    height: 500px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    height: 660px;
+  }
+
  
    }
 
@@ -70,10 +79,10 @@
      margin-top: 10px;
     margin-left: 4px;
     margin-right: 4px;
-     font-size: 20px;
+     font-size: 12px;
      
-      line-height: 24px;
-      font-weight: 500;;
+      line-height: 1.33;
+      font-weight: 500;
 
      @media screen and (min-width: 768px) {
       margin-top: 8px;
@@ -81,6 +90,9 @@
 
     @media screen and (min-width: 1200px) {
       margin-top: 12px;
+      font-size: 20px;
+      line-height: 1.2;
+
     }
     
 
