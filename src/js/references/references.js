@@ -29,5 +29,6 @@ export const refs = {
   dayBtn: document.querySelector('.day_sun'),
   nightBtn: document.querySelector('.night_moon'),
   dayIcon: document.querySelector(".day"),
-  nightIcon:document.querySelector(".night")
+  nightIcon:document.querySelector(".night"),
+  bgImg: document.querySelector('.bg-img')
 };
