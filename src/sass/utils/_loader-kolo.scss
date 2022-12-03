@@ -9,9 +9,18 @@
   animation: rotation 1s linear infinite;
 
   position: absolute;
-  left: 40%;// todo: правильно центрувати
-  top: 90px;
+  left: 22%;// todo: правильно центрувати
+  top: 100px;
+
+
   transform: translate(-50%, -50%);
+  @media screen and (min-width: 768px) {
+    left: 37%;
+}
+
+@media screen and (min-width: 1200px) {
+  left: 42%;
+}
 }
 .loader-kolo::after {
   content: '';
