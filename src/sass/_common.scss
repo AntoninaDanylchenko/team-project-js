@@ -1,16 +1,11 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
-// html {
-//   box-sizing: border-box;
-//   //overflow-y: scroll;//todo: замінити
-// }
-
-// @media screen and (min-width: 960px) {
-//   html {
-//     margin-left: calc(100vw - 100%);
-//     margin-right: 0;
-//   }
-// }
+ @media screen and (min-width: 960px) {
+   html {
+     margin-left: calc(100vw - 100%);
+     margin-right: 0;
+   }
+ }
 
 *,
 *::before,
