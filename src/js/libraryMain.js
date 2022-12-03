@@ -1,6 +1,7 @@
 import { refs } from './references/references.js';
 import templateLibraryCard from '../templates/templateLibraryCard.hbs';
 
+
 refs.btnQueue.addEventListener('click', drawMyQueue);
 function drawMyQueue() {
   refs.galleryLibraryEl.innerHTML = '';
@@ -58,3 +59,4 @@ function drawMyWatched() {
 }
 
 drawMyWatched();
+
