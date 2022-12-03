@@ -13,7 +13,7 @@ refs.searchFormEl.addEventListener('input', onInputSearch);
 function onBtnSearchClick(e) {
   e.preventDefault();
   container.classList.add('pagination-invisible')
-  cssLoader('show',  refs.cssLoader)
+  cssLoader('show',  refs.loader)
   refs.searchFormErrorEl.style.opacity = 0;
 
   findMovies.queryType = 'search-on-query';
@@ -32,7 +32,7 @@ async function loadMovie() {
     if (answer.results.length) {
       pagination.setTotalItems(answer.total_results); //YVG задає кількість картинок, щоб була вірна загальна кількість сторінок пагінації
       pagination.movePageTo(1); //YVG скидає на першу сторінку
-      cssLoader('hide', refs.cssLoader)
+      cssLoader('hide', refs.loader)
       container.classList.remove('pagination-invisible')
       return createResultMarkup(answer.results);
     }
