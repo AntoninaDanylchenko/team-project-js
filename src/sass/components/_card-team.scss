@@ -78,13 +78,20 @@
   color: inherit;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);}
 
-  .list__link:hover,
-  :active,
-  :focus {
-    color: var(--footer-img-cl);
-    outline: none;
-    cursor: pointer;
-  }
+
+// ===============================вирішення з підсвіткую тексту там нижня пофіксина .list__link:active
+ // .list__link:hover,
+ // :active,
+ // :focus {
+ //   color: var(--footer-img-cl);
+ //   outline: none;
+ //   cursor: pointer;
+ //  }
+   .list__link:active{
+     color: var(--footer-img-cl);
+     outline: none;
+     cursor: pointer;
+   }
 
   .list__icon {
     display: inline-block;
