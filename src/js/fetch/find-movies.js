@@ -81,7 +81,7 @@ export const findMovies = {
   },
 };
 
-async function genresIDsDatabase() {// todo: 
+async function genresIDsDatabase() {// todo:
   try {
     const response = await axios.get(
       `https://api.themoviedb.org/3/genre/movie/list?api_key=fe13ab826a741d40ca015441d0a0f529&language=en-US`
@@ -143,7 +143,11 @@ function repackBackendData(arr) {//INPUT MOVIES ARRAY FROM BACKEND
     }  else {
       yearsFirstArr.push('');
     }
-    element.first_air_date = yearsFirstArr;//RESTRICT RELEASE DATE TO YEAR END
+    element.first_air_date = yearsFirstArr;
+
+    if (yearsReleaseArr[0] === 'NO DATE' && yearsFirstArr[0].length === 4) {
+      element.release_date = [''];
+    }//RESTRICT RELEASE DATE TO YEAR END
 
     let voteAverage = [];// VOTE AVERAGE FIXED START
     if (element.vote_average) {
