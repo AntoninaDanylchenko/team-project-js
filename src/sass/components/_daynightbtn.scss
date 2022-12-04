@@ -1,20 +1,21 @@
 .theme {
-    @media screen and (min-width: 320px) {
-        position: absolute;
-        display: flex;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, 0);
-    }
 
-    @media screen and (min-width: 768px) {
-        left: 85%;
-        top: auto;
-        display: inline;
-
-    }
-
-    color: var(--footer-bg-cl);
+ @media screen and (min-width: 320px) {
+    position: absolute;
+    display: flex;
+    left: 50%;
+    top: 175px;
+    transform: translate(-50%, 0);
+}
+    
+@media screen and (min-width: 768px) {
+    left: 80%;
+    top: 100px;
+    display: inline;
+           
+}
+    
+   color: var(--footer-bg-cl);
 }
 
 .day,
