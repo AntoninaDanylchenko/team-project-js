@@ -2,10 +2,10 @@
 
 
 
-   html {
-     margin-left: calc(100vw - 100%);
-     margin-right: 0;
-   }
+html {
+  margin-left: calc(100vw - 100%);
+  margin-right: 0;
+}
 
 
 *,
@@ -13,6 +13,27 @@
 *::after {
   box-sizing: border-box;
 }
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
+}
+
+/* Працює в Chrome, Edge та Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: grey;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: orange;
+  border-radius: 0;
+  border: 5px;
+}
+
 
 body {
   // background: rgb(245, 244, 250);

@@ -1,36 +1,38 @@
 .library-gallery {
   display: grid;
   grid-template-columns: 1fr;
-  // padding: 20px;
   gap: 20px;
   width: 100%;
   text-align: center;
+
   @media screen and(min-width:768px) {
     gap: 32px;
     grid-template-columns: repeat(2, calc((100% - 32px) / 2));
     padding: 60px 32px;
   }
+
   @media screen and(min-width:1200px) {
     gap: 32px 16px;
     grid-template-columns: repeat(3, calc((100% - 32px) / 3));
   }
 }
-.no-card{
+
+.no-card {
 
   color: var(--error-text);
   text-align: center;
- 
+
   margin-left: auto;
   margin-right: auto;
-  // line-height: 1.36;
   font-size: 32px;
 
 }
-.no-card p{
+
+.no-card p {
   margin: 0;
 }
 
-.library-wraper{
+.library-wraper {
   transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
   height: 465px;
 
@@ -44,8 +46,8 @@
   }
 }
 
-.library-wraper:hover, .library-wraper:focus{
-  // scale: 1.03;
+.library-wraper:hover,
+.library-wraper:focus {
   box-shadow: 0px 3px 18px 0px rgba(255, 107, 8, 0.902);
 }
 
@@ -54,23 +56,16 @@
   border-radius: 5px;
   height: 402px;
   display: block;
+  margin-bottom: 12px;
+
   @media screen and (min-width: 768px) {
     height: 455px;
   }
+
   @media screen and (min-width: 1200px) {
     height: 574px;
   }
 
-  // transition: box-shadow transition-duration 350ms transition-timing
-  //     cubic-bezier(0.4, 0, 0.2, 1),
-  //   scale transition-duration 350ms transition-timing
-  //     cubic-bezier(0.4, 0, 0.2, 1);
-  // &:hover,
-  // &:focus {
-  //   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-  //     1px 4px 6px rgba(0, 0, 0, 0.16);
-  //   scale: 1.1;
-  // }
 }
 
 .library-info {
@@ -81,11 +76,12 @@
   margin-right: 4px;
   font-size: 12px;
   line-height: 1.33;
-  font-weight: 500;
+
   @media screen and (min-width: 768px) {
     margin-bottom: 8px;
 
   }
+
   @media screen and (min-width: 1200px) {
     margin-bottom: 12px;
     font-size: 20px;
@@ -94,12 +90,16 @@
 }
 
 
-
 .library-info__title {
- 
+  font-weight: 500;
   text-align: left;
   text-transform: uppercase;
   color: var(--header-text-card);
+
+  @media screen and (min-width: 1200px) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
 
 }
 
@@ -112,6 +112,7 @@
 .library-info__release {
   margin-left: 2px;
 }
+
 .film-rating {
   width: 40px;
   height: 20px;
@@ -124,7 +125,9 @@
   line-height: 1.17;
   text-align: center;
 }
+
 .wrap-library {
   display: flex;
   align-items: center;
+  font-weight: 500;
 }
