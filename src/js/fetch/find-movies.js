@@ -73,6 +73,7 @@ export const findMovies = {
       }
 
       this.localAnswer = answer;
+      console.log(answer);
       return await answer;
     } catch (error) {
       console.log(error.message);
@@ -132,7 +133,7 @@ function repackBackendData(arr) {//INPUT MOVIES ARRAY FROM BACKEND
         yearsReleaseArr.push(year);
       // }
       }  else {
-      yearsReleaseArr.push('');
+      yearsReleaseArr.push('NO DATE');
     }
     element.release_date = yearsReleaseArr;
 
