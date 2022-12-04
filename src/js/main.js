@@ -6,7 +6,6 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
 
-
 let paginationItemsSetup = false; 
 // https://www.themoviedb.org/talk/634aafe8688cd0008135482c//todo: (ліміти)
 export async function searchingMorePopularity(page = 1) {
@@ -15,12 +14,14 @@ export async function searchingMorePopularity(page = 1) {
   findMovies.query = '';
   findMovies.queryType = 'popular';
   const request = await findMovies.find().then(function (answer) {
+
   
     refs.loader.classList.remove('loader-kolo');
 
+
     createResultMarkup(answer.results);
     window.scrollTo(0, -400);
-    container.classList.remove('pagination-invisible')
+    container.classList.remove('pagination-invisible');
     if (!paginationItemsSetup) {
      
      
@@ -32,25 +33,26 @@ export async function searchingMorePopularity(page = 1) {
 
 //  ПАГІНАЦІЯ відображення кількості сторінок
 searchingMorePopularity();
-function adaptViewPagination(){
+function adaptViewPagination() {
   if (window.innerWidth <= 768) {
     return {
       totalItems: 500,
       itemsPerPage: 20,
       visiblePages: 3,
       centerAlign: true,
-    }}
-    if (window.innerWidth > 768) {
-      return {
-        totalItems: 500,
-        itemsPerPage: 20,
-        visiblePages: 7,
-        centerAlign: true,
-      }}
+    };
+  }
+  if (window.innerWidth > 768) {
+    return {
+      totalItems: 500,
+      itemsPerPage: 20,
+      visiblePages: 7,
+      centerAlign: true,
+    };
+  }
 }
 export const container = document.getElementById('tui-pagination-container');
 export let pagination = new Pagination(container, adaptViewPagination());
-
 
 pagination.on('afterMove', event => {
   const currentPage = event.page;
@@ -92,5 +94,3 @@ async function loadMovie2() {
     refs.searchFormErrorEl.style.opacity = 1;
   }
 }
-
-

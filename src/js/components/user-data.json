@@ -1,98 +1,88 @@
 [
   {
-    "photo":
-      "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Antonina.jpg",
+    "photo": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Antonina.jpg",
     "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/Antonina.webp",
-    "name": "Antonina Ivanets",
+    "name": "Antonina Danylchenko",
     "position": "team leader",
     "github": "https://github.com/AntoninaDanylchenko"
   },
   {
-    "photo":
-      "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/AndriyK.jpg",
+    "photo": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/AndriyK.jpg",
     "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/AndriyK.webp",
     "name": "Andrew Korchevskiy",
     "position": "scrum master",
     "github": "https://github.com/Salamandero"
   },
+
   {
-    "photo":
-      "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Vlad.jpg",
-    "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/Vlad.webp",
-    "name": "Vladislav Plisko",
-    "position": "developer",
-    "github": "https://github.com/litghning"
-  },
-  {
-    "photo":
-      "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Andriy.jpg",
-    "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/AndriyL.webp",
-    "name": "Andriy Lopsky",
-    "position": "developer",
-    "github": "https://github.com/Andriy19990"
-  },
-  {
-    "photo":
-      "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Oksana.jpg",
-    "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/Oksana.webp",
-    "name": "Oksana Bohatynska",
-    "position": "developer",
-    "github": "https://github.com/Bohatynska"
-  },
-  {
-    "photo":
-      "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Yuriy.jpg",
+    "photo": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Yuriy.jpg",
     "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/Yuriy.webp",
     "name": "Yuriy Gomenyuk",
     "position": "developer",
     "github": "https://github.com/YurGoV"
   },
   {
-    "photo":
-      "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Vova.jpg",
-    "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/Vova.webp",
-    "name": "Volodymyr Oleksyuk",
-    "position": "developer",
-    "github": "https://github.com/Olevova"
-  },
-  {
-    "photo":
-      "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Ann.jpg",
+    "photo": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Ann.jpg",
     "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/Ann.webp",
     "name": "Ann Yurchuk",
     "position": "developer",
     "github": "https://github.com/Ann-Yurchuk"
   },
   {
-    "photo":
-      "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/YuriyT.jpg",
+    "photo": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Vova.jpg",
+    "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/Vova.webp",
+    "name": "Volodymyr Oleksyuk",
+    "position": "developer",
+    "github": "https://github.com/Olevova"
+  },
+
+  {
+    "photo": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Nataliia.jpg",
+    "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/Nataliia.webp",
+    "name": "Nataliia Maksymeiko",
+    "position": "developer",
+    "github": "https://github.com/nataliiamax"
+  },
+  {
+    "photo": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Oksana.jpg",
+    "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/Oksana.webp",
+    "name": "Oksana Bohatynska",
+    "position": "developer",
+    "github": "https://github.com/Bohatynska"
+  },
+  {
+    "photo": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/YuriyT.jpg",
     "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/YuriyT.webp",
     "name": "Yuriy Tkachenko",
     "position": "developer",
     "github": "https://github.com/Tkachenko-Yuriy"
   },
   {
-    "photo":
-      "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Valentyn.jpg",
+    "photo": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Valentyn.jpg",
     "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/Valentyn.webp",
     "name": "Valentyn Podriz",
     "position": "developer",
     "github": "https://github.com/valentynPodriz"
   },
   {
-    "photo":
-      "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Nikita.jpg",
+    "photo": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Nikita.jpg",
     "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/Nikita.webp",
     "name": "Nikita Melnyk",
     "position": "developer",
     "github": "https://github.com/WhyNikuta"
   },
   {
-    "photo":
-      "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Nataliia.jpg",
-    "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/Nataliia.webp",
-    "name": "Nataliia Maksymeiko",
+    "photo": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Vlad.jpg",
+    "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/Vlad.webp",
+    "name": "Vladislav Plisko",
     "position": "developer",
-    "github": "https://github.com/nataliiamax"
+    "github": "https://github.com/litghning"
+  },
+  {
+    "photo": "https://github.com/AntoninaDanylchenko/team-project-js/raw/main/src/images/team-photo/Andriy.jpg",
+    "webp": "https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/team-photo/AndriyL.webp",
+    "name": "Andriy Lopsky",
+    "position": "developer",
+    "github": "https://github.com/Andriy19990"
   }
 ]

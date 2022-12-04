@@ -1,4 +1,5 @@
 .theme {
+
  @media screen and (min-width: 320px) {
     position: absolute;
     display: flex;
@@ -21,8 +22,9 @@
 .night {
     fill: rgb(240, 228, 53);
     cursor: pointer;
-    &:hover{
-    fill: rgb(222, 134, 2);
+
+    &:hover {
+        fill: rgb(222, 134, 2);
     }
 }
 
@@ -30,8 +32,12 @@
     background-color: var(--header-text-card);
 }
 
-.day_color, 
-.night_color{
-    fill: var(--footer-bg-cl);
+.gallery.night-thema .card p.info-title,
+.library-gallery.night-thema .library-wraper h3.library-info__title {
+    color: #ffffff;
 }
 
+.day_color,
+.night_color {
+    fill: var(--footer-bg-cl);
+}
