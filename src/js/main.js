@@ -6,7 +6,7 @@ import { log } from 'handlebars';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
-import {cssLoader} from './css-loader';
+import { cssLoader } from './css-loader';
 // cssLoader('show', refs.cssLoader)
 
 let paginationItemsSetup = false; //todo: YVG (чи правильна логіка?)
@@ -18,12 +18,12 @@ export async function searchingMorePopularity(page = 1) {
   findMovies.queryType = 'popular';
   const request = await findMovies.find().then(function (answer) {
     console.log('searching by popularity, page #:', page);
-    cssLoader('hide', refs.loader)
+    cssLoader('hide', refs.loader);
     console.log(answer);
     createResultMarkup(answer.results);
     console.log(answer); // у відповідь отримуємо об'єкт, який для прикладу консолимо.
     window.scrollTo(0, -400);
-    container.classList.remove('pagination-invisible')
+    container.classList.remove('pagination-invisible');
     if (!paginationItemsSetup) {
       //todo: YVG
       console.log('paginationItemsSetup run');
@@ -34,25 +34,26 @@ export async function searchingMorePopularity(page = 1) {
 }
 console.log(window.innerWidth);
 searchingMorePopularity();
-function adaptViewPagination(){
+function adaptViewPagination() {
   if (window.innerWidth <= 768) {
     return {
       totalItems: 500,
       itemsPerPage: 20,
       visiblePages: 3,
       centerAlign: true,
-    }}
-    if (window.innerWidth > 768) {
-      return {
-        totalItems: 500,
-        itemsPerPage: 20,
-        visiblePages: 7,
-        centerAlign: true,
-      }}
+    };
+  }
+  if (window.innerWidth > 768) {
+    return {
+      totalItems: 500,
+      itemsPerPage: 20,
+      visiblePages: 7,
+      centerAlign: true,
+    };
+  }
 }
 export const container = document.getElementById('tui-pagination-container');
 export let pagination = new Pagination(container, adaptViewPagination());
-
 
 pagination.on('afterMove', event => {
   const currentPage = event.page;
@@ -106,5 +107,3 @@ async function loadMovie2() {
     refs.searchFormErrorEl.style.opacity = 1;
   }
 }
-
-

@@ -3,6 +3,7 @@ export const refs = {
   closeModalBtn: document.querySelector('[data-action="close-modal"]'),
   backdrop: document.querySelector('.js-backdrop'),
 
+  modalfilmBgEl: document.querySelector('.modal__team'),
   container: document.querySelector('.modal__team-info'),
   btnAddToWatch: document.querySelector('.film-card-addToWatched'),
   btnAddToaddToQueue: document.querySelector('.film-card-addToQueue'),
@@ -25,7 +26,7 @@ export const refs = {
   loader: document.querySelector('.js-loader'),
   dayBtn: document.querySelector('.day_sun'),
   nightBtn: document.querySelector('.night_moon'),
-  dayIcon: document.querySelector(".day"),
-  nightIcon:document.querySelector(".night"),
-  bgImg: document.querySelector('.bg-img')
+  dayIcon: document.querySelector('.day'),
+  nightIcon: document.querySelector('.night'),
+  bgImg: document.querySelector('.bg-img'),
 };
