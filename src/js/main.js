@@ -5,26 +5,18 @@ import { refs } from './references/references';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
-
-let paginationItemsSetup = false; 
-// https://www.themoviedb.org/talk/634aafe8688cd0008135482c//todo: (ліміти)
+let paginationItemsSetup = false;
 export async function searchingMorePopularity(page = 1) {
- 
   findMovies.page = page;
   findMovies.query = '';
   findMovies.queryType = 'popular';
   const request = await findMovies.find().then(function (answer) {
-
-  
     refs.loader.classList.remove('loader-kolo');
-
 
     createResultMarkup(answer.results);
     window.scrollTo(0, -400);
     container.classList.remove('pagination-invisible');
     if (!paginationItemsSetup) {
-     
-     
       pagination.setTotalItems(answer.total_results);
       paginationItemsSetup = true;
     }
@@ -56,19 +48,14 @@ export let pagination = new Pagination(container, adaptViewPagination());
 
 pagination.on('afterMove', event => {
   const currentPage = event.page;
- 
+
   if (findMovies.queryTypeToPagination === 'popular') {
-    console.log('popular pgination start');
     searchingMorePopularity(currentPage);
   }
   if (findMovies.queryTypeToPagination === 'search-on-query') {
-
     onQuerySearchPagination(findMovies.queryToPagination, currentPage);
-   
   }
 });
-
-
 
 function onQuerySearchPagination(query, page) {
   refs.searchFormErrorEl.style.opacity = 0;
@@ -90,7 +77,6 @@ async function loadMovie2() {
 
     refs.searchFormErrorEl.style.opacity = 1;
   } catch (error) {
-   
     refs.searchFormErrorEl.style.opacity = 1;
   }
 }
