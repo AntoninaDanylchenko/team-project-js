@@ -1,21 +1,21 @@
 .theme {
 
- @media screen and (min-width: 320px) {
-    position: absolute;
-    display: flex;
-    left: 50%;
-    top: 175px;
-    transform: translate(-50%, 0);
-}
-    
-@media screen and (min-width: 768px) {
-    left: 80%;
-    top: 100px;
-    display: inline;
-           
-}
-    
-   color: var(--footer-bg-cl);
+    @media screen and (min-width: 320px) {
+        position: absolute;
+        display: flex;
+        left: 50%;
+        top: 175px;
+        transform: translate(-50%, 0);
+    }
+
+    @media screen and (min-width: 768px) {
+        left: 80%;
+        top: 100px;
+        display: inline;
+
+    }
+
+    color: var(--footer-bg-cl);
 }
 
 .day,
@@ -32,10 +32,29 @@
     background-color: var(--header-text-card);
 }
 
-.gallery.night-thema .card p.info-title,
-.library-gallery.night-thema .library-wraper h3.library-info__title {
-    color: #ffffff;
+
+.modal-thems-night {
+    background-image: linear-gradient(to right, #072335, #1f6590);
+    color: rgb(255, 255, 255);
 }
+
+.modal-thems-night .film-card-addToWatched,
+.modal-thems-night .film-card-addToQueue {
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.modal-thems-night .film-info__characteristic,
+.modal-thems-night .list__team-title,
+.modal-thems-night .modal__team-title,
+.gallery.night-thema .info-title,
+.library-gallery.night-thema .library-info__title {
+    color: rgb(255, 255, 255);
+}
+
+.modal-thems-night .film-info__param {
+    color: rgba(0, 0, 0, 0.9);
+}
+
 
 .day_color,
 .night_color {

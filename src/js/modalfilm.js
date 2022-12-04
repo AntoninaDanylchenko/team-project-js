@@ -15,10 +15,6 @@ export function onModalOpenFilm(e) {
   if (e.target.nodeName === 'DIV') {
     return;
   }
-  const dayThemeFromLocal = localStorage.getItem('theme');
-  if (dayThemeFromLocal === 'night_moon') {
-    refs.modalFilm.style.background = 'rgba(144, 96, 54,0.9)';
-  }
 
   refs.filmCardEl.innerHTML = '';
   refs.loader.classList.add('loader-lines');
