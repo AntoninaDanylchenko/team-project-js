@@ -1,8 +1,9 @@
 import { refs } from './references/references.js';
 import templateLibraryCard from '../templates/templateLibraryCard.hbs';
 
+
 refs.btnQueue.addEventListener('click', drawMyQueue);
-function drawMyQueue() {
+export function drawMyQueue() {
   refs.galleryLibraryEl.innerHTML = '';
 
   refs.btnWatched.classList.remove('active-lbr');
@@ -42,7 +43,7 @@ function templateInfoLibrary(item) {
 }
 
 refs.btnWatched.addEventListener('click', drawMyWatched);
-function drawMyWatched() {
+export function drawMyWatched() {
   refs.galleryLibraryEl.innerHTML = '';
 
   refs.btnQueue.classList.remove('active-lbr');
@@ -58,3 +59,4 @@ function drawMyWatched() {
 }
 
 drawMyWatched();
+
