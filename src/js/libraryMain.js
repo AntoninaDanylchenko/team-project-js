@@ -16,8 +16,9 @@ export function drawMyQueue() {
   }
 
   refs.noCard.classList.add('visually-hidden');
-
-  templateInfoLibrary(filmInLocal);
+  if (filmInLocal) {
+    templateInfoLibrary(filmInLocal);
+  }
 }
 
 function templateInfoLibrary(item) {
