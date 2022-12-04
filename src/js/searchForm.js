@@ -1,18 +1,15 @@
 import { refs } from './references/references';
 import { findMovies } from './fetch/find-movies';
 import { createResultMarkup } from './components/createMarkupGalleryCards';
-import debounce from 'lodash.debounce';
 import { pagination, searchingMorePopularity } from './main.js';
-// import { cssLoader } from './css-loader'; //YVG
-import {container} from './main.js';
-
+import { container } from './main.js';
 
 refs.searchFormEl.addEventListener('submit', onBtnSearchClick);
 refs.searchFormEl.addEventListener('input', onInputSearch);
 
 function onBtnSearchClick(e) {
   e.preventDefault();
-  container.classList.add('pagination-invisible')
+  container.classList.add('pagination-invisible');
   refs.loader.classList.add('loader-kolo');
   refs.searchFormErrorEl.style.opacity = 0;
 
@@ -25,26 +22,23 @@ function onBtnSearchClick(e) {
   loadMovie();
 }
 async function loadMovie() {
-  //YVG поки експорт залишив, проте не працює як треба todo: обговорити ввечорі
   try {
     const answer = await findMovies.find();
-    console.log(answer);
     if (answer.results.length) {
       pagination.setTotalItems(answer.total_results); //YVG задає кількість картинок, щоб була вірна загальна кількість сторінок пагінації
       pagination.movePageTo(1); //YVG скидає на першу сторінку
       refs.loader.classList.remove('loader-kolo');
-      container.classList.remove('pagination-invisible')
+      container.classList.remove('pagination-invisible');
       return createResultMarkup(answer.results);
     }
     refs.searchFormErrorEl.style.opacity = 1;
   } catch (error) {
-    console.log(error.message);
+  console.log(error.message);
     refs.searchFormErrorEl.style.opacity = 1;
   }
 }
 function onInputSearch(e) {
   findMovies.query = e.currentTarget.elements.searchQuery.value;
-  console.log(findMovies.query);
   if (!findMovies.query) {
     refs.searchFormErrorEl.style.opacity = 0;
     return searchingMorePopularity();

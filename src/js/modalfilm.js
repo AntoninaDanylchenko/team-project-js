@@ -1,6 +1,5 @@
 import { refs } from './references/references';
 import { findMovies } from './fetch/find-movies';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { noAnswer } from './components/noAnswer-template.js';
 import templateModalCard from '../templates/templateModalCard.hbs';
 import templateNoInfoCard from '../templates/templateNoInfoCard.hbs';
@@ -25,7 +24,6 @@ export function onModalOpenFilm(e) {
   refs.modalBackdrop.addEventListener('click', onBackdropClick);
 
   const idClickFilm = e.target.id;
-  console.log(idClickFilm);
   findMovies.query = idClickFilm;
   findMovies.queryType = 'full-info';
   getInfoByID();
@@ -82,11 +80,8 @@ async function getInfoByID() {
         ? (refs.btnAddToaddToQueue.textContent = 'Remove Film')
         : (refs.btnAddToaddToQueue.textContent = 'Add to queue');
     }
-    //
 
     if (answer === 'noAnswer') {
-      console.log('noAnswer is there');
-
       refs.btnAddToWatch.style.opacity = 0;
       refs.btnAddToWatch.style.cursor = 'default';
       refs.btnAddToWatch.disabled = true;
@@ -94,8 +89,6 @@ async function getInfoByID() {
       refs.btnAddToaddToQueue.style.opacity = 0;
       refs.btnAddToaddToQueue.style.cursor = 'default';
       refs.btnAddToWatch.disabled = true;
-
-      // refs.btnAddToWatch.remove();
 
       refs.modalBackdrop.classList.add('active');
       refs.modalFilm.classList.add('active');
@@ -113,7 +106,6 @@ async function getInfoByID() {
 function noFilmCard(card) {
   refs.loader.classList.remove('loader-points');
   refs.loader.classList.remove('loader-lines');
-  console.log(card);
   return (refs.filmCardEl.innerHTML = templateNoInfoCard(card));
 }
 
@@ -137,7 +129,6 @@ function createFilmCards(card) {
     genreStr,
     overview: card.overview,
   };
-  console.log(cardS);
   return (refs.filmCardEl.innerHTML = templateModalCard(cardS));
 }
 
@@ -163,7 +154,6 @@ export async function locSetOne(e) {
       const filmInLocal = JSON.parse(localStorage.getItem('Add-to-watched'));
       const index = filmInLocal.findIndex(item => item.id === filmToAdd.id);
       filmInLocal.splice(index);
-      // localStorage.removeItem('Add-to-watched');
       localStorage.setItem('Add-to-watched', JSON.stringify(filmInLocal));
       refs.btnAddToWatch.textContent = 'Add to watched';
       return;
@@ -190,44 +180,29 @@ export async function locSetOne(e) {
 
     const filmInLocal = JSON.parse(localStorage.getItem(key));
 
-    if (!filmInLocal) {
-      console.log('Clear');
-    } else {
-      filmInLocal.map(i =>
-        i.title ? console.log(i.title) : console.log(i.name)
-      );
-    }
-
     findMovies.queryType = 'full-info';
 
     if (filmToAdd === 'noAnswer') {
       filmToAdd = noAnswer;
     }
-    console.log(filmToAdd.title);
     let filmArr = [];
 
     if (!filmInLocal) {
       if (!filmToAdd.title) {
-        Notify.failure('Sorry error, try again');
-
         return;
       }
       filmArr.push(filmToAdd);
       localStorage.setItem(key, JSON.stringify(filmArr));
-
-      console.log('localStorage was clear, Film Added');
 
       return;
     } else if (
       filmInLocal.find(item => item.id === filmToAdd.id) ||
       !filmToAdd.title
     ) {
-      Notify.warning('Sorry, you have this film in the Library');
       return;
     }
 
     filmArr = [...filmInLocal, filmToAdd];
-    filmArr.map(i => (i.title ? console.log(i.title) : console.log(i.name)));
     localStorage.setItem(key, JSON.stringify(filmArr));
     return;
   } catch (error) {
@@ -251,7 +226,6 @@ function drawMyFilm(e) {
   </div>`
     )
     .join();
-  // console.log(draw);
 
   someEl('.card').innerHTML = draw;
 }
