@@ -7,6 +7,36 @@ refs.galleryLibraryEl.addEventListener('click', onModalOpenFilmLibrary);
 refs.btnAddToWatch.addEventListener('click', libraryButtons);
 refs.btnAddToaddToQueue.addEventListener('click', libraryButtons);
 
+let idFilm = '';
+let filmInLocalWatched = '';
+let filmInLocalQueue = '';
+let filmRemoved = '';
+
+const beforeRemove = {
+  // watchedBeforeRemove: NaN,
+  // queueBeforeRemove: NaN,
+  // filmRemovedFromWatched: NaN,
+  // filmRemovedFromQueued: NaN,
+  filmOpened: NaN,
+
+  // saveWached(array) {
+  //   this.watchedBeforeRemove = array;
+  // },
+  // saveQueue(array) {
+  //   this.queueBeforeRemove = array;
+  // },
+  // saveFilmWatched(obj) {
+  //   this.filmRemovedFromWatched = obj;
+  // },
+  // saveFilmQueued(obj) {
+  //   this.filmRemovedFromQueued = obj;
+  // },
+  saveOpened(obj) {
+    this.filmOpened= obj;
+  }
+}
+
+
  function onModalOpenFilmLibrary(e) {
     e.preventDefault();
 
@@ -19,10 +49,8 @@ refs.btnAddToaddToQueue.addEventListener('click', libraryButtons);
     refs.modalBackdrop.addEventListener('click', onBackdropClick);
 
     const idClickFilm = e.target.id;
-
     getInfoFromLocalStorage(idClickFilm);
-
-   return idClickFilm;
+    return idClickFilm;
 
   };
 
@@ -39,48 +67,87 @@ refs.btnAddToaddToQueue.addEventListener('click', libraryButtons);
     if (event.target.classList.value === 'film-card-addToQueue') {
       key = 'Add-to-queue';
       console.log(key, 23, event.target);
+      console.log(key, 23, event.target.textContent.trim());
       console.log(idFilm);
+
     }
 
     if (event.target.textContent === 'Remove Film') {
 
         if (event.target.classList.value === 'film-card-addToWatched') {
-          console.log('www');
-        const index = filmInLocalAdd.findIndex(item => item.id === idFilm);
-        filmInLocalAdd.splice(index, 1);
-        console.log(filmInLocalAdd);
-        localStorage.setItem('Add-to-watched', JSON.stringify(filmInLocalAdd));
-          drawMyWatched();
-          event.target.textContent = 'Add to Watched';
+          const filmsInWatchedStorage = JSON.parse(localStorage.getItem('Add-to-watched'));
+          console.log(filmsInWatchedStorage);
+          const index = filmsInWatchedStorage.findIndex(item => item.id === idFilm);
+          console.log(index);
+          const removedFilm = filmsInWatchedStorage.splice(index, 1);
+          console.log(removedFilm[0]);
+          console.log(filmsInWatchedStorage);
+          localStorage.setItem('Add-to-watched', JSON.stringify(filmsInWatchedStorage));
+          event.target.textContent = 'Add to watched';
+          if(refs.btnWatched.classList.contains('active-lbr')) {
+            return drawMyWatched();
+          }
+
+          if(refs.btnQueue.classList.contains('active-lbr')) {
+            return drawMyQueue();
+          }
+          return;
       }
       if (event.target.classList.value === 'film-card-addToQueue') {
-        console.log('qqq');
-        const index = filmInLocalQu.findIndex(item => item.id === idFilm);
-        filmInLocalQu.splice(index, 1);
-        console.log(filmInLocalQu);
-        localStorage.setItem('Add-to-queue', JSON.stringify(filmInLocalQu));
-        drawMyQueue();
-        event.target.textContent = 'Add to Queue';
+        const filmsInQueuedStorage = JSON.parse(localStorage.getItem('Add-to-queue'));
+        const index = filmsInQueuedStorage.findIndex(item => item.id === idFilm);
+        const removedFilm = filmsInQueuedStorage.splice(index, 1);
+        // console.log(filmsToSave);
+        localStorage.setItem('Add-to-queue', JSON.stringify(filmsInQueuedStorage));
+        event.target.textContent = 'Add to queue';
+        if(refs.btnWatched.classList.contains('active-lbr')) {
+          return drawMyWatched();
+        }
+
+        if(refs.btnQueue.classList.contains('active-lbr')) {
+          return drawMyQueue();
+        }
+        return;
       }
     }
 
-    if (event.target.textContent === 'Add to queue') {
-      console.log('to queue');
-
-      const film = filmInLocalAdd.find(film => film.id === idFilm);
-      filmInLocalQu = [...filmInLocalQu, film];
-      console.log(filmInLocalQu);
-      localStorage.setItem('Add-to-queue', JSON.stringify(filmInLocalQu));
+    if (event.target.textContent.trim() === 'Add to queue') {
+      console.log('to queue')
+      const film = beforeRemove.filmOpened
+      const filmsInQueueStorage = JSON.parse(localStorage.getItem('Add-to-queue'));
+      const filmsToSave = [...filmsInQueueStorage, film];
+      console.log(filmsInQueueStorage);
+      console.log(film);
+      console.log(filmsToSave);
+      localStorage.setItem('Add-to-queue', JSON.stringify(filmsToSave));
       event.target.textContent = 'Remove Film';
+      if(refs.btnWatched.classList.contains('active-lbr')) {
+        return drawMyWatched();
+      }
+
+      if(refs.btnQueue.classList.contains('active-lbr')) {
+        return drawMyQueue();
+      }
+      return;
     }
     if (event.target.textContent === 'Add to watched') {
-      console.log('to watched');
-      console.log(filmInLocalAdd);
-      const film = filmInLocalQu.find(film => film.id === idFilm);
-      filmInLocalAdd = [...filmInLocalAdd, film];
-      console.log(filmInLocalAdd);
-      localStorage.setItem('Add-to-watched', JSON.stringify(filmInLocalAdd));
+      console.log('to watched')
+      const film = beforeRemove.filmOpened
+      const filmsInWatchedStorage = JSON.parse(localStorage.getItem('Add-to-watched'));
+      const filmsToSave = [...filmsInWatchedStorage, film];
+      console.log(filmsInWatchedStorage);
+      console.log(film);
+      console.log(filmsToSave);
+      localStorage.setItem('Add-to-watched', JSON.stringify(filmsToSave));
       event.target.textContent = 'Remove Film';
+      if(refs.btnWatched.classList.contains('active-lbr')) {
+        return drawMyWatched();
+      }
+
+      if(refs.btnQueue.classList.contains('active-lbr')) {
+        return drawMyQueue();
+      }
+      return;
     }
 
   };
@@ -108,27 +175,22 @@ export function onBackdropClick(e) {
   }
 }
 
-let idFilm = '';
-let filmInLocalAdd = '';
-let filmInLocalQu = '';
-
   function getInfoFromLocalStorage(idfilm) {
-  filmInLocalAdd = JSON.parse(localStorage.getItem('Add-to-watched'));
-  filmInLocalQu = JSON.parse(localStorage.getItem('Add-to-queue'));
+  filmInLocalWatched = JSON.parse(localStorage.getItem('Add-to-watched'));
+  filmInLocalQueue = JSON.parse(localStorage.getItem('Add-to-queue'));
   idfilm = Number(idfilm);
-
   idFilm = idfilm;
 
   //     //  можна переписати окремою функцією
-  if (filmInLocalAdd) {
-    filmInLocalAdd.find(item => {
+  if (filmInLocalWatched) {
+    filmInLocalWatched.find(item => {
       return item.id === idfilm;
     })
       ? (refs.btnAddToWatch.textContent = 'Remove Film')
       : (refs.btnAddToWatch.textContent = 'Add to watched');
   }
-  if (filmInLocalQu) {
-    filmInLocalQu.find(item => {
+  if (filmInLocalQueue) {
+    filmInLocalQueue.find(item => {
       return item.id === idfilm;
     })
       ? (refs.btnAddToaddToQueue.textContent = 'Remove Film')
@@ -139,26 +201,31 @@ let filmInLocalQu = '';
   refs.modalFilm.classList.add('active');
 
   // console.log(item.id);
-  filmInLocalAdd.find(i => {
+  if (filmInLocalWatched) {
+    filmInLocalWatched.find(i => {
+        if (i.id === idfilm) {
+          console.log(i);
+          beforeRemove.saveOpened(i);
+          return createFilmCardsLibrary(i);
+        }
+      },
+    );
+  }
+  if (filmInLocalQueue) {
+    filmInLocalQueue.find(i => {
       if (i.id === idfilm) {
+        console.log(i);
+        beforeRemove.saveOpened(i);
         return createFilmCardsLibrary(i);
       }
-    },
-  );
-  filmInLocalQu.find(i => {
-    if (i.id === idfilm) {
-      return createFilmCardsLibrary(i);
-    }
-  });
+    });
+  }
   // createFilmCardsLibrary(idLibraryObj);
 }
 
 ``;
 
 function createFilmCardsLibrary(i) {
-  //   refs.modalLoader.classList.remove('loader-points');
-  //   refs.modalLoader.classList.remove('loader-lines');
-
   const genreArr = i.genres.map(genre => genre.name);
   const genreStr = genreArr.join(', ');
   const genreVoit = i.vote_average.toFixed(1);
@@ -167,7 +234,6 @@ function createFilmCardsLibrary(i) {
     poster_path: i.poster_path,
     title: i.title,
     id: i.id,
-    title: i.title,
     name: i.name,
     genreVoit,
     vote_count: i.vote_count,
