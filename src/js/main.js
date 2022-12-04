@@ -6,7 +6,7 @@ import { log } from 'handlebars';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
-import { cssLoader } from './css-loader';
+// import { cssLoader } from './css-loader';
 // cssLoader('show', refs.cssLoader)
 
 let paginationItemsSetup = false; //todo: YVG (чи правильна логіка?)
@@ -18,7 +18,7 @@ export async function searchingMorePopularity(page = 1) {
   findMovies.queryType = 'popular';
   const request = await findMovies.find().then(function (answer) {
     console.log('searching by popularity, page #:', page);
-    cssLoader('hide', refs.loader);
+    refs.loader.classList.remove('loader-kolo');
     console.log(answer);
     createResultMarkup(answer.results);
     console.log(answer); // у відповідь отримуємо об'єкт, який для прикладу консолимо.
