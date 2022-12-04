@@ -1,4 +1,4 @@
-const ref = {
+const ref = {//todo: ВИДАЛИТИ??
   // querySearch: document.querySelector('.js-query-search'),
   // morePopular: document.querySelector('.js-load-popular'),
   // movieDetails: document.querySelector('.js-movie-id'),
