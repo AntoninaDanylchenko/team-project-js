@@ -33,6 +33,7 @@ async function loadMovie() {
     }
     refs.searchFormErrorEl.style.opacity = 1;
   } catch (error) {
+  console.log(error.message);
     refs.searchFormErrorEl.style.opacity = 1;
   }
 }
