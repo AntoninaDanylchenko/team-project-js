@@ -73,7 +73,6 @@ export const findMovies = {
       }
 
       this.localAnswer = answer;
-      console.log(answer);
       return await answer;
     } catch (error) {
       console.log(error.message);
@@ -82,7 +81,7 @@ export const findMovies = {
   },
 };
 
-async function genresIDsDatabase() {
+async function genresIDsDatabase() {// todo: 
   try {
     const response = await axios.get(
       `https://api.themoviedb.org/3/genre/movie/list?api_key=fe13ab826a741d40ca015441d0a0f529&language=en-US`
@@ -159,7 +158,7 @@ function repackBackendData(arr) {//INPUT MOVIES ARRAY FROM BACKEND
 
     if (!element.poster_path) {//IMG LINK CHECK AND REPLACE START
 
-      element.poster_path = 'https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/we-win.webp';//:todo !!!!
+      element.poster_path = 'https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/we-win.webp';
     } else {
       element.poster_path = `https://image.tmdb.org/t/p/w500${element.poster_path}`;
     }//IMG LINK CHECK AND REPLACE END
