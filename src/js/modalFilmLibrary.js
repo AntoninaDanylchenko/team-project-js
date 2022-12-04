@@ -1,90 +1,87 @@
 import { refs } from './references/references';
 import templateModalCard from '../templates/templateModalCard.hbs';
 import { drawMyWatched } from './libraryMain';
-import {drawMyQueue} from './libraryMain';
+import { drawMyQueue } from './libraryMain';
 
 refs.galleryLibraryEl.addEventListener('click', onModalOpenFilmLibrary);
 refs.btnAddToWatch.addEventListener('click', libraryButtons);
 refs.btnAddToaddToQueue.addEventListener('click', libraryButtons);
 
- function onModalOpenFilmLibrary(e) {
-    e.preventDefault();
+function onModalOpenFilmLibrary(e) {
+  e.preventDefault();
 
-    refs.filmCardEl.innerHTML = '';
-    //   refs.modalLoader.classList.add('loader-lines');
-    document.body.classList.add('body-is-hidden');
+  if (e.target.nodeName === 'DIV') {
+    return;
+  }
 
-    refs.modalFilmBtnClose.addEventListener('click', closeModal);
-    document.addEventListener('keydown', onEscBtnPress);
-    refs.modalBackdrop.addEventListener('click', onBackdropClick);
+  refs.filmCardEl.innerHTML = '';
+  document.body.classList.add('body-is-hidden');
 
-    const idClickFilm = e.target.id;
+  refs.modalFilmBtnClose.addEventListener('click', closeModal);
+  document.addEventListener('keydown', onEscBtnPress);
+  refs.modalBackdrop.addEventListener('click', onBackdropClick);
 
-    getInfoFromLocalStorage(idClickFilm);
+  const idClickFilm = e.target.id;
 
-   return idClickFilm;
+  getInfoFromLocalStorage(idClickFilm);
 
-  };
+  return idClickFilm;
+}
 
+function libraryButtons(event) {
+  let key = '';
+  if (event.target.classList.value === 'film-card-addToWatched') {
+    key = 'Add-to-watched';
+    console.log(key, 22);
+    // console.dir(event.target.textContent)
+    console.log(idFilm);
+  }
+  if (event.target.classList.value === 'film-card-addToQueue') {
+    key = 'Add-to-queue';
+    console.log(key, 23, event.target);
+    console.log(idFilm);
+  }
 
-  function libraryButtons(event) {
-
-    let key = '';
+  if (event.target.textContent === 'Remove Film') {
     if (event.target.classList.value === 'film-card-addToWatched') {
-      key = 'Add-to-watched';
-      console.log(key, 22);
-      // console.dir(event.target.textContent)
-      console.log(idFilm);
-    }
-    if (event.target.classList.value === 'film-card-addToQueue') {
-      key = 'Add-to-queue';
-      console.log(key, 23, event.target);
-      console.log(idFilm);
-    }
-
-    if (event.target.textContent === 'Remove Film') {
-
-        if (event.target.classList.value === 'film-card-addToWatched') {
-          console.log('www');
-        const index = filmInLocalAdd.findIndex(item => item.id === idFilm);
-        filmInLocalAdd.splice(index, 1);
-        console.log(filmInLocalAdd);
-        localStorage.setItem('Add-to-watched', JSON.stringify(filmInLocalAdd));
-          drawMyWatched();
-          event.target.textContent = 'Add to Watched';
-      }
-      if (event.target.classList.value === 'film-card-addToQueue') {
-        console.log('qqq');
-        const index = filmInLocalQu.findIndex(item => item.id === idFilm);
-        filmInLocalQu.splice(index, 1);
-        console.log(filmInLocalQu);
-        localStorage.setItem('Add-to-queue', JSON.stringify(filmInLocalQu));
-        drawMyQueue();
-        event.target.textContent = 'Add to Queue';
-      }
-    }
-
-    if (event.target.textContent === 'Add to queue') {
-      console.log('to queue');
-
-      const film = filmInLocalAdd.find(film => film.id === idFilm);
-      filmInLocalQu = [...filmInLocalQu, film];
-      console.log(filmInLocalQu);
-      localStorage.setItem('Add-to-queue', JSON.stringify(filmInLocalQu));
-      event.target.textContent = 'Remove Film';
-    }
-    if (event.target.textContent === 'Add to watched') {
-      console.log('to watched');
-      console.log(filmInLocalAdd);
-      const film = filmInLocalQu.find(film => film.id === idFilm);
-      filmInLocalAdd = [...filmInLocalAdd, film];
+      console.log('www');
+      const index = filmInLocalAdd.findIndex(item => item.id === idFilm);
+      filmInLocalAdd.splice(index, 1);
       console.log(filmInLocalAdd);
       localStorage.setItem('Add-to-watched', JSON.stringify(filmInLocalAdd));
-      event.target.textContent = 'Remove Film';
+      drawMyWatched();
+      event.target.textContent = 'Add to Watched';
     }
+    if (event.target.classList.value === 'film-card-addToQueue') {
+      console.log('qqq');
+      const index = filmInLocalQu.findIndex(item => item.id === idFilm);
+      filmInLocalQu.splice(index, 1);
+      console.log(filmInLocalQu);
+      localStorage.setItem('Add-to-queue', JSON.stringify(filmInLocalQu));
+      drawMyQueue();
+      event.target.textContent = 'Add to Queue';
+    }
+  }
 
-  };
+  if (event.target.textContent === 'Add to queue') {
+    console.log('to queue');
 
+    const film = filmInLocalAdd.find(film => film.id === idFilm);
+    filmInLocalQu = [...filmInLocalQu, film];
+    console.log(filmInLocalQu);
+    localStorage.setItem('Add-to-queue', JSON.stringify(filmInLocalQu));
+    event.target.textContent = 'Remove Film';
+  }
+  if (event.target.textContent === 'Add to watched') {
+    console.log('to watched');
+    console.log(filmInLocalAdd);
+    const film = filmInLocalQu.find(film => film.id === idFilm);
+    filmInLocalAdd = [...filmInLocalAdd, film];
+    console.log(filmInLocalAdd);
+    localStorage.setItem('Add-to-watched', JSON.stringify(filmInLocalAdd));
+    event.target.textContent = 'Remove Film';
+  }
+}
 
 function closeModal() {
   refs.modalBackdrop.classList.remove('active');
@@ -112,7 +109,7 @@ let idFilm = '';
 let filmInLocalAdd = '';
 let filmInLocalQu = '';
 
-  function getInfoFromLocalStorage(idfilm) {
+function getInfoFromLocalStorage(idfilm) {
   filmInLocalAdd = JSON.parse(localStorage.getItem('Add-to-watched'));
   filmInLocalQu = JSON.parse(localStorage.getItem('Add-to-queue'));
   idfilm = Number(idfilm);
@@ -140,11 +137,10 @@ let filmInLocalQu = '';
 
   // console.log(item.id);
   filmInLocalAdd.find(i => {
-      if (i.id === idfilm) {
-        return createFilmCardsLibrary(i);
-      }
-    },
-  );
+    if (i.id === idfilm) {
+      return createFilmCardsLibrary(i);
+    }
+  });
   filmInLocalQu.find(i => {
     if (i.id === idfilm) {
       return createFilmCardsLibrary(i);
@@ -177,9 +173,8 @@ function createFilmCardsLibrary(i) {
     overview: i.overview,
   };
   console.log(cardOb);
-  return refs.filmCardEl.innerHTML = templateModalCard(cardOb);
+  return (refs.filmCardEl.innerHTML = templateModalCard(cardOb));
 }
-
 
 // функція що додає фільм в локалсторедж по ключу(текст який вказаний на кнопці), в задежносты на яку кнопку тиснеш
 //  function removeBtnLibrary(e) {
@@ -192,7 +187,6 @@ function createFilmCardsLibrary(i) {
 //     if (e.target.classList.value === 'film-card-addToQueue') {
 //       key = 'Add-to-queue';
 //       console.log(key, 23);
-
 
 //     key = key.trim().split(' ').join('-');
 
