@@ -81,7 +81,7 @@ export const findMovies = {
   },
 };
 
-async function genresIDsDatabase() {
+async function genresIDsDatabase() {// todo:
   try {
     const response = await axios.get(
       `https://api.themoviedb.org/3/genre/movie/list?api_key=fe13ab826a741d40ca015441d0a0f529&language=en-US`
@@ -132,7 +132,7 @@ function repackBackendData(arr) {//INPUT MOVIES ARRAY FROM BACKEND
         yearsReleaseArr.push(year);
       // }
       }  else {
-      yearsReleaseArr.push('');
+      yearsReleaseArr.push('NO DATE');
     }
     element.release_date = yearsReleaseArr;
 
@@ -143,7 +143,11 @@ function repackBackendData(arr) {//INPUT MOVIES ARRAY FROM BACKEND
     }  else {
       yearsFirstArr.push('');
     }
-    element.first_air_date = yearsFirstArr;//RESTRICT RELEASE DATE TO YEAR END
+    element.first_air_date = yearsFirstArr;
+
+    if (yearsReleaseArr[0] === 'NO DATE' && yearsFirstArr[0].length === 4) {
+      element.release_date = [''];
+    }//RESTRICT RELEASE DATE TO YEAR END
 
     let voteAverage = [];// VOTE AVERAGE FIXED START
     if (element.vote_average) {
@@ -158,7 +162,7 @@ function repackBackendData(arr) {//INPUT MOVIES ARRAY FROM BACKEND
 
     if (!element.poster_path) {//IMG LINK CHECK AND REPLACE START
 
-      element.poster_path = 'https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/we-win.webp';//:todo !!!!
+      element.poster_path = 'https://raw.githubusercontent.com/AntoninaDanylchenko/team-project-js/main/src/images/we-win.webp';
     } else {
       element.poster_path = `https://image.tmdb.org/t/p/w500${element.poster_path}`;
     }//IMG LINK CHECK AND REPLACE END

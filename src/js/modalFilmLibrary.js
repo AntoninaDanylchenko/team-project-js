@@ -24,11 +24,9 @@ function onModalOpenFilmLibrary(e) {
   if (e.target.nodeName === 'DIV') {
     return;
   }
+  refs.filmCardEl.innerHTML = '';
+  document.body.classList.add('body-is-hidden');
 
-  const dayThemeFromLocal = localStorage.getItem('theme');
-  if (dayThemeFromLocal === 'night_moon') {
-    refs.modalFilm.style.background = 'rgba(144, 96, 54,0.9)';
-  }
   refs.filmCardEl.innerHTML = '';
   document.body.classList.add('body-is-hidden');
 
@@ -63,6 +61,7 @@ function libraryButtons(event) {
       );
       event.target.textContent = 'Add to watched';
       if (refs.btnWatched.classList.contains('active-lbr')) {
+
         return drawMyWatched();
       }
 
@@ -91,6 +90,27 @@ function libraryButtons(event) {
       }
       return;
     }
+    if (event.target.classList.value === 'film-card-addToQueue') {
+      const filmsInQueuedStorage = JSON.parse(
+        localStorage.getItem('Add-to-queue')
+      );
+      const index = filmsInQueuedStorage.findIndex(item => item.id === idFilm);
+      const removedFilm = filmsInQueuedStorage.splice(index, 1);
+
+      localStorage.setItem(
+        'Add-to-queue',
+        JSON.stringify(filmsInQueuedStorage)
+      );
+      event.target.textContent = 'Add to queue';
+      if (refs.btnWatched.classList.contains('active-lbr')) {
+        return drawMyWatched();
+      }
+
+      if (refs.btnQueue.classList.contains('active-lbr')) {
+        return drawMyQueue();
+      }
+      return;
+    }
   }
 
   if (event.target.textContent.trim() === 'Add to queue') {
@@ -98,6 +118,7 @@ function libraryButtons(event) {
     const filmsInQueueStorage = JSON.parse(
       localStorage.getItem('Add-to-queue')
     );
+
     const filmsToSave = [...filmsInQueueStorage, film];
     localStorage.setItem('Add-to-queue', JSON.stringify(filmsToSave));
     event.target.textContent = 'Remove Film';

@@ -45,6 +45,7 @@ body.body-is-hidden {
   font-style: normal;
   font-weight: 500;
   line-height: 1.33;
+  box-shadow: 0px 3px 18px 0px rgba(255, 107, 8, 0.9);
 
   @media screen and (min-width: 768px) {
     width: 704px;
@@ -289,4 +290,5 @@ body.body-is-hidden {
 .qr-code {
   margin-left: auto;
   margin-right: auto;
+  margin-top: 25px;
 }

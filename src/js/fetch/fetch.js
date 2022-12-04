@@ -1,9 +1,11 @@
-// const ref = {
-//   // querySearch: document.querySelector('.js-query-search'),
-//   // morePopular: document.querySelector('.js-load-popular'),
-//   // movieDetails: document.querySelector('.js-movie-id'),
-//   // trailerDetails: document.querySelector('.js-trailer-id'),
-// };
+
+const ref = {//todo: ВИДАЛИТИ??
+  // querySearch: document.querySelector('.js-query-search'),
+  // morePopular: document.querySelector('.js-load-popular'),
+  // movieDetails: document.querySelector('.js-movie-id'),
+  // trailerDetails: document.querySelector('.js-trailer-id'),
+};
+
 
 // const on = {
 //   // stringSearchButtonClick: ref.querySearch.addEventListener(

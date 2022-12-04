@@ -9,12 +9,6 @@ function onOpenModal() {
   window.addEventListener('keydown', onEscKeyPress);
   document.body.classList.add('show-modal');
   document.body.classList.toggle('no-scroll');
-  const dayThemeFromLocal = localStorage.getItem('theme');
-  if (dayThemeFromLocal === 'night_moon') {
-    refs.modalfilmBgEl.style.background = 'rgba(144, 96, 54,0.9)';
-  } else {
-    refs.modalfilmBgEl.style.background = 'rgb(255,255,255)';
-  }
 }
 
 function onCloseModal() {
