@@ -5,6 +5,8 @@ refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
 
 function onOpenModal() {
+
+    e.preventDefault();
   window.addEventListener('keydown', onEscKeyPress);
   document.body.classList.add('show-modal');
   document.body.classList.toggle('no-scroll');
