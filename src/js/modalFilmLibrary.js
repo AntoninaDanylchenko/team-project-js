@@ -1,7 +1,7 @@
 import { refs } from './references/references';
 import templateModalCard from '../templates/templateModalCard.hbs';
 import { drawMyWatched } from './libraryMain';
-import {drawMyQueue} from './libraryMain';
+import { drawMyQueue } from './libraryMain';
 
 refs.galleryLibraryEl.addEventListener('click', onModalOpenFilmLibrary);
 refs.btnAddToWatch.addEventListener('click', libraryButtons);
@@ -22,7 +22,10 @@ const beforeRemove = {
 
  function onModalOpenFilmLibrary(e) {
     e.preventDefault();
-
+    
+    if (e.target.nodeName === 'DIV') {
+    return;
+  }
     refs.filmCardEl.innerHTML = '';
     document.body.classList.add('body-is-hidden');
 
@@ -34,19 +37,38 @@ const beforeRemove = {
     getInfoFromLocalStorage(idClickFilm);
     return idClickFilm;
 
-  };
 
+  getInfoFromLocalStorage(idClickFilm);
 
-  function libraryButtons(event) {
+  return idClickFilm;
+}
 
-    let key = '';
+function libraryButtons(event) {
+  let key = '';
+  if (event.target.classList.value === 'film-card-addToWatched') {
+    key = 'Add-to-watched';
+    console.log(key, 22);
+    // console.dir(event.target.textContent)
+    console.log(idFilm);
+  }
+  if (event.target.classList.value === 'film-card-addToQueue') {
+    key = 'Add-to-queue';
+    console.log(key, 23, event.target);
+    console.log(idFilm);
+  }
+
+  if (event.target.textContent === 'Remove Film') {
     if (event.target.classList.value === 'film-card-addToWatched') {
-      key = 'Add-to-watched';
-      console.log(key, 22);
-      // console.dir(event.target.textContent)
-      console.log(idFilm);
+      console.log('www');
+      const index = filmInLocalAdd.findIndex(item => item.id === idFilm);
+      filmInLocalAdd.splice(index, 1);
+      console.log(filmInLocalAdd);
+      localStorage.setItem('Add-to-watched', JSON.stringify(filmInLocalAdd));
+      drawMyWatched();
+      event.target.textContent = 'Add to Watched';
     }
     if (event.target.classList.value === 'film-card-addToQueue') {
+
       key = 'Add-to-queue';
       console.log(key, 23, event.target);
       console.log(key, 23, event.target.textContent.trim());
@@ -130,10 +152,29 @@ const beforeRemove = {
         return drawMyQueue();
       }
       return;
+
     }
+  }
 
-  };
+  if (event.target.textContent === 'Add to queue') {
+    console.log('to queue');
 
+    const film = filmInLocalAdd.find(film => film.id === idFilm);
+    filmInLocalQu = [...filmInLocalQu, film];
+    console.log(filmInLocalQu);
+    localStorage.setItem('Add-to-queue', JSON.stringify(filmInLocalQu));
+    event.target.textContent = 'Remove Film';
+  }
+  if (event.target.textContent === 'Add to watched') {
+    console.log('to watched');
+    console.log(filmInLocalAdd);
+    const film = filmInLocalQu.find(film => film.id === idFilm);
+    filmInLocalAdd = [...filmInLocalAdd, film];
+    console.log(filmInLocalAdd);
+    localStorage.setItem('Add-to-watched', JSON.stringify(filmInLocalAdd));
+    event.target.textContent = 'Remove Film';
+  }
+}
 
 function closeModal() {
   refs.modalBackdrop.classList.remove('active');
@@ -157,9 +198,11 @@ export function onBackdropClick(e) {
   }
 }
 
+
   function getInfoFromLocalStorage(idfilm) {
   filmInLocalWatched = JSON.parse(localStorage.getItem('Add-to-watched'));
   filmInLocalQueue = JSON.parse(localStorage.getItem('Add-to-queue'));
+
   idfilm = Number(idfilm);
   idFilm = idfilm;
 
@@ -182,6 +225,7 @@ export function onBackdropClick(e) {
   refs.modalBackdrop.classList.add('active');
   refs.modalFilm.classList.add('active');
 
+
   if (filmInLocalWatched) {
     filmInLocalWatched.find(i => {
         if (i.id === idfilm) {
@@ -201,6 +245,7 @@ export function onBackdropClick(e) {
       }
     });
   }
+
   // createFilmCardsLibrary(idLibraryObj);
 }
 
@@ -224,6 +269,8 @@ function createFilmCardsLibrary(i) {
     overview: i.overview,
   };
   console.log(cardOb);
-  return refs.filmCardEl.innerHTML = templateModalCard(cardOb);
+  return (refs.filmCardEl.innerHTML = templateModalCard(cardOb));
 }
+
+
 

@@ -70,7 +70,6 @@ async function getInfoByID() {
     //  можна переписати окремою функцією
     if (filmInLocalAdd) {
       filmInLocalAdd.find(item => {
-        console.log(item.id);
         return item.id === answer.id;
       })
         ? (refs.btnAddToWatch.textContent = 'Remove Film')
@@ -78,7 +77,6 @@ async function getInfoByID() {
     }
     if (filmInLocalQu) {
       filmInLocalQu.find(item => {
-        console.log(item.id);
         return item.id === answer.id;
       })
         ? (refs.btnAddToaddToQueue.textContent = 'Remove Film')
@@ -158,28 +156,22 @@ export async function locSetOne(e) {
     let key = '';
     if (e.target.classList.value === 'film-card-addToWatched') {
       key = 'Add-to-watched';
-      console.log(key, 22);
     }
     if (e.target.classList.value === 'film-card-addToQueue') {
       key = 'Add-to-queue';
-      console.log(key, 23);
     }
 
     key = key.trim().split(' ').join('-');
 
     let filmToAdd = await findMovies.find();
-    console.log(filmToAdd);
-    console.log(e.target.classList.value);
 
     if (
       refs.btnAddToWatch.textContent === 'Remove Film' &&
       e.target.classList.value === 'film-card-addToWatched'
     ) {
       const filmInLocal = JSON.parse(localStorage.getItem('Add-to-watched'));
-      console.log(filmInLocal);
       const index = filmInLocal.findIndex(item => item.id === filmToAdd.id);
       filmInLocal.splice(index);
-      console.log(filmInLocal);
       // localStorage.removeItem('Add-to-watched');
       localStorage.setItem('Add-to-watched', JSON.stringify(filmInLocal));
       refs.btnAddToWatch.textContent = 'Add to watched';
@@ -191,10 +183,8 @@ export async function locSetOne(e) {
       e.target.classList.value === 'film-card-addToQueue'
     ) {
       const filmInLocal = JSON.parse(localStorage.getItem('Add-to-queue'));
-      console.log(filmInLocal, 14);
       const index = filmInLocal.findIndex(item => item.id === filmToAdd.id);
       filmInLocal.splice(index, 1);
-      console.log(filmInLocal, 15);
 
       localStorage.removeItem('Add-to-queue');
       localStorage.setItem('Add-to-queue', JSON.stringify(filmInLocal));
