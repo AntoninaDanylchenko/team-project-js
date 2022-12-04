@@ -9,6 +9,8 @@ export function themeCheck() {
     refs.dayIcon.classList.add('day_color');
     refs.bgImg.classList.add('bg-img-night');
     refs.galleryEl.classList.add('night-thema');
+    refs.modalFilm.classList.add('modal-thems-night');
+    refs.modalfilmBgEl.classList.add('modal-thems-night');
   } else {
     refs.nightIcon.classList.add('night_color');
     refs.dayIcon.classList.remove('day_color');
@@ -21,6 +23,8 @@ refs.nightBtn.addEventListener('click', () => {
   localStorage.setItem('theme', 'night_moon');
   refs.galleryEl.classList.add('night-thema');
   refs.bgImg.classList.add('bg-img-night');
+  refs.modalFilm.classList.add('modal-thems-night');
+  refs.modalfilmBgEl.classList.add('modal-thems-night');
 });
 
 refs.dayBtn.addEventListener('click', () => {
@@ -29,4 +33,6 @@ refs.dayBtn.addEventListener('click', () => {
   localStorage.setItem('theme', 'day_sun');
   refs.bgImg.classList.remove('bg-img-night');
   refs.galleryEl.classList.remove('night-thema');
+  refs.modalFilm.classList.remove('modal-thems-night');
+  refs.modalfilmBgEl.classList.remove('modal-thems-night');
 });
