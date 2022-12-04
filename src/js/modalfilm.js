@@ -115,16 +115,8 @@ async function getInfoByID() {
   }
 }
 function noFilmCard(card) {
-  // const genreArr = card.genres.map(genre => genre.name);
-  // const genreStr = genreArr.join(', ');
-  // const genreVoit = card.vote_average.toFixed(1);
-  // const genrePopularity = Math.round(card.popularity);
-
   refs.loader.classList.remove('loader-points');
   refs.loader.classList.remove('loader-lines');
-  // const cardS = {
-  //   poster_path,
-  // };
   console.log(card);
   return (refs.filmCardEl.innerHTML = templateNoInfoCard(card));
 }
@@ -141,7 +133,6 @@ function createFilmCards(card) {
     poster_path: card.poster_path,
     title: card.title,
     id: card.id,
-    title: card.title,
     name: card.name,
     genreVoit,
     vote_count: card.vote_count,

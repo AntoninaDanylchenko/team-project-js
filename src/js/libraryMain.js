@@ -1,7 +1,6 @@
 import { refs } from './references/references.js';
 import templateLibraryCard from '../templates/templateLibraryCard.hbs';
 
-
 refs.btnQueue.addEventListener('click', drawMyQueue);
 export function drawMyQueue() {
   refs.galleryLibraryEl.innerHTML = '';
@@ -31,7 +30,6 @@ function templateInfoLibrary(item) {
       poster_path: i.poster_path,
       title: i.title,
       id: i.id,
-      title: i.title,
       name: i.name,
       genreVoit,
       original_title: i.original_title,
@@ -60,4 +58,3 @@ export function drawMyWatched() {
 }
 
 drawMyWatched();
-
