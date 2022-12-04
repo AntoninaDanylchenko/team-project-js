@@ -61,6 +61,7 @@ function libraryButtons(event) {
       );
       event.target.textContent = 'Add to watched';
       if (refs.btnWatched.classList.contains('active-lbr')) {
+
         return drawMyWatched();
       }
 
@@ -95,7 +96,7 @@ function libraryButtons(event) {
       );
       const index = filmsInQueuedStorage.findIndex(item => item.id === idFilm);
       const removedFilm = filmsInQueuedStorage.splice(index, 1);
-      // console.log(filmsToSave);
+
       localStorage.setItem(
         'Add-to-queue',
         JSON.stringify(filmsInQueuedStorage)
@@ -212,8 +213,6 @@ function getInfoFromLocalStorage(idfilm) {
     });
   }
 }
-
-``;
 
 function createFilmCardsLibrary(i) {
   const genreArr = i.genres.map(genre => genre.name);
