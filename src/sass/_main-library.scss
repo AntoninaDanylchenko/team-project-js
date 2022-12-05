@@ -5,6 +5,7 @@
   width: 100%;
   text-align: center;
 
+
   @media screen and(min-width:768px) {
     gap: 32px;
     grid-template-columns: repeat(2, calc((100% - 32px) / 2));
@@ -28,6 +29,7 @@
   line-height: 1.33;
   padding-top: 30px;
 
+
 }
 
 .no-card p {
@@ -38,6 +40,7 @@
 .library-wraper {
   transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
   height: 465px;
+  background-color: rgba(255, 255, 255, 0.4);
 
 
   @media screen and (min-width: 768px) {
