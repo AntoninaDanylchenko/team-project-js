@@ -9,7 +9,7 @@
   border-radius: 50%;
   width: 300px;
   height: 300px;
-  color: #fff;
+  color: #5aacdc;
   position: fixed;
 
   top: calc((100vh - 300px) / 2);
@@ -31,7 +31,7 @@
   animation: 1s spin linear infinite;
 }
 .loader-lines:after {
-  color: #FF3D00;
+  color: #65324c;
   transform: rotateY(70deg);
   animation-delay: .4s;
 }
