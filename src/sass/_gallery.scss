@@ -26,12 +26,13 @@
 }
 
 
-  
-  .card{
+
+.card {
 
   color: var(--footer-img-cl);
   transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
   height: 460px;
+  background-color: rgba(255, 255, 255, 0.4);
 
   @media screen and (min-width: 768px) {
     height: 500px;
@@ -93,7 +94,7 @@
 
 .info-title {
   text-transform: uppercase;
-  color: var(--header-text-card);
+  color: rgb(0, 0, 0);
   margin: 0;
 }
 
