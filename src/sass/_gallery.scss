@@ -19,16 +19,12 @@
     column-gap: 32px;
   }
 
-
   @media screen and (min-width: 1200px) {
     column-gap: 16px;
   }
 }
 
-
-
 .card {
-
   color: var(--footer-img-cl);
   transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
   height: 460px;
@@ -39,11 +35,9 @@
   }
 
   @media screen and (min-width: 1200px) {
-    height: 660px;
+    height: 684px;
   }
-
 }
-
 
 .card:hover,
 .card:focus {
@@ -85,11 +79,7 @@
     margin-top: 12px;
     font-size: 20px;
     line-height: 1.2;
-
   }
-
-
-
 }
 
 .info-title {
